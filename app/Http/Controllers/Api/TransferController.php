@@ -16,7 +16,7 @@ class TransferController extends Controller
      */
     public function index()
     {
-        $data = Auth::user()->transfer;
+        $data = Auth::user()->getTransfers();
         return response()->json($data, 200);
     }
 

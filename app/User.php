@@ -44,4 +44,15 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Money');
     }
+
+    /**
+     * Access all the transfers for the user
+     *
+     *
+     * @return  \App\Transfer
+     */
+    public function getTransfers()
+    {
+        return \App\Transfer::where('recipient_id', $this->id)->where('sender_id', $this->id);
+    }
 }
