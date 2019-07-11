@@ -6,18 +6,15 @@
 }
 
 .nav-bar {
-  //height: $navBarHeight;
-  //padding: 10px;
   background-color: $white;
   border-bottom: 1px solid #c4cdd17d;
   box-shadow: 0 1px 10px -5px $darkGray;
-  img {
-    padding: 10px 4px 0 8px;
-    height: $navBarHeight;
-  }
+  display: flex;
+  justify-content: space-around;
 
   .avatar {
-    padding: 4px 4px 4px 8px;
+    height: $navBarHeight;
+    //padding: 4px 4px 4px 8px;
     border-radius: 50%;
     cursor: pointer;
   }
@@ -41,12 +38,14 @@
   flex-wrap: wrap;
 }
 
-.container{
+.container {
   background-color: $pubGray;
-  .left-section{
+
+  .left-section {
     height: inherit;
     width: 20.5%;
-    .quick-card{
+
+    .quick-card {
       border-bottom: 1px solid #c4cdd17d;
       box-shadow: 0 1px 10px -5px $darkGray;
       border-radius: 4px;
@@ -57,7 +56,7 @@
     }
   }
 
-  .main{
+  .main {
     height: inherit;
     width: 60%;
     padding: 0 12px;
@@ -66,7 +65,7 @@
 
 }
 
-.link{
+.link {
   color: $dogCoin;
   font-weight: 500;
 }

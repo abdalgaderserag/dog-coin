@@ -13,15 +13,15 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    {{--<link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
+    {{--<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">--}}
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
-    <div class="nav-bar" style="display: flex;justify-content: space-around">
+    <div class="nav-bar">
         <div class="nav-bar-group flex-box" style="flex-wrap: nowrap">
             {{--<img src="images/dog.svg" alt="">--}}
             <div class="nav-bar-item">
@@ -31,7 +31,7 @@
                 <span>Transfer ⌵</span>
             </div>
         </div>
-        <div class="nav-bar-group flex-box">
+        <div class="nav-bar-group flex-box" style="padding: 4px 4px 4px 8px;">
             <img class="avatar" src="images/profile/default.jpeg" alt="">
         </div>
     </div>
