@@ -1,8 +1,9 @@
 //Color
-$dogCoin: #356dff;
+$dogCoin: #1da1f2;
 $white: #fff;
-$gray: #ededed;
-
+$gray: #e6ecf0;
+$bluedGray: #eaf3f8;
+$darkGray: #5d757f;
 
 //width
 $full: 100%;
@@ -11,3 +12,22 @@ $mainContent: 50%;
 $navBarHeight: 60px;
 
 //fonts
+$fontColor: $darkGray;
+$fontWeight: 300;
+$fontSize: 2.2vh;
+//$fontFamily1: 'Corbel';
+$fontFamily1: "Malgun Gothic";
+$fontFamily2: Arial;
+$fontFamily3: "sans-serif";
+$fontFamilyHeader: "Yu Gothic";
+
+//Overload
+body {
+  color: $fontColor;
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  font-family: $fontFamily1, $fontFamily2, $fontFamily3;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
