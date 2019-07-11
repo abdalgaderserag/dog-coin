@@ -40,3 +40,33 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+.container{
+  background-color: $pubGray;
+  .left-section{
+    height: inherit;
+    width: 20.5%;
+    .quick-card{
+      border-bottom: 1px solid #c4cdd17d;
+      box-shadow: 0 1px 10px -5px $darkGray;
+      border-radius: 4px;
+      width: 90%;
+      margin-left: 5%;
+      height: 600px;
+      background-color: $white;
+    }
+  }
+
+  .main{
+    height: inherit;
+    width: 60%;
+    padding: 0 12px;
+    //background-color: $white;
+  }
+
+}
+
+.link{
+  color: $dogCoin;
+  font-weight: 500;
+}

@@ -37,5 +37,6 @@
     </div>
     @yield('content')
 </div>
+<script src="{{ asset('js/response.js') }}"></script>
 </body>
 </html>
