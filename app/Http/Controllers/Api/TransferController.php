@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Transfer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TransferController extends Controller
 {
@@ -14,51 +16,59 @@ class TransferController extends Controller
      */
     public function index()
     {
-        //
+        $data = Auth::user()->transfer;
+        return response()->json($data, 200);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        $transfer = new Transfer($request->all());
+        $transfer->save();
+        return response()->json($transfer, 200);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Transfer $transfer
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Transfer $transfer)
     {
-        //
+        $data = $transfer->with('sender', 'recipient');
+        return response()->json($data, 200);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  Transfer $transfer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Transfer $transfer)
     {
-        //
+        $transfer->mount = $request->mount;
+        $transfer->save();
+        return response()->json($transfer, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @throws
+     * @param  Transfer $transfer
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Transfer $transfer)
     {
-        //
+        $transfer->delete();
+        return response()->json($transfer, 200);
     }
 }
