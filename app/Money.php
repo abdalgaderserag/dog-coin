@@ -33,7 +33,7 @@ class Money extends Model
 
     public function getMoneyAttribute($key)
     {
-        if ((int)$key < 99999) {
+        if ((int)$key < 9999) {
             $dec = (float)$key - (int)$key;
             if ($dec === 0)
                 return $key . '.00';

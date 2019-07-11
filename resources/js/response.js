@@ -4,7 +4,9 @@ height = window.innerHeight - height;
 // let height = window.innerHeight;
 document.getElementsByClassName('container')[0].style.height = height + 'px';
 
+document.getElementsByClassName('container')[0].style.height = "";
 
 let image = document.getElementsByClassName('transfer-image')[0].children[1];
 height = image.offsetLeft - 20;
 image.style.left = height + 'px';
+

@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('styles')
 </head>
 <body>
 <div id="app">
@@ -25,10 +26,10 @@
         <div class="nav-bar-group flex-box" style="flex-wrap: nowrap">
             {{--<img src="images/dog.svg" alt="">--}}
             <div class="nav-bar-item">
-                <span>Dashboard</span>
+                <span>{{ __('dog.dashboard') }}</span>
             </div>
             <div class="nav-bar-item">
-                <span>Transfer ⌵</span>
+                <span>{{ __('dog.transfer') }} ⌵</span>
             </div>
             <div class="nav-bar-item">
                 {{--<span>$500</span>--}}
@@ -41,6 +42,11 @@
     </div>
     @yield('content')
 </div>
+<script>
+    let app = new Vue({
+        el: '#app',
+    });
+</script>
 <script src="{{ asset('js/response.js') }}"></script>
 </body>
 </html>
