@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Money;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class MoneyController extends Controller
 {
@@ -14,7 +16,8 @@ class MoneyController extends Controller
      */
     public function index()
     {
-        //
+        $data = Auth::user()->money;
+        return response()->json($data,200);
     }
 
     /**
@@ -23,10 +26,10 @@ class MoneyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+//    public function store(Request $request)
+//    {
+//        //
+//    }
 
     /**
      * Display the specified resource.
@@ -36,7 +39,7 @@ class MoneyController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

@@ -15,6 +15,9 @@ class CreateMoneyTable extends Migration
     {
         Schema::create('money', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id', false, true);
+            $table->bigInteger('money', false, true);
+            $table->integer('ID',false,true);
             $table->timestamps();
         });
     }
