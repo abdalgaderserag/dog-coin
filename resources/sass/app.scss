@@ -1,14 +1,42 @@
 // Variables
 @import 'variables';
 
-#app{
+#app {
   width: $full;
 }
 
-.nav-bar{
+.nav-bar {
+  //height: $navBarHeight;
+  //padding: 10px;
+  background-color: $white;
+  border-bottom: 1px solid #c4cdd17d;
+  box-shadow: 0 1px 10px -5px $darkGray;
+  img {
+    padding: 10px 4px 0 8px;
+    height: $navBarHeight;
+  }
 
+  .avatar {
+    padding: 4px 4px 4px 8px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .nav-bar-item {
+    height: inherit;
+    padding: 18px 8px 0 8px;
+    font-size: 2.4vh;
+    font-weight: 100;
+  }
+
+  .nav-bar-item:hover {
+    cursor: pointer;
+    border-bottom: 2px solid;
+  }
 }
 
-.flex-box{
+.flex-box {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

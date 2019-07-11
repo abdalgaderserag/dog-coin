@@ -21,14 +21,19 @@
 </head>
 <body>
 <div id="app">
-    <div class="nav-bar">
-        <img src="" alt="">
-        <span>Dashboard</span>
-        <span>Transfer</span>
-        <span>Recharge</span>
-        <span>Profile</span>
-        <div>Logout</div>
-        <input type="submit" value="">
+    <div class="nav-bar" style="display: flex;justify-content: space-around">
+        <div class="nav-bar-group flex-box" style="flex-wrap: nowrap">
+            {{--<img src="images/dog.svg" alt="">--}}
+            <div class="nav-bar-item">
+                <span>Dashboard</span>
+            </div>
+            <div class="nav-bar-item">
+                <span>Transfer ⌵</span>
+            </div>
+        </div>
+        <div class="nav-bar-group flex-box">
+            <img class="avatar" src="images/profile/default.jpeg" alt="">
+        </div>
     </div>
     @yield('content')
 </div>
