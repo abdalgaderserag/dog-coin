@@ -17,7 +17,7 @@ class CreateMoneyTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id', false, true);
             $table->bigInteger('money', false, true);
-            $table->integer('ID',false,true);
+            $table->string('creditCardNumber',16);
             $table->timestamps();
         });
     }

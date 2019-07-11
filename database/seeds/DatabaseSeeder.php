@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         factory(App\User::class, 5)->create()->each(function ($u) {
             $money = factory(App\Money::class)->make();
             $money->user_id = $u->id;
+            $money->save();
         });
     }
 }
