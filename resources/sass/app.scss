@@ -5,9 +5,16 @@
   width: $full;
 }
 
+.card {
+  width: $full;
+  background-color: $white;
+  border-radius: 4px;
+  box-shadow: 0 1px 10px -5px $darkGray;
+}
+
 .nav-bar {
   background-color: $white;
-  border-bottom: 1px solid #c4cdd17d;
+  border-bottom: 1px solid $borderColor;
   box-shadow: 0 1px 10px -5px $darkGray;
   display: flex;
   justify-content: space-around;
@@ -26,11 +33,11 @@
     font-weight: 100;
   }
 
-  .nav-bar-item:last-child span{
-    margin-left: 60%;
-  }
+  //.nav-bar-item:last-child span {
+  //  margin-left: 60%;
+  //}
 
-  .nav-bar-item:last-child:hover{
+  .nav-bar-item:last-child:hover {
     cursor: default;
     border-width: 0;
   }
@@ -55,14 +62,9 @@
     width: 20.5%;
 
     .quick-card {
-
-      border: 1px solid #c4cdd17d;
-      box-shadow: 0 1px 10px -5px $darkGray;
-      border-radius: 4px;
       width: 90%;
       margin-left: 5%;
       height: 600px;
-      background-color: $white;
     }
   }
 
@@ -71,11 +73,42 @@
     width: 60%;
     padding: 0 12px;
     //background-color: $white;
+    .money-view {
+      height: 260px;
+      margin: 0 0 12px 0;
+    }
   }
 
 }
 
+.line {
+  border-width: 0 0 1px 0;
+}
+
+
 .link {
   color: $dogCoin;
   font-weight: 500;
+}
+
+.header {
+  font-size: 2.4vh;
+  font-weight: 100;
+  padding-bottom: 2px;
+  border-bottom: 2px solid;
+  margin-bottom: 16px;
+}
+
+.input-button{
+  font-size: 2.5vh;
+  background-color: $white;
+  border: 1px solid $borderColor;
+  padding: 4px 20px;
+  color: $darkGray;
+  border-radius: 14px;
+}
+
+.info-item-head {
+  font-weight: 500;
+  font-size: 2.4vh;
 }

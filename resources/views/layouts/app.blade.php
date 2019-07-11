@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="nav-bar-group flex-box" style="padding: 4px 4px 4px 8px;">
-            <img class="avatar" src="images/profile/default.jpeg" alt="">
+            <img class="avatar" src="{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" alt="">
         </div>
     </div>
     @yield('content')
