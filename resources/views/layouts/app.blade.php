@@ -10,13 +10,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+
 
     <!-- Fonts -->
-    {{--<link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
-    {{--<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">--}}
+{{--<link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
+{{--<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">--}}
 
-    <!-- Styles -->
+<!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('styles')
 </head>
@@ -42,11 +42,23 @@
     </div>
     @yield('content')
 </div>
+
+<!-- Scripts -->
+<script src="{{ asset('js/response.js') }}"></script>
+
+
+<script src="{{ asset('js/app.js') }}"></script>
 <script>
     let app = new Vue({
         el: '#app',
+        data:{
+            accessToken: '{{ $access }}',
+        },
     });
+    window.axios.defaults.headers.common["Authorization"] = "Bearer " + app.accessToken;
+
 </script>
-<script src="{{ asset('js/response.js') }}"></script>
+<script src="{{ asset('js/vueComponent.js') }}"></script>
+
 </body>
 </html>

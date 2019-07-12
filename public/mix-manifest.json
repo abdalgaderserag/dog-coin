@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/dashboard.css": "/css/dashboard.css",
     "/css/app.css": "/css/app.css",
-    "/js/response.js": "/js/response.js"
+    "/js/response.js": "/js/response.js",
+    "/js/vueComponent.js": "/js/vueComponent.js"
 }

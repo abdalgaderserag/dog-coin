@@ -35,6 +35,6 @@ class HomeController extends Controller
      */
     public function home()
     {
-        return view('dashboard');
+        return view('dashboard')->with('access',Auth::user()->createToken('dashboard')->accessToken);
     }
 }

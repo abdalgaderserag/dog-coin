@@ -2,15 +2,13 @@
 
 namespace App;
 
-use Illuminate\Notifications\DatabaseNotification;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens;
+    use HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -54,14 +52,12 @@ class User extends Authenticatable
     public function getTransfers()
     {
         $id = $this->attributes['id'];
-        $sender = Transfer::where('sender_id', $id)->get();
-        $i = $sender->count();
-        Transfer::where('recipient_id', $id)->each(function ($send) use ($sender, $i) {
-            $sender[$i] = $send;
-            $i++;
-        });
+        $sender = Transfer::where('sender_id', $id)->with('sender','recipient')->get();
+//        $i = $sender->count();
+//        Transfer::where('recipient_id', $id)->each(function ($send) use ($sender, $i) {
+//            $sender[$i] = $send;
+//            $i++;
+//        });
         return $sender;
-//        return Transfer::all();
-//        return \App\Transfer::where('recipient_id', $this->id)->where('sender_id', $this->id);
     }
 }
