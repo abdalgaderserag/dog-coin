@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\UserTransferResource;
 use App\Transfer;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +18,10 @@ class TransferController extends Controller
      */
     public function index()
     {
-        $data = Auth::user()->getTransfers();
-        return response()->json($data, 200);
+//        TODO : remover the user and add Auth user.
+        $user = User::find(1);
+        $sender = $user->getTransfers();
+        return response()->json($sender, 200);
     }
 
     /**
@@ -36,12 +40,13 @@ class TransferController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  Transfer $transfer
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Transfer $transfer)
+    public function show(int $id)
     {
-        $data = $transfer->with('sender', 'recipient');
+        $transfer = Transfer::with('sender','recipient')->find($id);
+        $data = $transfer;
         return response()->json($data, 200);
     }
 

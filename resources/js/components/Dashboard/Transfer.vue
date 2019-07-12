@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <div class="transfer">
             <div class="transfer-item">
                 <div class="transfer-image">
@@ -14,6 +15,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 

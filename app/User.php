@@ -53,6 +53,15 @@ class User extends Authenticatable
      */
     public function getTransfers()
     {
-        return \App\Transfer::where('recipient_id', $this->id)->where('sender_id', $this->id);
+        $id = $this->attributes['id'];
+        $sender = Transfer::where('sender_id', $id)->get();
+        $i = $sender->count();
+        Transfer::where('recipient_id', $id)->each(function ($send) use ($sender, $i) {
+            $sender[$i] = $send;
+            $i++;
+        });
+        return $sender;
+//        return Transfer::all();
+//        return \App\Transfer::where('recipient_id', $this->id)->where('sender_id', $this->id);
     }
 }
