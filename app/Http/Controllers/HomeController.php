@@ -37,4 +37,14 @@ class HomeController extends Controller
     {
         return view('dashboard')->with('access',Auth::user()->createToken('dashboard')->accessToken);
     }
+
+    /**
+     * Show the User Profile.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function profile()
+    {
+        return view('profile')->with('access',Auth::user()->createToken('profile')->accessToken);
+    }
 }
