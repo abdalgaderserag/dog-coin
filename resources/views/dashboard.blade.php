@@ -19,7 +19,7 @@
         <div class="main">
             <br>
             <div class="header">{{ __('dog.stats') }} :</div>
-            <money-view></money-view>
+            <statical-view></statical-view>
             <div class="header">{{ __('dog.creditCard') }} :</div>
             <div class="credit-card-info">
                 <span class="info-item-head">{{ __('dog.cardId') }} :</span>

@@ -47,18 +47,17 @@
 <script src="{{ asset('js/response.js') }}"></script>
 
 
+
 <script src="{{ asset('js/app.js') }}"></script>
+<script>
+    window.axios.defaults.headers.common["Authorization"] = "Bearer {{ $access }}";
+</script>
+<script src="{{ asset('js/vueComponent.js') }}"></script>
 <script>
     let app = new Vue({
         el: '#app',
-        data:{
-            accessToken: '{{ $access }}',
-        },
     });
-    window.axios.defaults.headers.common["Authorization"] = "Bearer " + app.accessToken;
-
 </script>
-<script src="{{ asset('js/vueComponent.js') }}"></script>
 
 </body>
 </html>
