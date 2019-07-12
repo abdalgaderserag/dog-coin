@@ -39,12 +39,6 @@
                 .then((response) => {
                     this.transfers = response.data;
                 });
-            // console.log(images);
-            // for (let i = 0; i < images.length; i++) {
-            // if ((i + 1)% 2 == 0) {
-            console.log(image)
-            // }
-            // }
         }
     }
 </script>

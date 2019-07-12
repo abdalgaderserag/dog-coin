@@ -10,7 +10,12 @@
         <div class="left-section">
             <br>
             <div class="quick-card">
-
+                {{--<span class="link">Dashboard</span><br>--}}
+                {{--<span class="link">Profile</span><br>--}}
+                {{--<span class="link">Transfers</span><br>--}}
+                {{--<span class="link">Card</span><br>--}}
+                {{--<span class="link">Sites</span>--}}
+                {{--<hr style="width: 70%;margin: 0;border-width: 0 0 2px 0;">--}}
             </div>
         </div>
 
