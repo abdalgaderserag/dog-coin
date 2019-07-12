@@ -4,7 +4,6 @@
 /public/js/*
 /public/storage
 /storage/*.key
-/resources/js/components/Statical/*.vue
 /vendor
 /.idea
 .env

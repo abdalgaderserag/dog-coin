@@ -19,7 +19,7 @@
         <div class="main">
             <br>
             <div class="header">{{ __('dog.stats') }} :</div>
-            <statical-view></statical-view>
+            <statical-view :data="{{ \App\Transfer::all() }}" :max="1800"></statical-view>
             <div class="header">{{ __('dog.creditCard') }} :</div>
             <div class="credit-card-info">
                 <span class="info-item-head">{{ __('dog.cardId') }} :</span>
