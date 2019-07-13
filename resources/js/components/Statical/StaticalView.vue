@@ -44,7 +44,7 @@
                 strokeWidthLine: 2,
                 height: 0,
                 width: 0,
-                strokeWidth: 1,
+                strokeWidth: 0,
                 horSpace: 0,
                 line: '',
                 firstKey: 'amount',

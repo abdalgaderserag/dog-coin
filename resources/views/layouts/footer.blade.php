@@ -50,4 +50,46 @@
     </div>
 
 
+    {{--Last section from the footer--}}
+    <div class="last-section">
+        <div class="flex-box last-footer">
+            <div>
+                <div class="link-head">Company</div>
+                <br>
+                <a class="link-clear" href=""><div>Careers</div></a>
+                <a class="link-clear" href=""><div>Legal & Security</div></a>
+                <a class="link-clear" href=""><div>Leadership</div></a>
+                <a class="link-clear" href=""><div>About</div></a>
+            </div>
+            <div>
+                <div class="link-head">Products</div>
+                <br>
+                <a class="link-clear" href="https://dev.ink.com"><div>Ink</div></a>
+                <a class="link-clear" href="https://dev.samsar.com"><div>Samsar</div></a>
+                <a class="link-clear" href="/"><div>Dog Coin</div></a>
+            </div>
+            <div>
+                <div class="link-head">Community</div>
+                <br>
+                <a class="link-clear" href=""><div>Meet ups</div></a>
+                <a class="link-clear" href=""><div>Wiki</div></a>
+                <a class="link-clear" href=""><div>Ink</div></a>
+                <a class="link-clear" href=""><div>Blog</div></a>
+                <a class="link-clear" href=""><div>Q&A</div></a>
+            </div>
+            <div>
+                <div class="link-head">Contact</div>
+                <br>
+                <a class="link-clear" href=""><div>Report</div></a>
+                <a class="link-clear" href=""><div>Support</div></a>
+            </div>
+        </div>
+
+
+        <div style="text-align: center;margin-top: 48px;color: white;">
+            Made with
+            <img src="/images/Hard-fill.svg" width="20px" alt="">
+            by <a href="https://abdalgaderserag.io" class="link-clear last">Small hamster</a>
+        </div>
+    </div>
 </div>
