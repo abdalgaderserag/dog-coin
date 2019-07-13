@@ -21,6 +21,7 @@
 
             <div class="header" style="margin: 60px 0 16px 4%">{{ $user->name }}</div>
 
+
             <div class="flex-box card profile-card">
 
                 <div class="profile-avatar">
@@ -46,7 +47,6 @@
                         <span class="info-item-head">Join at: </span>
                         {{ $user->created_at }}
                     </div>
-
                 </div>
 
                 <img src="/images/menu.png" alt="">

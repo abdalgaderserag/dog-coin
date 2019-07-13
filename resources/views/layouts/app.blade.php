@@ -27,7 +27,7 @@
         <div class="nav-bar-group flex-box" style="flex-wrap: nowrap">
             {{--<img src="images/dog.svg" alt="">--}}
             <div class="nav-bar-item">
-                <span>{{ __('dog.dashboard') }}</span>
+                <span><a href="/dashboard" class="link-clear">{{ __('dog.dashboard') }}</a></span>
             </div>
             <div class="nav-bar-item">
                 <span>{{ __('dog.transfer') }} ⌵</span>
@@ -38,7 +38,9 @@
             </div>
         </div>
         <div class="nav-bar-group flex-box" style="padding: 4px 4px 4px 8px;">
-            <img class="avatar" src="{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" alt="">
+            <a href="/profile">
+                <img class="avatar" src="{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" alt="">
+            </a>
         </div>
     </div>
     @yield('content')
@@ -47,7 +49,6 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/response.js') }}"></script>
-
 
 
 <script src="{{ asset('js/app.js') }}"></script>
