@@ -62,6 +62,7 @@
 .container {
   background-color: $pubGray;
   padding-top: 55px;
+  padding-bottom: 46px;
 }
 
 .line {
@@ -75,6 +76,11 @@
   font-size: 2.4vh;
   font-weight: 100;
   cursor: pointer;
+}
+
+.link-clear{
+  color: unset;
+  text-decoration: unset;
 }
 
 .link:hover {

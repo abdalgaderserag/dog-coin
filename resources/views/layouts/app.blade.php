@@ -18,6 +18,7 @@
 
 <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
     @yield('styles')
 </head>
 <body>
@@ -41,6 +42,7 @@
         </div>
     </div>
     @yield('content')
+    @include('layouts.footer')
 </div>
 
 <!-- Scripts -->
