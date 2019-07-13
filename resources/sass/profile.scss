@@ -4,6 +4,7 @@
 .left-section {
   height: inherit;
   width: 19.5%;
+
   .quick-card {
     width: 90%;
     margin-left: 5%;
@@ -16,6 +17,77 @@
   height: inherit;
   width: 58%;
   padding: 0 12px;
+
+  .profile-card {
+    padding: 14px 1% 14px 1%;
+    //margin-top: 80px;
+
+    .profile-avatar {
+      padding: 8px 0 0 0;
+      border-right: 1px solid #c4cdd17d;
+    }
+
+    .text-card {
+      padding: 0 0 0 12px;
+      width: 84.13%;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .site-card {
+    width: 100%;
+    padding: 0 1%;
+
+    .sites {
+      width: inherit;
+      margin-top: 60px;
+      justify-content: center;
+
+      div {
+        height: 276px;
+        width: 45.45%;
+        border: 1px solid #5d757f42;
+        border-top: unset;
+        margin-top: 8px;
+        transition: width 0.1s;
+      }
+
+      div:hover {
+        box-shadow: 0 1px 10px -1px $darkGray;
+        width: 52%;
+      }
+
+      .first-site {
+        margin: 8px 1% 0 0;
+      }
+    }
+  }
+
+  .donate {
+    .donate-input {
+      width: 50%;
+      //margin-left: 25%;
+      padding: 4px 16px;
+      margin-top: 60px;
+      border: 1px solid #e3e7f1;
+      font-size: 2.7vh;
+      border-radius: 18px;
+    }
+
+    .donate-bottom {
+      width: 14%;
+      margin-left: 44%;
+      margin-top: 12px;
+      background-color: aliceblue;
+      border: 1px solid #e3e7f1;
+      font-size: 2.8vh;
+      border-radius: 14px;
+    }
+  }
 }
 
 .info-item-head {

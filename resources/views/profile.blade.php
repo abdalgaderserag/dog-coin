@@ -18,15 +18,18 @@
         <div class="main">
 
             {{--START :: Profile card start--}}
-            <div style="padding: 14px 1% 14px 1%;margin-top: 80px;" class="flex-box card">
 
-                <div style="padding: 8px 0 0 0;border-right: 1px solid #c4cdd17d;">
+            <div class="header" style="margin: 60px 0 16px 4%">{{ $user->name }}</div>
+
+            <div class="flex-box card profile-card">
+
+                <div class="profile-avatar">
                     <img style="height: 80px;width: 80px;border-radius: 50%;padding-right: 8px"
                          src="{{ $user->avatar }}" alt="">
                 </div>
 
 
-                <div style="padding: 0 0 0 12px;width: 84.13%;">
+                <div class="text-card">
                     <div class="profile-text">
                         <span class="info-item-head">Name: </span>
                         {{ $user->name }}
@@ -46,11 +49,30 @@
 
                 </div>
 
-                <img src="/images/menu.png" width="20px" height="20px" alt="">
+                <img src="/images/menu.png" alt="">
             </div>
             {{--END :: Profile card end--}}
 
+            <div class="donate">
+                <span style="margin-left: 25%">$</span>
+                <input type="number" class="donate-input">
+                <br>
+                <input type="submit"class="donate-bottom" value="Send">
+            </div>
 
+            <div class="site-card">
+                {{--width: 45.45%--}}
+                <div class="flex-box sites">
+
+                    <div class="card first-site" style="background: url('/images/shop.jpg') center center / cover;">
+                    </div>
+                    <div class="card" style="background: url('/images/dog-coin.png') center center / cover;">
+                    </div>
+
+                    <div class="card first-site" style="background: url('/images/ink.png') center center / cover;">
+                    </div>
+                </div>
+            </div>
 
 
         </div>
