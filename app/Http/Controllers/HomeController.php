@@ -35,7 +35,7 @@ class HomeController extends Controller
      */
     public function home()
     {
-        return view('dashboard')->with('access',Auth::user()->createToken('dashboard')->accessToken);
+        return view('dashboard')->with('access', Auth::user()->createToken('dashboard')->accessToken);
     }
 
     /**
@@ -45,6 +45,6 @@ class HomeController extends Controller
      */
     public function profile()
     {
-        return view('profile')->with('access',Auth::user()->createToken('profile')->accessToken);
+        return view('profile')->with(['access' => Auth::user()->createToken('profile')->accessToken,'user' => Auth::user()]);
     }
 }
