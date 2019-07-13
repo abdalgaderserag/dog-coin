@@ -53,11 +53,13 @@
             </div>
             {{--END :: Profile card end--}}
 
+
+
             <div class="donate">
                 <span style="margin-left: 25%">$</span>
                 <input type="number" class="donate-input">
                 <br>
-                <input type="submit"class="donate-bottom" value="Send">
+                <input type="submit" class="donate-bottom" value="Send">
             </div>
 
             <div class="site-card">

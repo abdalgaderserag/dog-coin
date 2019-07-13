@@ -5,20 +5,20 @@
             <img src="/images/footer/ink-image.jpg" alt="">
             {{--<div class="footer-image" style="background: url('/images/ink-img.jpg');width: inherit;height: 60px"></div>--}}
             <div class="footer-small-text">
-                CONNECT WITH OTHERS.
+                BUY SELL AND DISCOVER NEW WIDGETS.
             </div>
             <div class="footer-big-text">
-                Join our large community and become inkeer and post your ideas follow other right now in Ink.
+                discover our wide based Marketplace find the items that suite you in Samsar.
             </div>
         </div>
 
         <div class="footer-card card">
             <img src="/images/footer/samsar-image.jpg" alt="">
             <div class="footer-small-text">
-                BUY SELL AND DISCOVER NEW WIDGETS.
+                CONNECT WITH OTHERS.
             </div>
             <div class="footer-big-text">
-                discover over wide based Marketplace find the items that suite you in Samsar.
+                Join our large community and become inkeer and post your ideas follow other right now in Ink.
             </div>
         </div>
 
