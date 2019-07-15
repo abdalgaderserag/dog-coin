@@ -21,7 +21,7 @@
 
                     </a>
 
-                    <div @click="addList" class="add-list">
+                    <div v-if="list" @click="addList" class="add-list">
                         add to list
                     </div>
 
@@ -74,6 +74,7 @@
         data() {
             return {
                 show: false,
+                list: true,
                 user: {},
                 message: '',
                 money: null,
@@ -128,18 +129,40 @@
                 }
             },
             addList: function () {
-                axios.get('api/list')
-                    .then((response) => {
-
-                    }).catch((error) => {
-
-                })
+                axios.post('api/favorite', {
+                    listed_id: this.user.id,
+                }).then(() => {
+                    this.list = false;
+                });
             }
         }
     }
 </script>
 
 <style scoped>
+    .card-id {
+        width: 60%;
+        padding: 4px 16px;
+        margin-top: 18px;
+        border: 1px solid #e3e7f1;
+        font-size: 2.7vh;
+        border-radius: 18px;
+    }
+
+    .profile-text{
+        max-width: 210px;
+    }
+
+    .send-money{
+        width: 14%;
+        margin-left: 44%;
+        margin-top: 12px;
+        background-color: aliceblue;
+        border: 1px solid #e3e7f1;
+        font-size: 2.8vh;
+        border-radius: 14px;
+    }
+
     .add-list {
         height: 24px;
         text-align: center;

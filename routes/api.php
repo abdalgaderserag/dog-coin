@@ -17,6 +17,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->group(function () {
 
     Route::apiResource('transfer', 'Api\TransferController');
+
     Route::get('/user/{cardID}', 'UserController@show');
+
+    Route::apiResource('favorite', 'Api\FavoriteController')->except(['show','update']);
 
 });

@@ -10,6 +10,7 @@
         <div class="left-section">
             <br>
             <div class="quick-card">
+                <send></send>
             </div>
         </div>
 
