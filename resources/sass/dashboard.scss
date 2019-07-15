@@ -73,7 +73,7 @@
 
     .transfer-text {
       justify-content: inherit;
-      padding: 26px 0 0 22px;
+      padding: 26px 0 0 4%;
     }
   }
 }
@@ -86,4 +86,10 @@
   border: 1px solid #e3e7f1;
   font-size: 2.8vh;
   border-radius: 14px;
+}
+
+
+
+.profile-text{
+  max-width: 210px;
 }

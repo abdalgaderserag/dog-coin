@@ -24,12 +24,14 @@
 
     .profile-avatar {
       padding: 8px 0 0 0;
-      border-right: 1px solid #c4cdd17d;
+      //border-right: 1px solid #c4cdd17d;
     }
 
     .text-card {
       padding: 0 0 0 12px;
       width: 84.13%;
+      border-left: 1px solid #c4cdd17d;
+      margin-left: 12px;
     }
 
     img {

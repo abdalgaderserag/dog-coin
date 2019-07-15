@@ -25,7 +25,7 @@
             <div class="flex-box card profile-card">
 
                 <div class="profile-avatar">
-                    <img style="height: 80px;width: 80px;border-radius: 50%;padding-right: 8px"
+                    <img style="height: 80px;width: 80px;border-radius: 50%;"
                          src="{{ $user->avatar }}" alt="">
                 </div>
 
