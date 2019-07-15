@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title','Dashboard')
+
 @section('styles')
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 @endsection
@@ -14,6 +16,43 @@
             <br>
             <div class="quick-card">
                 <send></send>
+
+                <hr style="border-width: 0 0 2px 0;">
+
+                <div style="padding: 16px 0 0 0;">
+
+                    <div style="margin-bottom: 12px">
+                        <img src="images/Icons/request.svg" style="width: 1.7%;position: absolute;" alt="">
+                        <span style="padding-left: 13%">
+                            Send request
+                        </span>
+                    </div>
+                    <div style="margin-bottom: 12px">
+                        <img src="images/Icons/store.png" style="width: 1.7%;position: absolute;" alt="">
+                        <span style="padding-left: 13%">
+                            Recipient rquest
+                        </span>
+                    </div>
+                    <div style="margin-bottom: 12px">
+                        <img src="images/Icons/static.svg" style="width: 1.7%;position: absolute;" alt="">
+                        <span style="padding-left: 13%">
+                            Statical
+                        </span>
+                    </div>
+                    <div style="margin-bottom: 12px">
+                        <img src="images/Icons/profile.svg" style="width: 1.7%;position: absolute;" alt="">
+                        <span style="padding-left: 13%">
+                            Edit profile
+                        </span>
+                    </div>
+                    <div style="margin-bottom: 12px">
+                        <img src="images/Icons/favorite.svg" style="width: 1.7%;position: absolute;" alt="">
+                        <span style="padding-left: 13%">
+                            Favorite
+                        </span>
+                    </div>
+
+                </div>
             </div>
         </div>
 
