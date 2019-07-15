@@ -59,6 +59,9 @@
 <script>
     let app = new Vue({
         el: '#app',
+        data: {
+            user: {!! \Illuminate\Support\Facades\Auth::user() !!},
+        }
     });
 </script>
 

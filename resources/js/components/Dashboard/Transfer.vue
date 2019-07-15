@@ -8,8 +8,12 @@
                         <img class="avatar-length" :src="transfer.recipient.avatar" alt="">
                     </div>
                     <div v-else class="transfer-image">
-                        <img :src="transfer.sender.avatar" alt="">
-                        <img class="second-avatar" :src="transfer.recipient.avatar" alt="">
+                        <!--<a :href="'profile/' + transfer.sender.slug">-->
+                            <img :src="transfer.sender.avatar" alt="">
+                        <!--</a>-->
+                        <!--<a :href="'profile/' + transfer.recipient.slug">-->
+                            <img class="second-avatar" :src="transfer.recipient.avatar" alt="">
+                        <!--</a>-->
                     </div>
                     <div class="transfer-text flex-box">
                         <span>{{ transfer.sender.name }}</span>
