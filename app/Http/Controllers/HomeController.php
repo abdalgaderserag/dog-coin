@@ -47,4 +47,48 @@ class HomeController extends Controller
     {
         return view('profile')->with(['access' => Auth::user()->createToken('profile')->accessToken,'user' => Auth::user()]);
     }
+
+
+    /**
+     * ask user to transfer.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function sendRequest()
+    {
+        return view('send_request')->with(['access' => Auth::user()->createToken('request')->accessToken]);
+    }
+
+
+    /**
+     * Show the User request to accept or deny.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function recipientRequest()
+    {
+        return view('recipient_request')->with(['access' => Auth::user()->createToken('request')->accessToken]);
+    }
+
+
+    /**
+     * Show the User static.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function statical()
+    {
+        return view('statical')->with(['access' => Auth::user()->createToken('statical')->accessToken]);
+    }
+
+
+    /**
+     * Show the list of favorite users.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function favorite()
+    {
+        return view('favorite')->with(['access' => Auth::user()->createToken('favorite')->accessToken]);
+    }
 }

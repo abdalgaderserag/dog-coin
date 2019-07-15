@@ -23,33 +23,33 @@
 
                     <div style="margin-bottom: 12px">
                         <img src="images/Icons/request.svg" style="width: 1.7%;position: absolute;" alt="">
-                        <span style="padding-left: 13%">
+                        <a href="/request/send" class="link-clear"><span style="padding-left: 13%">
                             Send request
-                        </span>
+                        </span></a>
                     </div>
                     <div style="margin-bottom: 12px">
                         <img src="images/Icons/store.png" style="width: 1.7%;position: absolute;" alt="">
-                        <span style="padding-left: 13%">
+                        <a href="/request/recipient" class="link-clear"><span style="padding-left: 13%">
                             Recipient rquest
-                        </span>
+                        </span></a>
                     </div>
                     <div style="margin-bottom: 12px">
                         <img src="images/Icons/static.svg" style="width: 1.7%;position: absolute;" alt="">
-                        <span style="padding-left: 13%">
+                        <a href="/statical" class="link-clear"><span style="padding-left: 13%">
                             Statical
-                        </span>
+                        </span></a>
                     </div>
                     <div style="margin-bottom: 12px">
                         <img src="images/Icons/profile.svg" style="width: 1.7%;position: absolute;" alt="">
-                        <span style="padding-left: 13%">
+                        <a href="/" class="link-clear"><span style="padding-left: 13%">
                             Edit profile
-                        </span>
+                        </span></a>
                     </div>
                     <div style="margin-bottom: 12px">
                         <img src="images/Icons/favorite.svg" style="width: 1.7%;position: absolute;" alt="">
-                        <span style="padding-left: 13%">
+                        <a href="/favorite" class="link-clear"><span style="padding-left: 13%">
                             Favorite
-                        </span>
+                        </span></a>
                     </div>
 
                 </div>
