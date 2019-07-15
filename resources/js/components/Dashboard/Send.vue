@@ -3,7 +3,8 @@
         <span class="header">Search:</span>
         <br>
 
-        <input type="text" class="card-id" v-on:change="getCardId" ref="search" value="" style="margin-left: 5%;font-size: 2.4vh">
+        <input type="text" class="card-id" v-on:change="getCardId" ref="search" value=""
+               style="margin-left: 5%;font-size: 2.4vh">
         <div>{{ message }}</div>
         <br>
 
@@ -19,7 +20,8 @@
                              :src="user.avatar" alt="">
 
                     </a>
-                    <div class="add-list">
+
+                    <div @click="addList" class="add-list">
                         add to list
                     </div>
 
@@ -124,6 +126,14 @@
                 } else {
                     this.moneyMessage = "please enter the amount you wont to transfer."
                 }
+            },
+            addList: function () {
+                axios.get('api/list')
+                    .then((response) => {
+
+                    }).catch((error) => {
+
+                })
             }
         }
     }
