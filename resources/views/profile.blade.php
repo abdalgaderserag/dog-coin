@@ -15,52 +15,7 @@
 @section('content')
     <div class="container flex-box">
 
-        {{--Left section of the page--}}
-        <div class="left-section">
-            <br>
-            <div class="quick-card">
-                <send></send>
-
-                <hr style="border-width: 0 0 2px 0;">
-
-                <div style="padding: 16px 0 0 0;">
-
-                    <div style="margin-bottom: 12px">
-                        <img src="images/Icons/request.svg" style="width: 1.7%;position: absolute;" alt="">
-                        <span style="padding-left: 13%">
-                            Send request
-                        </span>
-                    </div>
-                    <div style="margin-bottom: 12px">
-                        <img src="images/Icons/store.png" style="width: 1.7%;position: absolute;" alt="">
-                        <span style="padding-left: 13%">
-                            Recipient rquest
-                        </span>
-                    </div>
-                    <div style="margin-bottom: 12px">
-                        <img src="images/Icons/static.svg" style="width: 1.7%;position: absolute;" alt="">
-                        <span style="padding-left: 13%">
-                            Statical
-                        </span>
-                    </div>
-                    <div style="margin-bottom: 12px">
-                        <img src="images/Icons/profile.svg" style="width: 1.7%;position: absolute;" alt="">
-                        <span style="padding-left: 13%">
-                            Edit profile
-                        </span>
-                    </div>
-                    <div style="margin-bottom: 12px">
-                        <img src="images/Icons/favorite.svg" style="width: 1.7%;position: absolute;" alt="">
-                        <span style="padding-left: 13%">
-                            Favorite
-                        </span>
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
+        @include('layouts.left-side')
 
 
         {{--main section from the page--}}
