@@ -44,7 +44,7 @@
         </div>
         <div class="nav-bar-group flex-box" style="padding: 4px 4px 4px 8px;">
             <a href="/profile">
-                <img class="avatar" src="{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" alt="">
+                <img class="avatar" src="{{ '/' . \Illuminate\Support\Facades\Auth::user()->avatar }}" alt="">
             </a>
         </div>
     </div>
