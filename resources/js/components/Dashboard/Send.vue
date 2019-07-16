@@ -140,39 +140,14 @@
 </script>
 
 <style scoped>
-    .card-id {
-        width: 60%;
-        padding: 4px 16px;
-        margin-top: 18px;
-        border: 1px solid #e3e7f1;
-        font-size: 2.7vh;
-        border-radius: 18px;
-    }
+    /*.card-id {*/
+        /*width: 60%;*/
+        /*padding: 4px 16px;*/
+        /*margin-top: 18px;*/
+        /*border: 1px solid #e3e7f1;*/
+        /*font-size: 2.7vh;*/
+        /*border-radius: 18px;*/
+    /*}*/
 
-    .profile-text{
-        max-width: 210px;
-    }
 
-    .send-money{
-        width: 14%;
-        margin-left: 44%;
-        margin-top: 12px;
-        background-color: aliceblue;
-        border: 1px solid #e3e7f1;
-        font-size: 2.8vh;
-        border-radius: 14px;
-    }
-
-    .add-list {
-        height: 24px;
-        text-align: center;
-        background-color: white;
-        border-radius: 14px;
-        padding: 1px 1%;
-        cursor: pointer;
-        position: absolute;
-        top: 268px;
-        left: 157px;
-        border: 4px solid #f4f5ff;
-    }
 </style>

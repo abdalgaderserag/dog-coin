@@ -6,52 +6,49 @@
     <br>
     <div class="quick-card">
         <send></send>
-
-        <hr style="border-width: 0 0 2px 0;">
-
-        <div style="padding: 16px 0 0 0;">
-
-            <div style="margin-bottom: 12px">
-                <img src="images/Icons/request.svg" style="width: 1.7%;position: absolute;" alt="">
+        <hr>
+        <div class="quick-links">
+            <div>
                 <a href="/request/send" class="link-clear">
-                            <span style="padding-left: 13%">
-                            Send request
-                        </span>
-                </a>
-            </div>
-            <div style="margin-bottom: 12px">
-                <img src="images/Icons/store.png" style="width: 1.7%;position: absolute;" alt="">
-                <a href="/request/recipient" class="link-clear">
-                            <span style="padding-left: 13%">
-                            Recipient rquest
-                        </span>
-                </a>
-            </div>
-            <div style="margin-bottom: 12px">
-                <img src="images/Icons/static.svg" style="width: 1.7%;position: absolute;" alt="">
-                <a href="/statical" class="link-clear">
-                            <span style="padding-left: 13%">
-                            Statical
-                        </span>
-                </a>
-            </div>
-            <div style="margin-bottom: 12px">
-                <img src="images/Icons/profile.svg" style="width: 1.7%;position: absolute;" alt="">
-                <a href="/" class="link-clear">
-                            <span style="padding-left: 13%">
-                            Edit profile
-                        </span>
-                </a>
-            </div>
-            <div style="margin-bottom: 12px">
-                <img src="images/Icons/favorite.svg" style="width: 1.7%;position: absolute;" alt="">
-                <a href="/favorite" class="link-clear">
-                            <span style="padding-left: 13%">
-                            Favorite
-                        </span>
-                </a>
-            </div>
 
+                    <img src="/images/Icons/request.svg" style="width: 1.7%;position: absolute;" alt="">
+                    <span>
+                        Send request
+                    </span>
+                </a>
+            </div>
+            <div>
+                <a href="/request/recipient" class="link-clear">
+                    <img src="/images/Icons/store.png" alt="">
+                    <span>
+                        Recipient request
+                    </span>
+                </a>
+            </div>
+            <div>
+                <a href="/statical" class="link-clear">
+                    <img src="/images/Icons/static.svg" alt="">
+                    <span>
+                        Statical
+                    </span>
+                </a>
+            </div>
+            <div>
+                <a href="/" class="link-clear">
+                    <img src="/images/Icons/profile.svg" alt="">
+                    <span>
+                        Edit profile
+                    </span>
+                </a>
+            </div>
+            <div>
+                <a href="/favorite" class="link-clear">
+                    <img src="/images/Icons/favorite.svg" alt="">
+                    <span>
+                        Favorite
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
 </div>

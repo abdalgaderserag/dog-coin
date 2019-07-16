@@ -1,6 +1,6 @@
 // Variables
 @import 'variables';
-
+/*
 .left-section {
   height: inherit;
   width: 19.5%;
@@ -17,12 +17,12 @@
 
 
   }
-}
+}*/
 
 .main {
   height: inherit;
   width: 60%;
-  padding: 0 12px;
+  //padding: 0 12px;
   //overflow-y: auto;
   //background-color: $white;
   .money-view {
@@ -51,7 +51,7 @@
 
       img:last-child {
         position: absolute;
-        left: 24.5%;
+        left: 21.8%;
       }
 
 

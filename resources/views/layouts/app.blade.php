@@ -7,7 +7,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
     <title>
         @section('title')
             Dog Coin
@@ -24,6 +23,7 @@
 <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/left.css') }}" rel="stylesheet">
     @yield('styles')
 </head>
 <body>
