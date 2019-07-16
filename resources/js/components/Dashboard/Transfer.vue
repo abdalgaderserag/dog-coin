@@ -39,7 +39,7 @@
             }
         },
         mounted() {
-            axios.get('api/transfer')
+            axios.get('/api/transfer')
                 .then((response) => {
                     this.transfers = response.data;
                 });
