@@ -38,11 +38,11 @@
                 <img src="/images/profile/default.jpeg" style="width: 80px;height: 80px;border-radius: 50%;float: left;"
                      alt="">
                 <div class="card" style="width: 88%;margin-left: 12%;">
-                    <input type="number" placeholder="card ID" class="card-id" style="width: 83.3%;">
-                    <textarea placeholder="explanation tell gadora why you send the request." id="" cols="30" rows="10" class="card-id" style="width: 83.3%;">
+                    <input type="number" placeholder="card ID" class="card-id" style="width: 86%;">
+                    <textarea placeholder="explanation tell gadora why you send the request." id="" cols="30" rows="10" class="card-id" style="width: 86%;">
 
                     </textarea>
-                    <input type="button" value="Send" class="card-id" style="width: 88%;background-color: aliceblue;margin-bottom: 18px;">
+                    <input type="button" value="Send" class="card-id" style="width: 91%;background-color: aliceblue;margin-bottom: 18px;">
                 </div>
             </div>
 
