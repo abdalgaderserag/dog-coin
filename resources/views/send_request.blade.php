@@ -10,7 +10,7 @@
             {{--<input type="text" class="card-id"--}}
             {{--style="width: 50%;padding: 4px 16px;margin-top: 60px;border: 1px solid #e3e7f1;font-size: 2.7vh;border-radius: 18px;">--}}
             <div class="header">Normal request:</div>
-            <div class="card" style="padding: 1%">
+            <div class="card" style="padding: 1%;margin-bottom: 7%;">
                 <div>
                     <div class="transfer-img">
                         {{--<img src="/images/profile/default.jpeg" style="width: 80px;border-radius: 50%" alt="">--}}
@@ -33,7 +33,7 @@
                 {{--<div></div>--}}
             </div>
 
-            <div style="margin-top: 20px">
+            <div style="margin-bottom: 7%;">
                 <div class="header" style="margin-bottom: 32px;">Send to Gadora:</div>
                 <img src="/images/profile/default.jpeg" style="width: 80px;height: 80px;border-radius: 50%;float: left;"
                      alt="">
@@ -45,6 +45,8 @@
                     <input type="button" value="Send" class="card-id" style="width: 88%;background-color: aliceblue;margin-bottom: 18px;">
                 </div>
             </div>
+
+            <div class="header">All request:</div>
             <transfer></transfer>
 
         </div>
