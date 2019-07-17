@@ -23,9 +23,9 @@
                       :style="'fill:none;stroke:'+ lineColor +';stroke-width: '+ strokeWidthLine +'px;stroke-opacity: 1'"/>
             </svg>
 
-            <div class="flex-box" style="justify-content: space-between;font-size: 1.6vh">
-                <span v-for="item in data">{{ item[secondKey].slice(0,10) }}</span>
-            </div>
+            <!--<div class="flex-box" style="justify-content: space-between;font-size: 1.6vh">-->
+                <!--<span v-for="item in data">{{ item[secondKey].slice(0,10) }}</span>-->
+            <!--</div>-->
 
         </div>
     </div>

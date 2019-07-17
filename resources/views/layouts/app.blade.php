@@ -26,6 +26,7 @@
     <link href="{{ asset('css/left.css') }}" rel="stylesheet">
     <link href="{{ asset('css/request.css') }}" rel="stylesheet">
     <link href="{{ asset('css/transfer.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     @yield('styles')
 </head>
 <body>

@@ -1,14 +1,20 @@
 // Variables
 @import 'variables';
 
-@media only screen and (max-device-width: 480px){
-.left-section{
-display:none;
+@media only screen and (max-device-width: 480px) {
+  .left-section {
+    display: none;
+  }
+  .main {
+    width: 96%;
+    margin-left: 2%;
+  }
 }
-.main{
-width:96%;
-margin-left:2%;
-}
+
+@media only screen and (min-width: 960px) {
+  .main {
+    width: 60%;
+  }
 }
 
 /*
@@ -32,7 +38,7 @@ margin-left:2%;
 
 .main {
   height: inherit;
-  width: 60%;
+  //width: 60%;
   //padding: 0 12px;
   //overflow-y: auto;
   //background-color: $white;
