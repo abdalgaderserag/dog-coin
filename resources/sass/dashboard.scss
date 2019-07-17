@@ -1,5 +1,16 @@
 // Variables
 @import 'variables';
+
+@media only screen and (max-device-width: 480px){
+.left-section{
+display:none;
+}
+.main{
+width:96%;
+margin-left:2%;
+}
+}
+
 /*
 .left-section {
   height: inherit;
