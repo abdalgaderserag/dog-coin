@@ -13,9 +13,84 @@
 //  }
 //}
 
+@media only screen and (max-device-width: 480px) {
+  .left-section {
+    display: none;
+  }
+  .main {
+    width: 94%;
+    margin-left: 2%;
+  }
+
+  .main .site-card .sites div {
+    width: 94%;
+  }
+
+  .profile-card {
+    flex-direction: column;
+
+    .profile-avatar {
+      order: 0;
+    }
+
+    .text-card {
+      order: 1;
+      margin-left: 10.3%;
+    }
+
+    .menu {
+      order: 2;
+      position: absolute;
+      right: 3%;
+    }
+  }
+
+
+  .donate {
+
+    span {
+      margin-left: 0;
+    }
+
+    .donate-input {
+      width: 87%;
+    }
+  }
+}
+
+
+@media only screen and (min-width: 960px) {
+  .main {
+    width: 60%;
+  }
+
+  .main .site-card .sites div {
+    width: 45.45%;
+  }
+
+  .profile-card {
+    .text-card {
+      margin-left: 12px;
+    }
+  }
+
+  .donate {
+
+    span {
+      margin-left: 25%;
+    }
+
+    .donate-input {
+      width: 50%;
+    }
+
+  }
+}
+
+
 .main {
   height: inherit;
-  width: 58%;
+  //width: 58%;
   //padding: 0 12px;
 
   .profile-card {
@@ -31,7 +106,6 @@
       padding: 0 0 0 12px;
       width: 84.13%;
       border-left: 1px solid #c4cdd17d;
-      margin-left: 12px;
     }
 
     img {
@@ -51,7 +125,7 @@
 
       div {
         height: 276px;
-        width: 45.45%;
+        //width: 45.45%;
         border: 1px solid #5d757f42;
         border-top: unset;
         margin-top: 8px;
@@ -71,7 +145,7 @@
 
   .donate {
     .donate-input {
-      width: 50%;
+      //width: 50%;
       //margin-left: 25%;
       padding: 4px 16px;
       margin-top: 60px;

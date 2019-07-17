@@ -53,13 +53,13 @@
                     </div>
                 </div>
 
-                <img src="/images/menu.png" alt="">
+                <img src="/images/menu.png" class="menu" alt="">
             </div>
             {{--END :: Profile card end--}}
 
 
             <div class="donate">
-                <span style="margin-left: 25%">$</span>
+                <span>$</span>
                 <input type="number" class="donate-input">
                 <br>
                 <input type="submit" class="donate-bottom" value="Send">
