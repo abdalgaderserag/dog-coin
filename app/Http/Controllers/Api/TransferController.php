@@ -20,7 +20,7 @@ class TransferController extends Controller
     public function index()
     {
         $user = User::find(1);
-//        TODO : remover the user and add Auth user.
+//        TODO : remove the user and add Auth user.
         $page = 1;
         $last = false;
         if (!empty($_GET['page']))

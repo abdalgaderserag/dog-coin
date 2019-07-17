@@ -16,7 +16,17 @@ class RequestController extends Controller
      */
     public function index()
     {
-        $data = RequestMoney::where('user_id', Auth::id())->with('user', 'recipient');
+        $reqs = RequestMoney::where('user_id', Auth::id())->with('recipient')->get();
+        $page = 1;
+        $last = false;
+        if (!empty($_GET['page']))
+            $page = $_GET['page'];
+        if ($reqs->count() <= $page * 5)
+            $last = true;
+
+        $data = [$reqs->forPage($page, 5), $last];
+        $data[2] = $data[0]->count();
+
         return response()->json($data, 200);
     }
 
@@ -30,6 +40,8 @@ class RequestController extends Controller
     {
         $reqMoney = new RequestMoney($request->all());
         $reqMoney->user_id = Auth::id();
+        $reqMoney->save();
+        return response()->json($reqMoney->with('recipient'), 200);
     }
 
     /**
@@ -47,11 +59,12 @@ class RequestController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\RequestMoney $requestMoney
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RequestMoney $requestMoney)
+    public function update(Request $request, $id)
     {
+        $requestMoney = RequestMoney::find($id);
         $requestMoney->money = $request->money;
         $requestMoney->details = $request->details;
         $requestMoney->save();
@@ -61,11 +74,13 @@ class RequestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\RequestMoney $requestMoney
+     * @throws
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RequestMoney $requestMoney)
+    public function destroy($id)
     {
+        $requestMoney = RequestMoney::find($id);
         $requestMoney->delete();
         return response()->json('Ok', 200);
     }

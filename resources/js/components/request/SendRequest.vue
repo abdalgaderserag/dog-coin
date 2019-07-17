@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="header">Normal request:</div>
-        <div class="card" style="padding: 1%;margin-bottom: 7%;">
+        <div class="card request-position" style="padding: 1%;margin-bottom: 7%;">
             <div>
                 <div class="transfer-img">
-                    <input type="text" class="card-id" placeholder="enter card ID"
+                    <input v-model="cardId" type="text" class="card-id" placeholder="enter card ID"
                            style="margin-left: 18%;background-color: #f4f5ff;" @change="getCardId">
                     <div style="text-align: center;color: red">{{ message }}</div>
                     <div style="text-align: center;">or</div>
@@ -32,10 +32,42 @@
                           class="card-id" style="width: 86%;">
 
                     </textarea>
-                <input @click="sendRequest()" type="button" value="Send" class="card-id"
+                <input @click="request()" type="button" value="Send" class="card-id"
                        style="width: 91%;background-color: aliceblue;margin-bottom: 18px;">
             </div>
         </div>
+
+
+        <div style="margin-top: 32px" class="header">All Requests:</div>
+        <div v-for="(req ,index) in users" :class="'request' + req.id">
+            <div class="transfer">
+                <div class="transfer-item">
+                    <div class="transfer-image">
+                        <img class="second-avatar" :src="req.recipient.avatar" style="position: unset;"
+                             alt="">
+                    </div>
+                    <div class="transfer-text flex-box" style="justify-content: space-between;padding-left: 1%">
+                        <div>
+                            <span>{{ req.recipient.name }}</span>
+                            <span style="color: #0067ff;">${{ req.money }}</span>
+                        </div>
+                        <div>
+                            {{ req.details }}
+                        </div>
+                        <div class="flex-box" style="width: 20%">
+                            <input type="submit" @click="editRequest(req , index)" value="edit" class="card">
+                            <input type="submit" @click="deleteRequest(req.id)" value="delete" class="card">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="line">
+        </div>
+        <div v-if="displayMore" style="text-align: center;cursor: pointer;" @click="getRequest">
+            view more transfers ...
+        </div>
+
+
     </div>
 </template>
 
@@ -44,17 +76,40 @@
         name: "SendRequest",
         data() {
             return {
+                cardId: '',
                 amount: '',
                 details: '',
                 show: false,
                 message: '',
+                method: 'post',
+                id: '',
+                editNumber: 0,
                 user: {},
+                users: [],
+                displayMore: true,
+                page: 2,
             }
-        }, methods: {
+        },
+        mounted() {
+            axios.get('/api/request')
+                .then((response) => {
+                    this.users = response.data[0];
+                    if (response.data[1] == true)
+                        this.displayMore = false;
+                })
+        },
+        methods: {
+            request: function () {
+                if (this.method == 'post')
+                    this.sendRequest();
+                else if (this.method == 'put')
+                    this.putRequest();
+            },
             getUser: function (cardId) {
                 this.message = "finding...";
                 axios.get('/api/user/' + cardId)
                     .then((response) => {
+                        this.method = 'post';
                         this.user = response.data;
                         this.message = '';
                         this.show = true;
@@ -72,12 +127,64 @@
                 }
             },
             sendRequest: function () {
-                axios.post()
-                    .then((response)=>{
+                axios.post('/api/request', {
+                    recipient_id: this.user.id,
+                    money: this.amount,
+                    details: this.details,
+                })
+                    .then((response) => {
+                        this.cardId = '';
                         this.amount = '';
                         this.details = '';
                         this.show = false;
+                        this.users.add(response.data);
                     })
+            },
+            editRequest: function (req, id) {
+                this.editNumber = id;
+                this.show = true;
+                this.method = 'put';
+                let number = document.getElementsByClassName('request-position')[0].offsetTop;
+                this.id = req.id;
+                window.scrollTo(0, number);
+                this.user = req.recipient;
+                this.amount = req.money;
+                this.details = req.details;
+            },
+            deleteRequest: function (id) {
+                axios.delete('/api/request/' + id)
+                    .then((response) => {
+                        document.getElementsByClassName('request' + id)[0].style.display = 'none';
+                    })
+            },
+            putRequest: function () {
+                axios.put('/api/request/' + this.id, {
+                    money: this.amount,
+                    details: this.details,
+                })
+                    .then((response) => {
+                        this.cardId = '';
+                        this.users[this.editNumber].money = this.amount;
+                        this.users[this.editNumber].details = this.details;
+                        this.amount = '';
+                        this.details = '';
+                        this.show = false;
+                        this.method = 'post';
+                    })
+            },
+            getRequest: function () {
+                let url = '/api/request?page=' + this.page;
+                axios.get(url)
+                    .then((response) => {
+                        for (let i = 0; i < response.data[2]; i++) {
+                            this.users.push(response.data[0][this.users.length]);
+                        }
+
+                        if (response.data[1] == true) {
+                            this.displayMore = false;
+                        }
+                        this.page = this.page + 1;
+                    });
             }
         }
     }
