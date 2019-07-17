@@ -6,7 +6,7 @@
     <div class="container flex-box">
         @include('layouts.left-side')
 
-        <div class="main" style="width: 60%;padding-top: 42px">
+        <div class="main">
             {{--<input type="text" class="card-id"--}}
             {{--style="width: 50%;padding: 4px 16px;margin-top: 60px;border: 1px solid #e3e7f1;font-size: 2.7vh;border-radius: 18px;">--}}
             <div class="header">Normal request:</div>
@@ -35,7 +35,7 @@
 
             <div style="margin-bottom: 7%;">
                 <div class="header" style="margin-bottom: 32px;">Send to Gadora:</div>
-                <img src="/images/profile/default.jpeg" style="width: 80px;height: 80px;border-radius: 50%;float: left;"
+                <img src="/images/profile/default.jpeg" class="recipient-avatar" style="width: 80px;height: 80px;border-radius: 50%;float: left;"
                      alt="">
                 <div class="card" style="width: 88%;margin-left: 12%;">
                     <input type="number" placeholder="card ID" class="card-id" style="width: 86%;">

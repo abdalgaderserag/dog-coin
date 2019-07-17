@@ -1,6 +1,18 @@
 // Variables
 @import 'variables';
 
+@media only screen and (max-device-width: 480px) {
+  .left-section {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .transfer-nav {
+    display: none;
+  }
+}
+
 #app {
   width: $full;
 }
@@ -10,6 +22,16 @@
   background-color: $white;
   border-radius: 4px;
   box-shadow: 0 1px 10px -5px $darkGray;
+}
+
+.nav-menu {
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  z-index: 2;
+  margin-top: 58px;
+  padding-bottom: 8px;
+  display: none;
 }
 
 .nav-bar {
@@ -78,7 +100,7 @@
   cursor: pointer;
 }
 
-.link-clear{
+.link-clear {
   color: unset;
   text-decoration: unset;
 }
@@ -87,7 +109,7 @@
   text-decoration: underline;
 }
 
-.last:hover{
+.last:hover {
   text-decoration: underline;
 }
 

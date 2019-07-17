@@ -7,7 +7,7 @@
 
         @include('layouts.left-side')
 
-        <div class="main" style="width: 60%;padding-top: 42px">
+        <div class="main">
             {{--<div class="header">show the recipient for user:</div>--}}
             <div class="card" style="margin-top: 43px;padding: 1%">
                 <input type="search" name="user" placeholder="search for user" class="card-id"
@@ -54,111 +54,14 @@
                                 some money for the Nginx project and the server.
                             </div>
                             <div class="flex-box" style="width: 20%">
-                                <input type="submit" value="deny" class="card"
-                                       style="border: 1px solid #e3e7f1;padding: 4px 4%;width: max-content;">
-                                <input type="submit" value="accept" class="card"
-                                       style="border: 1px solid #e3e7f1;padding: 4px 4%;width: 50%;background-color: #0067ff;color: white;margin-left: 15%">
+                                <input type="submit" value="deny" class="card">
+                                <input type="submit" value="accept" class="card">
                             </div>
                         </div>
                     </div>
                 </div>
                 <hr class="line">
-                <div class="transfer">
-                    <div class="transfer-item">
-                        <div class="transfer-image">
-                            <img class="second-avatar" src="/images/profile/default.jpeg" style="position: unset;"
-                                 alt="">
-                        </div>
-                        <div class="transfer-text flex-box" style="justify-content: space-between;padding-left: 1%">
-                            <div>
-                                <span>John</span>
-                                <span>$500</span>
-                            </div>
-                            <div>
-                                some money for the Nginx project and the server.
-                            </div>
-                            <div class="flex-box" style="width: 20%">
-                                <input type="submit" value="deny" class="card"
-                                       style="border: 1px solid #e3e7f1;padding: 4px 4%;width: max-content;">
-                                <input type="submit" value="accept" class="card"
-                                       style="border: 1px solid #e3e7f1;padding: 4px 4%;width: 50%;background-color: #0067ff;color: white;margin-left: 15%">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="line">
-                <div class="transfer">
-                    <div class="transfer-item">
-                        <div class="transfer-image">
-                            <img class="second-avatar" src="/images/profile/default.jpeg" style="position: unset;"
-                                 alt="">
-                        </div>
-                        <div class="transfer-text flex-box" style="justify-content: space-between;padding-left: 1%">
-                            <div>
-                                <span>John</span>
-                                <span>$500</span>
-                            </div>
-                            <div>
-                                some money for the Nginx project and the server.
-                            </div>
-                            <div class="flex-box" style="width: 20%">
-                                <input type="submit" value="deny" class="card"
-                                       style="border: 1px solid #e3e7f1;padding: 4px 4%;width: max-content;">
-                                <input type="submit" value="accept" class="card"
-                                       style="border: 1px solid #e3e7f1;padding: 4px 4%;width: 50%;background-color: #0067ff;color: white;margin-left: 15%">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="line">
-                <div class="transfer">
-                    <div class="transfer-item">
-                        <div class="transfer-image">
-                            <img class="second-avatar" src="/images/profile/default.jpeg" style="position: unset;"
-                                 alt="">
-                        </div>
-                        <div class="transfer-text flex-box" style="justify-content: space-between;padding-left: 1%">
-                            <div>
-                                <span>John</span>
-                                <span>$500</span>
-                            </div>
-                            <div>
-                                some money for the Nginx project and the server.
-                            </div>
-                            <div class="flex-box" style="width: 20%">
-                                <input type="submit" value="deny" class="card"
-                                       style="border: 1px solid #e3e7f1;padding: 4px 4%;width: max-content;">
-                                <input type="submit" value="accept" class="card"
-                                       style="border: 1px solid #e3e7f1;padding: 4px 4%;width: 50%;background-color: #0067ff;color: white;margin-left: 15%">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="line">
-                <div class="transfer">
-                    <div class="transfer-item">
-                        <div class="transfer-image">
-                            <img class="second-avatar" src="/images/profile/default.jpeg" style="position: unset;"
-                                 alt="">
-                        </div>
-                        <div class="transfer-text flex-box" style="justify-content: space-between;padding-left: 1%">
-                            <div>
-                                <span>John</span>
-                                <span>$500</span>
-                            </div>
-                            <div>
-                                some money for the Nginx project and the server.
-                            </div>
-                            <div class="flex-box" style="width: 20%">
-                                <input type="submit" value="deny" class="card"
-                                       style="border: 1px solid #e3e7f1;padding: 4px 4%;width: max-content;">
-                                <input type="submit" value="accept" class="card"
-                                       style="border: 1px solid #e3e7f1;padding: 4px 4%;width: 50%;background-color: #0067ff;color: white;margin-left: 15%">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="line">
+
             </div>
 
         </div>

@@ -17,8 +17,8 @@
 
 
     <!-- Fonts -->
-    {{--<link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
-    {{--<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">--}}
+{{--<link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
+{{--<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">--}}
 
 <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -37,7 +37,7 @@
             <div class="nav-bar-item">
                 <span><a href="/dashboard" class="link-clear">{{ __('dog.dashboard') }}</a></span>
             </div>
-            <div class="nav-bar-item">
+            <div class="nav-bar-item transfer-nav" onclick="viewMenu()">
                 <span>{{ __('dog.transfer') }} ⌵</span>
             </div>
             <div class="nav-bar-item">
@@ -49,6 +49,25 @@
             <a href="/profile">
                 <img class="avatar" src="{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" alt="">
             </a>
+        </div>
+    </div>
+    <div class="nav-menu card">
+        <img src="/images/cross.svg" width="24px" style="float: left;padding: 4px 1%;position: absolute;" alt=""
+             onclick="document.getElementsByClassName('nav-menu')[0].style.display = 'none';">
+        <div style="padding: 4px 10%;font-size: 2.7vh;">
+            <a href="/request/send" class="link-clear">Send request</a>
+        </div>
+        <div style="padding: 4px 10%;font-size: 2.7vh;">
+            <a href="/request/recipient" class="link-clear">Recipient request</a>
+        </div>
+        <div style="padding: 4px 10%;font-size: 2.7vh;">
+            <a href="/statical" class="link-clear">Statical</a>
+        </div>
+        <div style="padding: 4px 10%;font-size: 2.7vh;">
+            <a href="/" class="link-clear">Edit profile</a>
+        </div>
+        <div style="padding: 4px 10%;font-size: 2.7vh;">
+            <a href="/favorite" class="link-clear">Favorite</a>
         </div>
     </div>
     @yield('content')
@@ -65,6 +84,19 @@
 </script>
 <script src="{{ asset('js/vueComponent.js') }}"></script>
 <script>
+
+    document.getElementsByClassName('nav-menu')[0].style.display = 'none';
+
+    function viewMenu() {
+
+        if (document.getElementsByClassName('nav-menu')[0].style.display == 'none') {
+            document.getElementsByClassName('nav-menu')[0].style.display = 'block';
+        } else {
+            document.getElementsByClassName('nav-menu')[0].style.display = 'none';
+        }
+
+    }
+
     let app = new Vue({
         el: '#app',
         data: {
