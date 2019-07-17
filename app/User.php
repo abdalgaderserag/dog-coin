@@ -48,6 +48,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Favorite');
     }
 
+
     /**
      * Access all the transfers for the user
      *

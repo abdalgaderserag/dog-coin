@@ -19,6 +19,8 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('transfer', 'Api\TransferController')->except(['index']);
     Route::get('transfer','Api\TransferController@index')->name('transfer');
 
+    Route::apiResource('request', 'Api\RequestController')->except(['show']);
+
     Route::get('/user/{cardID}', 'UserController@show');
 
     Route::apiResource('favorite', 'Api\FavoriteController')->except(['show','update']);

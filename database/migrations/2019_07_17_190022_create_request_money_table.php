@@ -15,6 +15,10 @@ class CreateRequestMoneyTable extends Migration
     {
         Schema::create('request_money', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id', false, true);
+            $table->integer('recipient_id', false, true);
+            $table->string('money');
+            $table->text('details');
             $table->timestamps();
         });
     }
