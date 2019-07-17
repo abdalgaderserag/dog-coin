@@ -43,6 +43,11 @@ class User extends Authenticatable
         return $this->hasOne('App\Money');
     }
 
+    public function favorite()
+    {
+        return $this->hasMany('App\Favorite');
+    }
+
     /**
      * Access all the transfers for the user
      *
@@ -52,7 +57,7 @@ class User extends Authenticatable
     public function getTransfers()
     {
         $id = $this->attributes['id'];
-        $sender = Transfer::where('sender_id', $id)->with('sender','recipient')->get();
+        $sender = Transfer::where('sender_id', $id)->with('sender', 'recipient')->get();
 //        $i = $sender->count();
 //        Transfer::where('recipient_id', $id)->each(function ($send) use ($sender, $i) {
 //            $sender[$i] = $send;

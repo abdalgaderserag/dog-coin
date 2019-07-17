@@ -28,7 +28,7 @@
                 </div>
 
 
-                <div class="text-card">
+                <div class="text-card" style="padding: 2px 0 4px 4%;">
                     <div class="profile-text">
                         <span class="info-item-head">Name: </span>
                         <div>
@@ -79,14 +79,27 @@
                 message: '',
                 money: null,
                 moneyMessage: '',
+                favorite: [],
             }
+        },
+        mounted() {
+            axios.get('/api/favorite')
+                .then((response) => {
+                    this.favorite = response.data;
+                })
         },
         methods: {
             getUser: function (cardId) {
                 this.message = "finding...";
                 axios.get('api/user/' + cardId)
                     .then((response) => {
+                        this.list = true;
                         this.user = response.data;
+                        for (let i = 0; i < this.favorite.length; i++) {
+                            if (this.favorite[i].listed_id == response.data.id) {
+                                this.list = false;
+                            }
+                        }
                         this.message = '';
                         this.show = true;
                     })
@@ -133,6 +146,7 @@
                     listed_id: this.user.id,
                 }).then(() => {
                     this.list = false;
+                    this.favorite[this.favorite.length] = {listed_id: this.user.id};
                 });
             }
         }
@@ -141,12 +155,12 @@
 
 <style scoped>
     /*.card-id {*/
-        /*width: 60%;*/
-        /*padding: 4px 16px;*/
-        /*margin-top: 18px;*/
-        /*border: 1px solid #e3e7f1;*/
-        /*font-size: 2.7vh;*/
-        /*border-radius: 18px;*/
+    /*width: 60%;*/
+    /*padding: 4px 16px;*/
+    /*margin-top: 18px;*/
+    /*border: 1px solid #e3e7f1;*/
+    /*font-size: 2.7vh;*/
+    /*border-radius: 18px;*/
     /*}*/
 
 

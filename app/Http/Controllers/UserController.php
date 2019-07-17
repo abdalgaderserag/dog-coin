@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Money;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -50,7 +49,6 @@ class UserController extends Controller
     {
         $user = Money::where('creditCardNumber', $cardID)->first();
         $user = $user->user;
-//        $user = $user->money;
         $user->money;
         return response()->json($user, 200);
     }

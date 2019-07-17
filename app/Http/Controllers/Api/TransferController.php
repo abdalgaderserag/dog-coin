@@ -14,14 +14,23 @@ class TransferController extends Controller
     /**
      * Display a listing of the resource.
      *
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-//        TODO : remover the user and add Auth user.
         $user = User::find(1);
+//        TODO : remover the user and add Auth user.
+        $page = 1;
+        $last = false;
+        if (!empty($_GET['page']))
+            $page = $_GET['page'];
         $sender = $user->getTransfers();
-        return response()->json($sender, 200);
+        if ($sender->count() <= $page * 5)
+            $last = true;
+        $data = [$sender->forPage($page, 5), $last];
+        $data[2] = $data[0]->count();
+        return response()->json($data, 200);
     }
 
     /**
@@ -45,7 +54,7 @@ class TransferController extends Controller
      */
     public function show(int $id)
     {
-        $transfer = Transfer::with('sender','recipient')->find($id);
+        $transfer = Transfer::with('sender', 'recipient')->find($id);
         $data = $transfer;
         return response()->json($data, 200);
     }

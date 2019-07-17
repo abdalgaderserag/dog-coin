@@ -16,7 +16,8 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->group(function () {
 
-    Route::apiResource('transfer', 'Api\TransferController');
+    Route::apiResource('transfer', 'Api\TransferController')->except(['index']);
+    Route::get('transfer','Api\TransferController@index')->name('transfer');
 
     Route::get('/user/{cardID}', 'UserController@show');
 

@@ -16,7 +16,7 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        $data = Favorite::where('user_id', Auth::id());
+        $data = Favorite::where('user_id', Auth::id())->get('listed_id');
         return response()->json($data, 200);
     }
 

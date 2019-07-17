@@ -9,10 +9,10 @@
                     </div>
                     <div v-else class="transfer-image">
                         <!--<a :href="'profile/' + transfer.sender.slug">-->
-                            <img :src="transfer.sender.avatar" alt="">
+                        <img :src="transfer.sender.avatar" alt="">
                         <!--</a>-->
                         <!--<a :href="'profile/' + transfer.recipient.slug">-->
-                            <img class="second-avatar" :src="transfer.recipient.avatar" alt="">
+                        <img class="second-avatar" :src="transfer.recipient.avatar" alt="">
                         <!--</a>-->
                     </div>
                     <div class="transfer-text flex-box">
@@ -26,6 +26,7 @@
             </div>
             <hr class="line">
         </div>
+        <div v-if="displayMore" style="text-align: center;cursor: pointer;" @click="getTransfer">view more transfers ...</div>
 
     </div>
 </template>
@@ -36,13 +37,35 @@
         data() {
             return {
                 transfers: [],
+                displayMore: true,
+                page: 2,
             }
         },
         mounted() {
             axios.get('/api/transfer')
                 .then((response) => {
-                    this.transfers = response.data;
+                    this.transfers = response.data[0];
+                    if (response.data[1] == true) {
+                        this.displayMore = false;
+                    }
                 });
+        },
+        methods: {
+            getTransfer: function () {
+                let url = '/api/transfer?page=' + this.page;
+                axios.get(url)
+                    .then((response) => {
+                        for (let i = 0; i < response.data[2]; i++) {
+                            // this.transfers[this.transfers.length] = response.data[i];
+                            this.transfers.push(response.data[0][this.transfers.length]);
+                        }
+
+                        if (response.data[1] == true) {
+                            this.displayMore = false;
+                        }
+                        this.page = this.page + 1;
+                    });
+            }
         }
     }
 </script>
