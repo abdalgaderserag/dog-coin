@@ -31,15 +31,15 @@ class FavoriteController extends Controller
         $fav = new Favorite($request->all());
         $fav->user_id = Auth::id();
         $fav->save();
-        return response('',200);
+        return response('', 200);
     }
 
     /**
-//     * Display the specified resource.
-//     *
-//     * @param  \App\Favorite $favorite
-//     * @return \Illuminate\Http\Response
-//     */
+     * //     * Display the specified resource.
+     * //     *
+     * //     * @param  \App\Favorite $favorite
+     * //     * @return \Illuminate\Http\Response
+     * //     */
 //    public function show(Favorite $favorite)
 //    {
 //        //
@@ -60,12 +60,13 @@ class FavoriteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Favorite $favorite
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Favorite $favorite)
+    public function destroy($id)
     {
+        $favorite = Favorite::find($id);
         $favorite->delete();
-        return response()->json('',200);
+        return response()->json('', 200);
     }
 }

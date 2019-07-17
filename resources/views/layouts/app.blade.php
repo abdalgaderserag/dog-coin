@@ -77,7 +77,6 @@
 <!-- Scripts -->
 <script src="{{ asset('js/response.js') }}"></script>
 
-
 <script src="{{ asset('js/app.js') }}"></script>
 <script>
     window.axios.defaults.headers.common["Authorization"] = "Bearer {{ $access }}";
@@ -104,6 +103,7 @@
         }
     });
 </script>
+@yield('scripts')
 
 </body>
 </html>
