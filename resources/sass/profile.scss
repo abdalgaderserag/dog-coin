@@ -53,7 +53,12 @@
     }
 
     .donate-input {
-      width: 87%;
+      width: 84%;
+    }
+
+    .donate-bottom {
+      width: 24%;
+      margin-left: 38%;
     }
   }
 }
@@ -84,6 +89,10 @@
       width: 50%;
     }
 
+    .donate-bottom {
+      width: 14%;
+      margin-left: 44%;
+    }
   }
 }
 
@@ -155,8 +164,6 @@
     }
 
     .donate-bottom {
-      width: 14%;
-      margin-left: 44%;
       margin-top: 12px;
       background-color: aliceblue;
       border: 1px solid #e3e7f1;
