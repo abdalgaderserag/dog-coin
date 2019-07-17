@@ -30,14 +30,14 @@
                             <img class="second-avatar" src="/images/profile/default.jpeg" style="position: unset;"
                                  alt="">
                         </div>
-                        <div class="transfer-text flex-box" style="justify-content: space-between;padding-left: 1%">
+                        <div class="transfer-text flex-box" style="justify-content: start;padding-left: 1%">
                             <div>
                                 <span>John</span>
                             </div>
-                            <div>
-                                some money for the Nginx project and the server.
+                            <div style="margin-left: 2%">
+                                some monome or the Nginx project and the server.
                             </div>
-                            <div>
+                            <div style="margin-left: 33%;float: right;width: 11%;">
                                 <input type="submit" value="delete" class="card"
                                        style="border: 1px solid #e3e7f1;padding: 4px 22%;width: max-content;">
                             </div>
