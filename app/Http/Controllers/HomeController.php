@@ -45,7 +45,18 @@ class HomeController extends Controller
      */
     public function profile()
     {
-        return view('profile')->with(['access' => Auth::user()->createToken('profile')->accessToken,'user' => Auth::user()]);
+        return view('profile')->with(['access' => Auth::user()->createToken('profile')->accessToken, 'user' => Auth::user()]);
+    }
+
+
+    /**
+     * Show the User Profile.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function authProfile()
+    {
+        return view('profile_edit')->with(['access' => Auth::user()->createToken('profile')->accessToken]);
     }
 
 

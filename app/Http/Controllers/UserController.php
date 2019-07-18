@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Money;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -71,9 +72,12 @@ class UserController extends Controller
      * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
-        //
+        Auth::user()->name = $request->name;
+        Auth::user()->email = $request->email;
+        Auth::user()->save();
+        return Auth::user();
     }
 
     /**

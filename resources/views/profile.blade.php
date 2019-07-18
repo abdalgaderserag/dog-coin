@@ -23,7 +23,7 @@
 
             {{--START :: Profile card start--}}
 
-            <div class="header" style="margin: 60px 0 16px 4%">{{ $user->name }}</div>
+            <div class="header">{{ $user->name }}</div>
 
 
             <div class="flex-box card profile-card">
@@ -81,47 +81,6 @@
         </div>
         {{--main section from the page--}}
 
-
-        {{--Right section of the page--}}
-        <div class="left-section">
-            <br>
-            <div class="quick-card" style="margin: 0">
-                {{--<div style="padding: 76px 0 0 10%;">--}}
-
-                {{--<div style="margin-bottom: 12px">--}}
-                {{--<img src="images/Icons/request.svg" style="width: 1.7%;position: absolute;" alt="">--}}
-                {{--<span style="padding-left: 13%">--}}
-                {{--Send request--}}
-                {{--</span>--}}
-                {{--</div>--}}
-                {{--<div style="margin-bottom: 12px">--}}
-                {{--<img src="images/Icons/store.png" style="width: 1.7%;position: absolute;" alt="">--}}
-                {{--<span style="padding-left: 13%">--}}
-                {{--Recipient rquest--}}
-                {{--</span>--}}
-                {{--</div>--}}
-                {{--<div style="margin-bottom: 12px">--}}
-                {{--<img src="images/Icons/static.svg" style="width: 1.7%;position: absolute;" alt="">--}}
-                {{--<span style="padding-left: 13%">--}}
-                {{--Statical--}}
-                {{--</span>--}}
-                {{--</div>--}}
-                {{--<div style="margin-bottom: 12px">--}}
-                {{--<img src="images/Icons/profile.svg" style="width: 1.7%;position: absolute;" alt="">--}}
-                {{--<span style="padding-left: 13%">--}}
-                {{--Edit profile--}}
-                {{--</span>--}}
-                {{--</div>--}}
-                {{--<div style="margin-bottom: 12px">--}}
-                {{--<img src="images/Icons/favorite.svg" style="width: 1.7%;position: absolute;" alt="">--}}
-                {{--<span style="padding-left: 13%">--}}
-                {{--Favorite--}}
-                {{--</span>--}}
-                {{--</div>--}}
-
-                {{--</div>--}}
-            </div>
-        </div>
 
     </div>
 @endsection
