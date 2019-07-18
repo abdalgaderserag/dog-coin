@@ -54,6 +54,8 @@
                 </div>
 
                 <img src="/images/menu.png" class="menu" alt="">
+
+                @include('profile.parts.bio')
             </div>
             {{--END :: Profile card end--}}
 

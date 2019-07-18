@@ -66,4 +66,9 @@ class User extends Authenticatable
 //        });
         return $sender;
     }
+
+    public function bio()
+    {
+        return $this->hasOne('App\Bio');
+    }
 }

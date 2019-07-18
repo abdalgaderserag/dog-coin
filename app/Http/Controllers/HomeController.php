@@ -45,7 +45,7 @@ class HomeController extends Controller
      */
     public function profile()
     {
-        return view('profile')->with(['access' => Auth::user()->createToken('profile')->accessToken, 'user' => Auth::user()]);
+        return view('profile.profile')->with(['access' => Auth::user()->createToken('profile')->accessToken, 'user' => Auth::user()]);
     }
 
 
@@ -56,7 +56,7 @@ class HomeController extends Controller
      */
     public function authProfile()
     {
-        return view('profile_edit')->with(['access' => Auth::user()->createToken('profile')->accessToken]);
+        return view('profile.profile_edit')->with(['access' => Auth::user()->createToken('profile')->accessToken]);
     }
 
 
