@@ -16,7 +16,7 @@ class CreateBiosTable extends Migration
         Schema::create('bios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id',false,true)->unique();
-            $table->boolean('account_type');
+            $table->boolean('account_type')->default(true);
             $table->text('details')->nullable();
             $table->string('work')->nullable();
             $table->string('company')->nullable();
