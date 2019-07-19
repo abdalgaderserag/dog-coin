@@ -14,6 +14,7 @@
     </title>
 
     <!-- Scripts -->
+    <script src="{{ asset('stats/canvasjs.min.js') }}"></script>
 
 
     <!-- Fonts -->
