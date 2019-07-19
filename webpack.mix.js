@@ -16,6 +16,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/vueComponent.js', 'public/js')
     .sass('resources/sass/dashboard.scss', 'public/css')
     .sass('resources/sass/profile.scss', 'public/css')
+    .sass('resources/sass/edit-profile.scss', 'public/css')
     .sass('resources/sass/request.scss', 'public/css')
 
     .sass('resources/sass/parts/footer.scss', 'public/css')

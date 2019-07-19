@@ -1,0 +1,76 @@
+@import "variables";
+
+.profile-card {
+  .profile-avatar {
+    max-width: unset;
+    margin: 1%;
+
+    img {
+      height: 80px;
+      width: 80px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+  }
+
+  .text-card {
+    width: 49%;
+    padding-left: 2%;
+    border-left: 6px solid $pubGray;
+
+    .profile-text:first-child {
+      margin-top: 1%;
+    }
+
+    .profile-text {
+      max-width: unset;
+
+      input {
+        width: 88%;
+        padding: 4px 1%;
+        font-size: 2vh
+      }
+    }
+  }
+
+  .details-card {
+    width: 35%;
+    height: inherit;
+
+    textarea {
+      width: 100%;
+      //height: inherit;
+      height: 104px;
+      font-size: 2vh;
+      padding: 2%;
+      margin: 5% 0 8px 0;
+    }
+  }
+}
+
+.info-input {
+  width: 48%;
+  height: 20px;
+  float: left;
+  padding: 4px 1%;
+
+  .info-item-input {
+    width: 96%;
+    padding: 4px 2%;
+    font-size: 2vh;
+    border: 1px solid $borderColor;
+    border-radius: 5px;
+    margin-top: 4px;
+  }
+}
+
+.info-input-bottom {
+  margin-top: 102px;
+  background-color: $dogCoin;
+  border: 1px solid $borderColor;
+  color: $white;
+  border-radius: 18px;
+  padding: 0.5% 2%;
+  font-size: 2vh;
+  margin-left: 1%;
+}

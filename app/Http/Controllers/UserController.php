@@ -77,6 +77,13 @@ class UserController extends Controller
         Auth::user()->name = $request->name;
         Auth::user()->email = $request->email;
         Auth::user()->save();
+        $bio = Auth::user()->bios();
+        $bio->details = $request->details;
+        $bio->work = $request->work;
+        $bio->company = $request->company;
+        $bio->work_address = $request->work_address;
+        $bio->site = $request->site;
+        $bio->save();
         return Auth::user();
     }
 

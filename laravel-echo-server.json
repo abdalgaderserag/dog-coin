@@ -24,7 +24,6 @@
 	"sslCertChainPath": "",
 	"sslPassphrase": "",
 	"subscribers": {
-		"http": true,
 		"redis": true
 	},
 	"apiOriginAllow": {
