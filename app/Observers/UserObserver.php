@@ -33,9 +33,9 @@ class UserObserver
      *
      * @param  \App\User $user
      * @return void
-     */
+     *
     public function updated(User $user)
-    {}
+    {}*/
 
     /**
      * Handle the user "deleted" event.
@@ -55,20 +55,21 @@ class UserObserver
      *
      * @param  \App\User $user
      * @return void
-     */
+     *
     public function restored(User $user)
     {
         //
     }
 
-    /**
+    **
      * Handle the user "force deleted" event.
      *
      * @param  \App\User $user
      * @return void
-     */
+     *
     public function forceDeleted(User $user)
     {
         //
-    }
+    }*/
+
 }

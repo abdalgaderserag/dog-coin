@@ -9,17 +9,17 @@
     .transfer-image {
       float: left;
 
-      img:first-child {
+      a:first-child img {
         float: left;
       }
 
-      img:last-child {
+      a:last-child img {
         position: absolute;
-        left: 21.8%;
+        left: 18.8%;
       }
 
 
-      img {
+      a img {
         width: 72px;
         height: 72px;
         border: 4px solid $pubGray;

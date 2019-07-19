@@ -4,16 +4,20 @@
             <div class="transfer">
                 <div class="transfer-item">
                     <div v-if="index === 0" class="transfer-image">
-                        <img :src="transfer.sender.avatar" alt="">
-                        <img class="avatar-length" :src="transfer.recipient.avatar" alt="">
+                        <a :href="'/profile/' + transfer.sender.slug">
+                            <img :src="transfer.sender.avatar" alt="">
+                        </a>
+                        <a :href="'/profile/' + transfer.recipient.slug">
+                            <img class="avatar-length" :src="transfer.recipient.avatar" alt="">
+                        </a>
                     </div>
                     <div v-else class="transfer-image">
-                        <!--<a :href="'profile/' + transfer.sender.slug">-->
-                        <img :src="transfer.sender.avatar" alt="">
-                        <!--</a>-->
-                        <!--<a :href="'profile/' + transfer.recipient.slug">-->
-                        <img class="second-avatar" :src="transfer.recipient.avatar" alt="">
-                        <!--</a>-->
+                        <a :href="'/profile/' + transfer.sender.slug">
+                            <img :src="transfer.sender.avatar" alt="">
+                        </a>
+                        <a :href="'/profile/' + transfer.recipient.slug">
+                            <img class="second-avatar" :src="transfer.recipient.avatar" alt="">
+                        </a>
                     </div>
                     <div class="transfer-text flex-box">
                         <span>{{ transfer.sender.name }}</span>
@@ -26,7 +30,9 @@
             </div>
             <hr class="line">
         </div>
-        <div v-if="displayMore" style="text-align: center;cursor: pointer;" @click="getTransfer">view more transfers ...</div>
+        <div v-if="displayMore" style="text-align: center;cursor: pointer;" @click="getTransfer">view more transfers
+            ...
+        </div>
 
     </div>
 </template>
@@ -37,7 +43,7 @@
         data() {
             return {
                 transfers: [],
-                displayMore: true,
+                displayMore: false,
                 page: 2,
             }
         },
@@ -47,6 +53,8 @@
                     this.transfers = response.data[0];
                     if (response.data[1] == true) {
                         this.displayMore = false;
+                    } else {
+                        this.displayMore = true;
                     }
                 });
         },

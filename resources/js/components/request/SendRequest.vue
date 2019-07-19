@@ -39,35 +39,32 @@
 
 
         <div style="margin-top: 32px" class="header">All Requests:</div>
-        <div v-for="(req ,index) in users" :class="'request' + req.id">
-            <div class="transfer">
-                <div class="transfer-item">
-                    <div class="transfer-image">
-                        <img class="second-avatar" :src="req.recipient.avatar" style="position: unset;"
-                             alt="">
-                    </div>
-                    <div class="transfer-text flex-box" style="justify-content: space-between;padding-left: 1%">
-                        <div>
-                            <span>{{ req.recipient.name }}</span>
-                            <span style="color: #0067ff;">${{ req.money }}</span>
-                        </div>
-                        <div>
-                            {{ req.details }}
-                        </div>
-                        <div class="flex-box" style="width: 20%">
-                            <input type="submit" @click="editRequest(req , index)" value="edit" class="card">
-                            <input type="submit" @click="deleteRequest(req.id)" value="delete" class="card">
-                        </div>
-                    </div>
+
+        <div v-for="(req ,index) in users" class="flex-box" style="padding-bottom: 10px;border-bottom: 1px solid gray;"
+             :class="'request' + req.id">
+            <div style="margin-right: 2%">
+                <a :href="'/profile/' + req.recipient.slug">
+                    <img :src="req.recipient.avatar" style="width: 80px;border-radius: 50%;" alt="">
+                </a>
+            </div>
+            <div class="flex-box" style="width: 80%;flex-direction: column">
+                <div>{{ req.recipient.name }}</div>
+                <div>${{ req.money }}</div>
+                <div style="width: 100%">{{ req.details }}</div>
+                <div style="height: 34px;margin-top: 6px">
+                    <button @click="editRequest(req , index)" style="border: 1px solid #e3e7f1;padding: 4px 4%;">Edit
+                    </button>
+                    <button @click="deleteRequest(req.id)"
+                            style="border: 1px solid #e3e7f1;padding: 4px 4%;background-color: #0067ff;color: white;">
+                        Delete
+                    </button>
                 </div>
             </div>
-            <hr class="line">
         </div>
+
         <div v-if="displayMore" style="text-align: center;cursor: pointer;" @click="getRequest">
             view more transfers ...
         </div>
-
-
     </div>
 </template>
 
