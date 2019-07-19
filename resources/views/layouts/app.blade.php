@@ -64,7 +64,7 @@
             <a href="/statical" class="link-clear">Statical</a>
         </div>
         <div style="padding: 4px 10%;font-size: 2.7vh;">
-            <a href="/" class="link-clear">Edit profile</a>
+            <a href="/profile/edit" class="link-clear">Edit profile</a>
         </div>
         <div style="padding: 4px 10%;font-size: 2.7vh;">
             <a href="/favorite" class="link-clear">Favorite</a>

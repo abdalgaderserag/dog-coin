@@ -30,6 +30,28 @@ class RequestController extends Controller
         return response()->json($data, 200);
     }
 
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function recipient()
+    {
+        $reqs = RequestMoney::where('recipient_id', Auth::id())->with('user')->get();
+        $page = 1;
+        $last = false;
+        if (!empty($_GET['page']))
+            $page = $_GET['page'];
+        if ($reqs->count() <= $page * 5)
+            $last = true;
+
+        $data = [$reqs->forPage($page, 5), $last];
+        $data[2] = $data[0]->count();
+
+        return response()->json($data, 200);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

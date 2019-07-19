@@ -42,6 +42,7 @@ class TransferController extends Controller
     public function store(Request $request)
     {
         $transfer = new Transfer($request->all());
+        $transfer->sender_id = Auth::id();
         $transfer->save();
         return response()->json($transfer, 200);
     }

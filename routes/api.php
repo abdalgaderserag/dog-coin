@@ -16,10 +16,10 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->group(function () {
 
-    Route::apiResource('transfer', 'Api\TransferController')->except(['index']);
-    Route::get('transfer','Api\TransferController@index')->name('transfer');
+    Route::apiResource('transfer', 'Api\TransferController');
 
     Route::apiResource('request', 'Api\RequestController')->except(['show']);
+    Route::get('/request/recipient','Api\RequestController@recipient')->name('recipient');
 
     Route::get('/user/{cardID}', 'UserController@show');
 
