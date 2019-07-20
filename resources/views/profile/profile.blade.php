@@ -14,7 +14,9 @@
 
 @section('content')
     <div class="container flex-box">
-
+        <?php
+        $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
+        ?>
         @include('layouts.left-side')
 
 
@@ -59,13 +61,14 @@
             </div>
             {{--END :: Profile card end--}}
 
-
-            <div class="donate">
-                <span>$</span>
-                <input type="number" class="donate-input">
-                <br>
-                <input type="submit" class="donate-bottom" value="Send">
-            </div>
+            @unless($profile)
+                <div class="donate">
+                    <span>$</span>
+                    <input type="number" class="donate-input">
+                    <br>
+                    <input type="submit" class="donate-bottom" value="Send">
+                </div>
+            @endunless
 
             <div class="site-card">
                 {{--width: 45.45%--}}
@@ -78,6 +81,9 @@
 
                     <div class="card first-site" style="background: url('/images/ink.png') center center / cover;">
                     </div>
+                    {{--@if($profile)--}}
+                    {{--<span style="font-size: 11vh;margin-top: 10%;margin-left: 12%;">+</span>--}}
+                    {{--@endif--}}
                 </div>
             </div>
         </div>
