@@ -10,5 +10,4 @@ return [
     'money' => 'Money',
     'cDate' => 'Card Date',
     'subType' => 'Subscription Type',
-    'editCard' => 'Edit Card'
 ];
