@@ -18,10 +18,12 @@ class TransferObserver
     public function created(Transfer $transfer)
     {
         $money = $transfer->amount;
-        $sender = User::find($transfer->sender_id);
-        $recipient = User::find($transfer->recipient_id);
-        Log::info($sender->id);
-        Auth::user()->save();
+        $sender = User::find($transfer->sender_id)->money;
+        $recipient = User::find($transfer->recipient_id)->money;
+        $sender->money -= $money;
+        $recipient->money += $money;
+        $recipient->save();
+        $sender->save();
     }
 
     /**
