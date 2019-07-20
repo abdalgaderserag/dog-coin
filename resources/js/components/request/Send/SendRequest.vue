@@ -38,7 +38,7 @@
         </div>
 
 
-        <div style="margin-top: 32px" class="header">All Requests:</div>
+        <div style="margin-top: 32px" class="header">Sended Requests:</div>
 
         <div v-for="(request, index) in users">
             <send-requests :request="request" :index="index"></send-requests>
@@ -66,7 +66,7 @@
                 editNumber: 0,
                 user: {},
                 users: [],
-                displayMore: true,
+                displayMore: false,
                 page: 2,
             }
         },
@@ -76,6 +76,8 @@
                     this.users = response.data[0];
                     if (response.data[1] == true)
                         this.displayMore = false;
+                    else
+                        this.displayMore = true;
                 })
         },
         methods: {

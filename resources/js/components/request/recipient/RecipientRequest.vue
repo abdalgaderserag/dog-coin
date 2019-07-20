@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div style="margin-top: 32px" class="header">Requests:</div>
-        <div v-for="request in requests">
+        <div style="margin-top: 32px" class="header">All Recivied Requests:</div>
+        <div class="request-list" v-for="request in requests">
             <recipient-requests :request="request"></recipient-requests>
         </div>
 
@@ -25,12 +25,27 @@
             axios.get('/api/request/recipient')
                 .then((response) => {
                     this.requests = response.data[0];
-                    if (response.data[0]) {
+                    if (response.data[0] != true) {
                         this.displayMore = false;
                     } else {
                         this.displayMore = true;
                     }
                 })
+        }, methods: {
+            getRequest: function () {
+                let url = '/api/request/recipient?page=' + this.page;
+                axios.get(url)
+                    .then((response) => {
+                        for (let i = 0; i < response.data[2]; i++) {
+                            this.requests.push(response.data[0][this.requests.length]);
+                        }
+
+                        if (response.data[1] == true) {
+                            this.displayMore = false;
+                        }
+                        this.page = this.page + 1;
+                    });
+            }
         }
     }
 </script>

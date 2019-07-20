@@ -17,7 +17,7 @@
             {{--<div class="header">{{ __('dog.stats') }} :</div>--}}
             {{--<char :data="{{ \App\Transfer::all() }}"></char>--}}
             <div class="header">News:</div>
-            <div class="card flex-box" style="max-height: 240px">
+            <div class="card flex-box" style="height: 240px">
                 <div style="padding: 2%;float:left;font-size: 3.8vh;height:inherit;width: 48%;overflow: hidden;">
                     lorem sadaksd jlasjda sklj klasfjlk aj
                     dhkdg fjkahfj hld kfhadlh jhadsjlkfhl dskh fjlkadshfl jkadshfj
