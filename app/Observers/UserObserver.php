@@ -24,6 +24,7 @@ class UserObserver
         $money = new Money();
         $money->user_id = $user->id;
         $money->creditCardNumber = random_int(100000, 999999) . '' . random_int(100000, 999999) . '' . random_int(1000, 9999);
+        $money->money = '' . random_int(1, 1000) * 1000 . '.20';
         $money->save();
         return;
     }
@@ -34,8 +35,8 @@ class UserObserver
      * @param  \App\User $user
      * @return void
      *
-    public function updated(User $user)
-    {}*/
+     * public function updated(User $user)
+     * {}*/
 
     /**
      * Handle the user "deleted" event.
@@ -56,20 +57,19 @@ class UserObserver
      * @param  \App\User $user
      * @return void
      *
-    public function restored(User $user)
-    {
-        //
-    }
-
-    **
+     * public function restored(User $user)
+     * {
+     * //
+     * }
+     **
      * Handle the user "force deleted" event.
      *
      * @param  \App\User $user
      * @return void
      *
-    public function forceDeleted(User $user)
-    {
-        //
-    }*/
+     * public function forceDeleted(User $user)
+     * {
+     * //
+     * }*/
 
 }

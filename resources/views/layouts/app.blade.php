@@ -43,7 +43,7 @@
             </div>
             <div class="nav-bar-item">
                 {{--<span>$500</span>--}}
-                <span>${{ \Illuminate\Support\Facades\Auth::user()->money->money }}</span>
+                <span>$@{{ money }}</span>
             </div>
         </div>
         <div class="nav-bar-group flex-box" style="padding: 4px 4px 4px 8px;">
@@ -101,7 +101,8 @@
         el: '#app',
         data: {
             user: {!! \Illuminate\Support\Facades\Auth::user() !!},
-        }
+            money: {!! \Illuminate\Support\Facades\Auth::user()->money->money !!},
+        },
     });
 </script>
 @yield('scripts')

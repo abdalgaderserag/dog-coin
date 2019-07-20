@@ -26,9 +26,6 @@ class DatabaseSeeder extends Seeder
             $u->save();
             $u->avatar = '/images/profile/' . $avatars[$j];
             $u->save();
-//            $money = factory(App\Money::class)->make();
-//            $money->user_id = $u->id;
-//            $money->save();
             for ($i = 0; $i < 8; $i++) {
                 $transfer = factory(\App\Transfer::class)->make();
                 $transfer->sender_id = $u->id;
