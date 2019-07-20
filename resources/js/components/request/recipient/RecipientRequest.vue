@@ -2,7 +2,12 @@
     <div>
         <div style="margin-top: 32px" class="header">Requests:</div>
         <div v-for="request in requests">
-            <requests :request="request"></requests>
+            <recipient-requests :request="request"></recipient-requests>
+        </div>
+
+
+        <div v-if="displayMore" style="text-align: center;cursor: pointer;" @click="getRequest">
+            view more transfers ...
         </div>
     </div>
 </template>

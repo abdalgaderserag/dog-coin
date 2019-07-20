@@ -40,27 +40,10 @@
 
         <div style="margin-top: 32px" class="header">All Requests:</div>
 
-        <div v-for="(req ,index) in users" class="flex-box" style="padding-bottom: 10px;border-bottom: 1px solid gray;"
-             :class="'request' + req.id">
-            <div style="margin-right: 2%">
-                <a :href="'/profile/' + req.recipient.slug">
-                    <img :src="req.recipient.avatar" style="width: 80px;border-radius: 50%;" alt="">
-                </a>
-            </div>
-            <div class="flex-box" style="width: 80%;flex-direction: column">
-                <div>{{ req.recipient.name }}</div>
-                <div>${{ req.money }}</div>
-                <div style="width: 100%">{{ req.details }}</div>
-                <div style="height: 34px;margin-top: 6px">
-                    <button @click="editRequest(req , index)" style="border: 1px solid #e3e7f1;padding: 4px 4%;">Edit
-                    </button>
-                    <button @click="deleteRequest(req.id)"
-                            style="border: 1px solid #e3e7f1;padding: 4px 4%;background-color: #0067ff;color: white;">
-                        Delete
-                    </button>
-                </div>
-            </div>
+        <div v-for="(request, index) in users">
+            <send-requests :request="request" :index="index"></send-requests>
         </div>
+
 
         <div v-if="displayMore" style="text-align: center;cursor: pointer;" @click="getRequest">
             view more transfers ...
@@ -147,12 +130,6 @@
                 this.user = req.recipient;
                 this.amount = req.money;
                 this.details = req.details;
-            },
-            deleteRequest: function (id) {
-                axios.delete('/api/request/' + id)
-                    .then((response) => {
-                        document.getElementsByClassName('request' + id)[0].style.display = 'none';
-                    })
             },
             putRequest: function () {
                 axios.put('/api/request/' + this.id, {
