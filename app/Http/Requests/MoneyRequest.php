@@ -25,7 +25,7 @@ class MoneyRequest extends FormRequest
     public function rules()
     {
         return [
-            'recipient_id' => ['Required', 'Numeric'],
+            'recipient_id' => ['Required', 'Numeric', 'exists:users,user_id'],
             'money' => ['Required', 'Numeric', 'min:1'],
             'details' => ['max:255'],
         ];

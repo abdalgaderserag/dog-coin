@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\EnoughMoney;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TransferRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class TransferRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +26,8 @@ class TransferRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'recipient_id' => ['Required', 'Numeric', 'exists:users,user_id'],
+            'amount' => ['Required', 'Numeric', new EnoughMoney()],
         ];
     }
 }
