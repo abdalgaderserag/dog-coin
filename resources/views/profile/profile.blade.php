@@ -56,7 +56,7 @@ $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
                     </div>
                 </div>
 
-                <img src="/images/menu.png" class="menu" alt="">
+                <img style="margin-left: 2.3%;" src="/images/menu.png" class="menu" alt="">
 
                 @include('profile.parts.bio')
             </div>

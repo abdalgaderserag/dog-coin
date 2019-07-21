@@ -1,18 +1,17 @@
 <template>
     <div>
         <div class="header">Normal request:</div>
-        <div class="card request-position" style="padding: 1%;margin-bottom: 7%;">
+        <div class="card request-position" style="padding: 1% 1% 3% 1%;margin-bottom: 7%;">
             <div>
                 <div class="transfer-img">
                     <input v-model="cardId" type="text" class="card-id" placeholder="enter card ID"
                            style="margin-left: 18%;background-color: #f4f5ff;" @change="getCardId">
                     <div style="text-align: center;color: red">{{ message }}</div>
-                    <div style="text-align: center;">or</div>
-                    <select name="gadora" class="card-id select-input"
-                            style="margin: 4px 0 18px 18%;background-color: #f4f5ff;">
-                        <option>
-                            <img src="/images/profile/default.jpeg" width="30px" height="30px" alt="">
-                            <span>mohamed</span>
+                    <div v-if="favs.length != 0" style="text-align: center;">or</div>
+                    <select v-if="favs.length != 0" name="gadora" class="card-id select-input"
+                            style="margin: 4px 0 0 18%;background-color: #f4f5ff;">
+                        <option v-for="fav in favs">
+                            {{ fav.recipient.name }}
                         </option>
                     </select>
                 </div>
@@ -72,6 +71,7 @@
                 users: [],
                 displayMore: false,
                 page: 2,
+                favs: [],
             }
         },
         mounted() {
@@ -82,7 +82,11 @@
                         this.displayMore = false;
                     else
                         this.displayMore = true;
-                })
+                });
+            axios.get('/api/favorite?id=true')
+                .then((response) => {
+                    this.favs = response.data;
+                });
         },
         methods: {
             request: function () {

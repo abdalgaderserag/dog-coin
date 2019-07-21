@@ -91,7 +91,7 @@
         methods: {
             getUser: function (cardId) {
                 this.message = "finding...";
-                axios.get('api/user/' + cardId)
+                axios.get('/api/user/' + cardId)
                     .then((response) => {
                         this.list = true;
                         this.user = response.data;
@@ -119,7 +119,7 @@
                 if (this.money != null) {
                     this.money = Number.parseInt(this.money);
 
-                    axios.post('api/transfer', {
+                    axios.post('/api/transfer', {
                         'sender_id': this.$root.user.id,
                         'recipient_id': this.user.id,
                         'amount': this.money,
@@ -142,7 +142,7 @@
                 }
             },
             addList: function () {
-                axios.post('api/favorite', {
+                axios.post('/api/favorite', {
                     listed_id: this.user.id,
                 }).then(() => {
                     this.list = false;

@@ -17,7 +17,8 @@ class HomeController extends Controller
     {
 //        $this->middleware('auth');
         Auth::logout();
-        Auth::loginUsingId(random_int(1, 3));
+        Auth::loginUsingId(3);
+//        Auth::loginUsingId(random_int(1, 3));
     }
 
     /**
@@ -64,7 +65,6 @@ class HomeController extends Controller
      */
     public function authProfile()
     {
-        return 1;
         return view('profile.profile_edit')->with(['access' => Auth::user()->createToken('profile')->accessToken]);
     }
 
