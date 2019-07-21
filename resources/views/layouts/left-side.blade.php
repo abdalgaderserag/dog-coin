@@ -31,7 +31,7 @@
                 </a>
             </div>
             <div>
-                <a href="/profile/edit" class="link-clear">
+                <a href="/edit/profile" class="link-clear">
                     <img src="/images/Icons/profile.svg" alt="">
                     <span>
                         Edit profile
