@@ -37,13 +37,17 @@
             </div>
         </div>
 
-
-        <div style="margin-top: 32px" class="header">Sended Requests:</div>
-
-        <div v-for="(request, index) in users">
-            <send-requests :request="request" :index="index"></send-requests>
+        <div v-if="users.length != 0">
+            <div style="margin-top: 32px" class="header">Sended Requests:</div>
+            <div v-for="(request, index) in users">
+                <send-requests :request="request" :index="index"></send-requests>
+            </div>
         </div>
-
+        <div v-else style="padding: 5%">
+            <span style="font-size: 4vh">You currently don't have any sended request send one now!</span>
+            <br>
+            <span style="padding-left: 2%">when sending a request to user he can ether accept or deny the request.</span>
+        </div>
 
         <div v-if="displayMore" style="text-align: center;cursor: pointer;" @click="getRequest">
             view more transfers ...
