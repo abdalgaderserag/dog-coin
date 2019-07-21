@@ -43,7 +43,7 @@
             </div>
             <div class="nav-bar-item">
                 {{--<span>$500</span>--}}
-                <span>$@{{ money }}</span>
+                <span style="visibility: hidden" ref="mon">$@{{ money }}</span>
             </div>
         </div>
         <div class="nav-bar-group flex-box" style="padding: 4px 4px 4px 8px;">
@@ -103,6 +103,9 @@
             user: {!! \Illuminate\Support\Facades\Auth::user() !!},
             money: {!! \Illuminate\Support\Facades\Auth::user()->money->money !!},
         },
+        mounted() {
+            this.$refs.mon.style.visibility = 'visible';
+        }
     });
 </script>
 @yield('scripts')

@@ -63,7 +63,8 @@ class RequestController extends Controller
         $reqMoney = new RequestMoney($request->all());
         $reqMoney->user_id = Auth::id();
         $reqMoney->save();
-        return response()->json($reqMoney->with('recipient'), 200);
+        $reqMoney->recipient;
+        return response()->json($reqMoney, 200);
     }
 
     /**

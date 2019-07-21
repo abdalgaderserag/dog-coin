@@ -45,6 +45,7 @@
                     .then((response) => {
                         this.$el.innerHTML = "";
                         this.$el.outerHTML = "";
+                        this.$root.money -= this.request.money;
                     })
             }
         }

@@ -14,10 +14,10 @@ class RequestMoneyObserver
      * @param  \App\RequestMoney $requestMoney
      * @return void
      */
-//    public function created(RequestMoney $requestMoney)
-//    {
+    public function created(RequestMoney $requestMoney)
+    {
 
-//    }
+    }
 
     /**
      * Handle the request money "updated" event.

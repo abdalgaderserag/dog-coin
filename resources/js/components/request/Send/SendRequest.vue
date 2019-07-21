@@ -115,11 +115,12 @@
                     details: this.details,
                 })
                     .then((response) => {
+                        // this.$root.money -= this.amount;
                         this.cardId = '';
                         this.amount = '';
                         this.details = '';
                         this.show = false;
-                        this.users.add(response.data);
+                        this.users.push(response.data);
                     })
             },
             editRequest: function (req, id) {

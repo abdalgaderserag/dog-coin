@@ -6,7 +6,7 @@ $bio = $user->bio;
     <div style="border-top: 1px solid #c4cdd17d;width: 100%;padding: 8px 0;margin-top: 8px">
         <span class="info-item-head">Bio:</span>
         <div style="padding-left: 1%">
-            gadora please add some text for the details here so it viewd in profile view do it now
+            {{ $bio->details }}
         </div>
     </div>
 
