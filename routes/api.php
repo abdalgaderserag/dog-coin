@@ -19,10 +19,10 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('transfer', 'Api\TransferController');
 
     Route::apiResource('request', 'Api\RequestController')->except(['show']);
-    Route::get('/request/recipient','Api\RequestController@recipient')->name('recipient');
+    Route::get('/request/recipient', 'Api\RequestController@recipient')->name('recipient');
 
     Route::get('/user/{cardID}', 'UserController@show');
 
-    Route::apiResource('favorite', 'Api\FavoriteController')->except(['show','update']);
+    Route::apiResource('favorite', 'Api\FavoriteController')->only(['index', 'store', 'destroy']);
 
 });

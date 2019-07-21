@@ -37,28 +37,6 @@ class FavoriteController extends Controller
         return response('', 200);
     }
 
-    /**
-     * //     * Display the specified resource.
-     * //     *
-     * //     * @param  \App\Favorite $favorite
-     * //     * @return \Illuminate\Http\Response
-     * //     */
-//    public function show(Favorite $favorite)
-//    {
-//        //
-//    }
-//
-//    /**
-//     * Update the specified resource in storage.
-//     *
-//     * @param  \Illuminate\Http\Request $request
-//     * @param  \App\Favorite $favorite
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function update(Request $request, Favorite $favorite)
-//    {
-//        //
-//    }
 
     /**
      * Remove the specified resource from storage.

@@ -67,16 +67,6 @@ class RequestController extends Controller
         return response()->json($reqMoney, 200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\RequestMoney $requestMoney
-     * @return \Illuminate\Http\Response
-     */
-    public function show(RequestMoney $requestMoney)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
