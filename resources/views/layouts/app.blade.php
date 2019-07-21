@@ -43,7 +43,7 @@
             </div>
             <div class="nav-bar-item">
                 {{--<span>$500</span>--}}
-                <span style="visibility: hidden" ref="mon">$@{{ money }}</span>
+                <span style="visibility: hidden" ref="mon">$<span style="font-size: 2.1vh">@{{ money }}</span></span>
             </div>
         </div>
         <div class="nav-bar-group flex-box" style="padding: 4px 4px 4px 8px;">
