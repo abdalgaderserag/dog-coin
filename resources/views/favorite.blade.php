@@ -18,60 +18,68 @@
             <?php
             $favorite = \App\Favorite::all()->where('user_id', \Illuminate\Support\Facades\Auth::id());
             ?>
-            @forelse($favorite as $fav)
-                @if($loop->index == 1)
-                    <div style="margin-top: 32px" class="header">Requests:</div>
-                @endif
-                <div>
-                    <div class="favorite">
-                        <div class="transfer">
-                            <div class="transfer-item">
-
-                                <div class="flex-box" style="flex-direction: column;float: left;padding-top:14px;">
-                                    <div style="text-align: center;height: 10px;margin-bottom: 18px">&bigwedge;</div>
-                                    <div style="text-align: center;height: 10px;">&bigvee;</div>
-                                </div>
-
-                                <div class="transfer-image">
-                                    <img class="second-avatar" src="{{ $fav->recipient->avatar }}"
-                                         style="position: unset;"
-                                         alt="">
-                                </div>
-                                <div class="transfer-text flex-box" style="justify-content: start;padding-left: 1%">
-                                    <div>
-                                        <span>{{ $fav->recipient->name }}</span>
-                                    </div>
-                                    <div style="margin-left: 33%;float: right;width: 11%;">
-                                        <input type="submit" onclick="deleteUser({{ $fav->id }},{{ $loop->index }})"
-                                               value="delete"
-                                               class="card"
-                                               style="border: 1px solid #e3e7f1;padding: 4px 22%;width: max-content;">
-                                    </div>
-                                </div>
+            <div id="fav-list">
+                @forelse($favorite as $fav)
+                    @if($loop->index == 0)
+                        <div style="margin-top: 32px" class="header">Requests:</div>
+                    @endif
+                    <div class="flex-box favorite"
+                         style="padding-bottom: 10px;border-bottom: 1px solid gray;margin-top: 10px">
+                        <div style="margin-right: 2%">
+                            <a href="{{ '/profile/' . $fav->recipient->slug }}">
+                                <img src="{{ $fav->recipient->avatar }}" style="width: 80px;border-radius: 50%;" alt="">
+                            </a>
+                        </div>
+                        <div class="flex-box" style="width: 80%;flex-direction: column">
+                            <div>{{ $fav->recipient->name }}</div>
+                            <div style="height: 34px;margin-top: 6px">
+                                <button onclick="deleteUser({{ $fav->id }},{{ $loop->index }}, {{ $fav->recipient->id }})"
+                                        style="border: 1px solid #e3e7f1;padding: 4px 4%;background-color: #0067ff;color: white;">
+                                    Delete
+                                </button>
                             </div>
                         </div>
-                        <hr class="line">
                     </div>
-                </div>
-            @empty
-                <div style="padding: 5%">
-                    <span style="font-size: 4vh">You currently don't added any person add some by searching int the input in the left.</span>
-                    <br>
-                    <span>the added users can be easly find when send recipient money.</span>
-                </div>
-            @endforelse
-
+                @empty
+                    <div style="padding: 5%">
+                        <span style="font-size: 4vh">You currently don't added any person add some by searching int the input in the left.</span>
+                        <br>
+                        <span>the added users can be easly find when send recipient money.</span>
+                    </div>
+                @endforelse
+            </div>
         </div>
     </div>
 @endsection
 
 @section('scripts')
     <script>
-        function deleteUser(id, index) {
+        function deleteUser(id, index, user_id) {
             axios.delete('/api/favorite/' + id)
                 .then((response) => {
-                    document.getElementsByClassName('favorite')[index].style.display = 'none';
+                    let items = document.getElementsByClassName('favorite');
+                    items[index].style.display = 'none';
+                    deleteInArray(user_id);
+                    if (index + 1 == items.length) {
+                        let div = document.getElementById('fav-list');
+                        div.innerHTML = '<div style="padding: 5%">' +
+                            '<span style="font-size: 4vh">You currently don\'t added any person add some by searching int the input in the left.</span>' +
+                            '<br>' +
+                            '<span>the added users can be easly find when send recipient money.</span>' +
+                            '</div>';
+                    }
                 });
+        }
+
+        function deleteInArray(id) {
+            index = 0;
+            for (let i = 0; i < app.$children[index].favorite.length; i++) {
+                console.log(app.$children[index].favorite[i].listed_id + '\n' + id);
+                if (app.$children[index].favorite[i].listed_id == id) {
+                    console.log(app.$children[index]);
+                    app.$children[index].favorite.splice(i, 1);
+                }
+            }
         }
     </script>
 @endsection
