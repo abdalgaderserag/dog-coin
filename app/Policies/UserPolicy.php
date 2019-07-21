@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Facades\Auth;
 
 class UserPolicy
 {
@@ -18,7 +19,7 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +30,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -41,7 +42,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        //
+        return $user->id == $model->id && $user->id == Auth::id();
     }
 
     /**
@@ -53,30 +54,30 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        //
+        return $user->id == $model->id && $user->id == Auth::id();
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param  \App\User  $user
-     * @param  \App\User  $model
-     * @return mixed
-     */
-    public function restore(User $user, User $model)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param  \App\User  $user
-     * @param  \App\User  $model
-     * @return mixed
-     */
-    public function forceDelete(User $user, User $model)
-    {
-        //
-    }
+//    /**
+//     * Determine whether the user can restore the model.
+//     *
+//     * @param  \App\User  $user
+//     * @param  \App\User  $model
+//     * @return mixed
+//     */
+//    public function restore(User $user, User $model)
+//    {
+//        //
+//    }
+//
+//    /**
+//     * Determine whether the user can permanently delete the model.
+//     *
+//     * @param  \App\User  $user
+//     * @param  \App\User  $model
+//     * @return mixed
+//     */
+//    public function forceDelete(User $user, User $model)
+//    {
+//        //
+//    }
 }
