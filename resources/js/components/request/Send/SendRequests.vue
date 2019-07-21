@@ -39,8 +39,7 @@
             deleteRequest: function () {
                 axios.delete('/api/request/' + this.request.id)
                     .then((response) => {
-                        this.$el.innerHTML = "";
-                        this.$el.outerHTML = "";
+                        this.$parent.remove(this.index);
                     })
             },
         }

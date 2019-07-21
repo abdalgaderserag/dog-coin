@@ -26,7 +26,7 @@ class TransferRequest extends FormRequest
     public function rules()
     {
         return [
-            'recipient_id' => ['Required', 'Numeric', 'exists:users,user_id'],
+            'recipient_id' => ['Required', 'Numeric', 'exists:users,id'],
             'amount' => ['Required', 'Numeric', new EnoughMoney()],
         ];
     }

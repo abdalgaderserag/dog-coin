@@ -89,6 +89,9 @@
                 });
         },
         methods: {
+            remove: function (index) {
+                this.users.splice(index, 1)
+            },
             request: function () {
                 if (this.method == 'post')
                     this.sendRequest();

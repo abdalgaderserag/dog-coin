@@ -26,7 +26,7 @@ class FavoriteRequest extends FormRequest
     public function rules()
     {
         return [
-            'listed_id' => ['required', 'Numeric', 'exists:users,user_id', new UniqueId()]
+            'listed_id' => ['required', 'Numeric', 'exists:users,id', new UniqueId()]
         ];
     }
 }
