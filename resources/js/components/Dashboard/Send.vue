@@ -147,6 +147,8 @@
                 }).then(() => {
                     this.list = false;
                     this.favorite[this.favorite.length] = {listed_id: this.user.id};
+                }).catch((error) => {
+                    this.message = error.errors.listed_id[0];
                 });
             }
         }

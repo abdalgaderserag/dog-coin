@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class MoneyRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class MoneyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -24,7 +25,9 @@ class MoneyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'recipient_id' => ['Required', 'Numeric'],
+            'money' => ['Required', 'Numeric', 'min:1'],
+            'details' => ['max:255'],
         ];
     }
 }

@@ -5,7 +5,6 @@ namespace App\Rules;
 use App\Favorite;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class UniqueId implements Rule
 {

@@ -31,6 +31,7 @@ class FavoriteController extends Controller
      */
     public function store(FavoriteRequest $request)
     {
+        $request->validated();
         $fav = new Favorite($request->all());
         $fav->user_id = Auth::id();
         $fav->save();
