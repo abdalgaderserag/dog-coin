@@ -2,7 +2,10 @@
 
 namespace App\Rules;
 
+use App\Favorite;
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class UniqueId implements Rule
 {
@@ -19,13 +22,14 @@ class UniqueId implements Rule
     /**
      * Determine if the validation rule passes.
      *
-     * @param  string  $attribute
-     * @param  mixed  $value
+     * @param  string $attribute
+     * @param  mixed $value
      * @return bool
      */
     public function passes($attribute, $value)
     {
-        //
+        $is = Favorite::where('listed_id',$value)->where('user_id', Auth::id())->first();
+        return empty($is);
     }
 
     /**
@@ -35,6 +39,6 @@ class UniqueId implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'this user already added.';
     }
 }

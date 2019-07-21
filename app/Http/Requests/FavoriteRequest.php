@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\UniqueId;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +26,7 @@ class FavoriteRequest extends FormRequest
     public function rules()
     {
         return [
-            'listed_id' => ['required', 'Numeric',]
+            'listed_id' => ['required', 'Numeric', new UniqueId()]
         ];
     }
 }
