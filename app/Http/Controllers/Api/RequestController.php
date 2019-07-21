@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\MoneyRequest;
 use App\RequestMoney;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,10 +55,10 @@ class RequestController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  MoneyRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MoneyRequest $request)
     {
         $reqMoney = new RequestMoney($request->all());
         $reqMoney->user_id = Auth::id();
@@ -71,11 +71,11 @@ class RequestController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  MoneyRequest $request
      * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MoneyRequest $request, $id)
     {
         $requestMoney = RequestMoney::find($id);
         $requestMoney->money = $request->money;

@@ -4,7 +4,6 @@ namespace App\Observers;
 
 use App\RequestMoney;
 use App\Transfer;
-use Illuminate\Support\Facades\Log;
 
 class RequestMoneyObserver
 {

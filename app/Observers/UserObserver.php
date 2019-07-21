@@ -5,7 +5,6 @@ namespace App\Observers;
 use App\Bio;
 use App\Money;
 use App\User;
-use Faker\Factory;
 
 class UserObserver
 {

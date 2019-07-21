@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Resources\UserTransferResource;
+use App\Http\Requests\TransferRequest;
 use App\Transfer;
 use App\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,10 +35,10 @@ class TransferController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  TransferRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TransferRequest $request)
     {
         $transfer = new Transfer($request->all());
         $transfer->sender_id = Auth::id();
@@ -63,11 +62,11 @@ class TransferController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  TransferRequest $request
      * @param  Transfer $transfer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Transfer $transfer)
+    public function update(TransferRequest $request, Transfer $transfer)
     {
         $transfer->mount = $request->mount;
         $transfer->save();

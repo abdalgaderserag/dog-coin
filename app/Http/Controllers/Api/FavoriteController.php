@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Favorite;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\FavoriteRequest;
 use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
@@ -26,10 +26,10 @@ class FavoriteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  FavoriteRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FavoriteRequest $request)
     {
         $fav = new Favorite($request->all());
         $fav->user_id = Auth::id();

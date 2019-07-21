@@ -4,8 +4,6 @@ namespace App\Observers;
 
 use App\Transfer;
 use App\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 
 class TransferObserver
 {
