@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,7 @@ class HomeController extends Controller
     {
 //        $this->middleware('auth');
         Auth::logout();
-        Auth::loginUsingId(random_int(1,3));
+        Auth::loginUsingId(random_int(1, 3));
     }
 
     /**
@@ -42,11 +43,17 @@ class HomeController extends Controller
     /**
      * Show the User Profile.
      *
+     * @param $slug = ''
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function profile()
+    public function profile($slug = '')
     {
-        return view('profile.profile')->with(['access' => Auth::user()->createToken('profile')->accessToken, 'user' => Auth::user()]);
+        if ($slug == '') {
+            $user = Auth::user();
+        } else {
+            $user = User::where('slug', $slug)->first();
+        }
+        return view('profile.profile')->with(['access' => Auth::user()->createToken('profile')->accessToken, 'user' => $user]);
     }
 
 
@@ -57,6 +64,7 @@ class HomeController extends Controller
      */
     public function authProfile()
     {
+        return 1;
         return view('profile.profile_edit')->with(['access' => Auth::user()->createToken('profile')->accessToken]);
     }
 

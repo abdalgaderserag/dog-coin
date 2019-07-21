@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
+<?php
+$profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
+?>
 
-@if($user->id == \Illuminate\Support\Facades\Auth::id())
+@if($profile)
     @section('title','Profile')
 @else
     @section('title',$user->name . ' | Profile')
@@ -14,9 +17,7 @@
 
 @section('content')
     <div class="container flex-box">
-        <?php
-        $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
-        ?>
+
         @include('layouts.left-side')
 
 

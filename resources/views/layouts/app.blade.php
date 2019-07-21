@@ -42,11 +42,10 @@
                 <span>{{ __('dog.transfer') }} ⌵</span>
             </div>
             <div class="nav-bar-item">
-                {{--<span>$500</span>--}}
                 <span style="visibility: hidden" ref="mon">$<span style="font-size: 2.1vh">@{{ money }}</span></span>
             </div>
         </div>
-        <div class="nav-bar-group flex-box" style="padding: 4px 4px 4px 8px;">
+        <div class="nav-bar-group flex-box" style="padding: 4px 4px 2px 8px;">
             <a href="/profile">
                 <img class="avatar" src="{{ \Illuminate\Support\Facades\Auth::user()->avatar }}" alt="">
             </a>
@@ -95,6 +94,15 @@
             document.getElementsByClassName('nav-menu')[0].style.display = 'none';
         }
 
+    }
+
+    function parseDate(date) {
+        let temp;
+        date = date.split('-');
+        temp = date[2].split(' ');
+        date[2] = temp[0];
+        temp = temp[1].split(':');
+        return new Date(date[0], date[1], date[2], temp[0], temp[1], temp[2],);
     }
 
     let app = new Vue({

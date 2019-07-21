@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Dashboard')
+@section('title','favorite')
 
 @section('content')
     <div class="container flex-box">
@@ -15,11 +15,13 @@
             </div>
 
 
-            <div style="margin-top: 32px" class="header">Requests:</div>
             <?php
-                $favorite = \App\Favorite::all()->where('user_id', \Illuminate\Support\Facades\Auth::id());
+            $favorite = \App\Favorite::all()->where('user_id', \Illuminate\Support\Facades\Auth::id());
             ?>
-            @foreach($favorite as $fav)
+            @forelse($favorite as $fav)
+                @if($loop->index == 1)
+                    <div style="margin-top: 32px" class="header">Requests:</div>
+                @endif
                 <div>
                     <div class="favorite">
                         <div class="transfer">
@@ -27,7 +29,6 @@
 
                                 <div class="flex-box" style="flex-direction: column;float: left;padding-top:14px;">
                                     <div style="text-align: center;height: 10px;margin-bottom: 18px">&bigwedge;</div>
-                                    {{--<div style="text-align: center;height: 14px;padding-top: 4px;">4</div>--}}
                                     <div style="text-align: center;height: 10px;">&bigvee;</div>
                                 </div>
 
@@ -40,11 +41,9 @@
                                     <div>
                                         <span>{{ $fav->recipient->name }}</span>
                                     </div>
-                                    {{--<div style="margin-left: 2%">--}}
-                                        {{--{{ $fav->details }}--}}
-                                    {{--</div>--}}
                                     <div style="margin-left: 33%;float: right;width: 11%;">
-                                        <input type="submit" onclick="deleteUser({{ $fav->id }},{{ $loop->index }})" value="delete"
+                                        <input type="submit" onclick="deleteUser({{ $fav->id }},{{ $loop->index }})"
+                                               value="delete"
                                                class="card"
                                                style="border: 1px solid #e3e7f1;padding: 4px 22%;width: max-content;">
                                     </div>
@@ -54,7 +53,13 @@
                         <hr class="line">
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div style="padding: 5%">
+                    <span style="font-size: 4vh">You currently don't added any person add some by searching int the input in the left.</span>
+                    <br>
+                    <span>the added users can be easly find when send recipient money.</span>
+                </div>
+            @endforelse
 
         </div>
     </div>
@@ -62,7 +67,7 @@
 
 @section('scripts')
     <script>
-        function deleteUser(id,index) {
+        function deleteUser(id, index) {
             axios.delete('/api/favorite/' + id)
                 .then((response) => {
                     document.getElementsByClassName('favorite')[index].style.display = 'none';

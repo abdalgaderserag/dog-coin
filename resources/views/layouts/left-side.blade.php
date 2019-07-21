@@ -1,8 +1,5 @@
 {{--Left section of the page--}}
 <div class="left-section">
-    <?php
-    $user = \Illuminate\Support\Facades\Auth::user();
-    ?>
     <br>
     <div class="quick-card">
         <send></send>

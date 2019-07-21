@@ -11,11 +11,8 @@
         @include('layouts.left-side')
 
 
-        {{--main section from the page--}}
         <div class="main">
             <br>
-            {{--<div class="header">{{ __('dog.stats') }} :</div>--}}
-            {{--<char :data="{{ \App\Transfer::all() }}"></char>--}}
             <div class="header">News:</div>
             <div class="card flex-box" style="height: 240px">
                 <div style="padding: 2%;float:left;font-size: 3.8vh;height:inherit;width: 48%;overflow: hidden;">
@@ -51,8 +48,4 @@
         </div>
 
     </div>
-@endsection
-
-@section('scripts')
-    {{--<script src="{{ asset('stats/canvasjs.min.js') }}"></script>--}}
 @endsection

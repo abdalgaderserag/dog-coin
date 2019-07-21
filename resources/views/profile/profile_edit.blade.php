@@ -28,7 +28,7 @@
 
             <form action="{{ route('user.update') }}" method="post">
                 @csrf
-                @method('put')
+                @method('PUT')
 
                 <div class="flex-box card profile-card">
 

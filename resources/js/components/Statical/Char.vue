@@ -1,5 +1,17 @@
 <template>
-    <div id="chartContainer" style="height: 370px; width: 100%; margin: 0px auto;"></div>
+    <div>
+        <div v-if="data.length !== 0">
+            <div id="chartContainer" style="height: 370px; width: 100%; margin: 0px auto;"></div>
+        </div>
+        <div v-else>
+            <div style="padding: 5%;width: 67%;margin-left: 20%;">
+                <span style="font-size: 3vh">There are no money transfer right now start transferring
+                    <a href="/request/send" class="link-clear" style="text-decoration: underline">now!</a></span>
+                <br>
+                <span>Here will disapper chart viewing all your transfers.</span>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -29,6 +41,7 @@
                     axisY: {
                         title: "",
                         includeZero: false,
+                        gridThickness: 0,
                         valueFormatString: "$##0.00",
                         crosshair: {
                             enabled: true,
@@ -51,14 +64,8 @@
                 let array = [];
 
                 for (let i = 0; i < this.data.length; i++) {
-                    let date = this.data[i].created_at;
-                    let temp;
-                    date = date.split('-');
-                    temp = date[2].split(' ');
-                    date[2] = temp[0];
-                    temp = temp[1].split(':');
                     array[i] = {
-                        x: new Date(date[0], date[1], date[2], temp[0], temp[1], temp[2],),
+                        x: parseDate(this.data[i].created_at),
                         y: this.data[i].amount
                     };
                 }
