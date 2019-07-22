@@ -36,8 +36,9 @@ class FavoriteController extends Controller
      */
     public function store(FavoriteRequest $request)
     {
+        if (Auth::id() == $request->listed_id)
+            return response("You can't add your self!", 405);
         $this->authorize('favorite.create');
-//        $request->validated();
         $fav = new Favorite($request->all());
         $fav->user_id = Auth::id();
         $fav->save();

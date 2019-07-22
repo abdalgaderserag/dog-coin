@@ -42,6 +42,8 @@ class TransferController extends Controller
      */
     public function store(TransferRequest $request)
     {
+        if (Auth::id() == $request->recipient_id)
+            return response("You can't add your self!", 405);
         $this->authorize('transfers.create');
         $transfer = new Transfer($request->all());
         $transfer->sender_id = Auth::id();
@@ -74,6 +76,8 @@ class TransferController extends Controller
      */
     public function update(TransferRequest $request, Transfer $transfer)
     {
+        if (Auth::id() == $request->recipient_id)
+            return response("You can't add your self!", 405);
         $this->authorize('transfers.update', $transfer);
         $transfer->mount = $request->mount;
         $transfer->save();

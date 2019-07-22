@@ -68,6 +68,8 @@ class RequestController extends Controller
      */
     public function store(MoneyRequest $request)
     {
+        if (Auth::id() == $request->recipient_id)
+            return response("You can't add your self!", 405);
         $this->authorize('transfers.view');
         $reqMoney = new RequestMoney($request->all());
         $reqMoney->user_id = Auth::id();
@@ -88,6 +90,8 @@ class RequestController extends Controller
      */
     public function update(MoneyRequest $request, $id)
     {
+        if (Auth::id() == $request->recipient_id)
+            return response("You can't add your self!", 405);
         $requestMoney = RequestMoney::find($id);
         $this->authorize('transfers.update', $requestMoney);
         $requestMoney->money = $request->money;
