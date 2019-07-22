@@ -27,3 +27,7 @@ Route::middleware('auth:api')->group(function () {
 //    Route::get('favorite/{id}', 'Api\FavoriteController@show');
 
 });
+Route::post('fo', function () {
+     new \App\Rules\WithoutAuth();
+     return 1;
+});
