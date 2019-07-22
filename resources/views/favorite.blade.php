@@ -2,16 +2,19 @@
 
 @section('title','favorite')
 
+@section('styles')
+    <link href="{{ asset('css/favorite.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
     <div class="container flex-box">
 
         @include('layouts.left-side')
 
-        <div class="main" style="width: 60%;padding-top: 42px">
+        <div class="main" >
 
-            <div class="card" style="margin-top: 43px;padding: 1%">
-                <input type="search" name="user" placeholder="search for user" class="card-id"
-                       style="background-color:#f4f5ff;margin-bottom: 18px;width: 95%;margin-left: 2.5%;">
+            <div class="card search-card">
+                <input type="search" name="user" placeholder="search for user" class="card-id">
             </div>
 
 
@@ -21,28 +24,26 @@
             <div id="fav-list">
                 @forelse($favorite as $fav)
                     @if($loop->index == 0)
-                        <div style="margin-top: 32px" class="header">Requests:</div>
+                        <div class="header">Requests:</div>
                     @endif
-                    <div class="flex-box favorite"
-                         style="padding-bottom: 10px;border-bottom: 1px solid gray;margin-top: 10px">
-                        <div style="margin-right: 2%">
+                    <div class="flex-box favorite">
+                        <div class="card-avatar">
                             <a href="{{ '/profile/' . $fav->recipient->slug }}">
-                                <img src="{{ $fav->recipient->avatar }}" style="width: 80px;border-radius: 50%;" alt="">
+                                <img src="{{ $fav->recipient->avatar }}">
                             </a>
                         </div>
-                        <div class="flex-box" style="width: 80%;flex-direction: column">
+                        <div class="flex-box card-text">
                             <div>{{ $fav->recipient->name }}</div>
-                            <div style="height: 34px;margin-top: 6px">
-                                <button onclick="deleteUser({{ $fav->id }},{{ $loop->index }}, {{ $fav->recipient->id }})"
-                                        style="border: 1px solid #e3e7f1;padding: 4px 4%;background-color: #0067ff;color: white;">
+                            <div>
+                                <button onclick="deleteUser({{ $fav->id }},{{ $loop->index }}, {{ $fav->recipient->id }})">
                                     Delete
                                 </button>
                             </div>
                         </div>
                     </div>
                 @empty
-                    <div id="fav-empty" style="padding: 5%">
-                        <span style="font-size: 4vh">You currently don't added any person add some by searching int the input in the left.</span>
+                    <div id="fav-empty">
+                        <span>You currently don't added any person add some by searching int the input in the left.</span>
                         <br>
                         <span>the added users can be easly find when send recipient money.</span>
                     </div>

@@ -18,6 +18,7 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/profile.scss', 'public/css')
     .sass('resources/sass/edit-profile.scss', 'public/css')
     .sass('resources/sass/request.scss', 'public/css')
+    .sass('resources/sass/favorite.scss', 'public/css')
 
     .sass('resources/sass/parts/footer.scss', 'public/css')
     .sass('resources/sass/parts/left.scss', 'public/css')

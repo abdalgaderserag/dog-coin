@@ -9,5 +9,6 @@
     "/css/transfer.css": "/css/transfer.css",
     "/css/app.css": "/css/app.css",
     "/js/response.js": "/js/response.js",
-    "/js/vueComponent.js": "/js/vueComponent.js"
+    "/js/vueComponent.js": "/js/vueComponent.js",
+    "/css/favorite.css": "/css/favorite.css"
 }

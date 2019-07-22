@@ -23,11 +23,11 @@
 
 <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/left.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/request.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/transfer.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    {{--<link href="{{ asset('css/footer.css') }}" rel="stylesheet">--}}
+    {{--<link href="{{ asset('css/left.css') }}" rel="stylesheet">--}}
+    {{--<link href="{{ asset('css/request.css') }}" rel="stylesheet">--}}
+    {{--<link href="{{ asset('css/transfer.css') }}" rel="stylesheet">--}}
+    {{--<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">--}}
     @yield('styles')
 </head>
 <body>
@@ -119,4 +119,6 @@
 @yield('scripts')
 
 </body>
+<link href="{{ asset('css/footer.css') }}" rel="stylesheet">
+
 </html>

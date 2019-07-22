@@ -4,6 +4,7 @@
 
 @section('styles')
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/transfer.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')

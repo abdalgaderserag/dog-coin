@@ -1,0 +1,78 @@
+@import 'variables';
+
+@media only screen and (max-device-width: 480px) {
+  .main {
+    width: 96%;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .main {
+    width: 60%;
+  }
+}
+
+.main {
+  padding-top: 42px;
+  .search-card {
+    margin-top: 43px;
+    padding: 1%;
+    .card-id {
+      background-color: $pubGray;
+      margin-bottom: 18px;
+      width: 95%;
+      margin-left: 2.5%;
+    }
+  }
+
+  #fav-list {
+    .header {
+      margin-top: 32px;
+    }
+    .favorite {
+      padding-bottom: 10px;
+      border-bottom: 1px solid $gray;
+      margin-top: 10px;
+      flex-wrap: nowrap;
+      .card-avatar {
+        margin-right: 2%;
+        a {
+          img {
+            width: 80px;
+            border-radius: 50%;
+          }
+        }
+      }
+      .card-text {
+        width: 80%;
+        flex-direction: column;
+        div:last-child {
+          height: 34px;
+          margin-top: 6px;
+          button {
+            border: 1px solid $gray;
+            padding: 4px 4%;
+            background-color: $dogCoin;
+            color: $white;
+          }
+        }
+      }
+    }
+
+    #fav-empty {
+      padding: 5%;
+      span:first-child {
+        font-size: 4vh;
+      }
+    }
+  }
+}
+
+.card-id {
+  width: 60%;
+  padding: 4px 4%;
+  margin: 18px 5% 0 5%;
+  border: 1px solid #e3e7f1;
+  border-radius: 18px;
+  font-size: 2.4vh;
+}

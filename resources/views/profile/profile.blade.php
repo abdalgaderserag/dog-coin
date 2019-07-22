@@ -61,9 +61,9 @@ $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
                         {{ $user->created_at }}
                     </div>
                 </div>
-
-                <img style="margin-left: -1.1%;" src="/images/menu.png" class="menu" alt="">
-
+                @if(!$profile)
+                    <img style="margin-left: -1.1%;" src="/images/menu.png" class="menu" alt="">
+                @endif
                 @include('profile.parts.bio')
             </div>
             {{--END :: Profile card end--}}
@@ -75,10 +75,10 @@ $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
                     <br>
                     <input type="submit" class="donate-bottom" value="Send">
                 </div>
-            @else
-                <div class="flex-box" style="justify-content: center;margin-top: 6%;">
-                    <span style="font-size: 3vh;">{{ '$' . $user->money->money }}</span>
-                </div>
+            {{--@else--}}
+                {{--<div class="flex-box" style="justify-content: center;margin-top: 6%;">--}}
+                    {{--<span style="font-size: 3vh;">{{ '$' . $user->money->money }}</span>--}}
+                {{--</div>--}}
             @endunless
 
             <div class="site-card">
@@ -100,7 +100,7 @@ $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
 
     </div>
 @endsection
-
+@if(!$profile)
 @section('scripts')
     <script>
         //Basic setup
@@ -137,3 +137,4 @@ $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
         }
     </script>
 @endsection
+@endif
