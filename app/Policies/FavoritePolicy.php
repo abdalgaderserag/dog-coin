@@ -34,17 +34,6 @@ class FavoritePolicy
         return Auth::id() == $user->id;
     }
 
-    /**
-     * Determine whether the user can update the favorite.
-     *
-     * @param  \App\User $user
-     * @param  \App\Favorite $favorite
-     * @return mixed
-     */
-//    public function update(User $user, Favorite $favorite)
-//    {
-    //
-//    }
 
     /**
      * Determine whether the user can delete the favorite.
@@ -58,27 +47,4 @@ class FavoritePolicy
         return Auth::id() == $user->id && $user->id == $favorite->user_id;
     }
 
-    /**
-     * Determine whether the user can restore the favorite.
-     *
-     * @param  \App\User $user
-     * @param  \App\Favorite $favorite
-     * @return mixed
-     */
-//    public function restore(User $user, Favorite $favorite)
-//    {
-    //
-//    }
-
-    /**
-     * Determine whether the user can permanently delete the favorite.
-     *
-     * @param  \App\User $user
-     * @param  \App\Favorite $favorite
-     * @return mixed
-     */
-//    public function forceDelete(User $user, Favorite $favorite)
-//    {
-    //
-//    }
 }

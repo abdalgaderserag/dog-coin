@@ -13,13 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $policies = [
-//        'App\Favorite' => 'App\Policies\FavoritePolicy',
-//        'App\Money' => 'App\Policies\MoneyPolicy',
-//        'App\RequestMoney' => 'App\Policies\RequestPolicy',
-//        'App\Transfer' => 'App\Policies\TransferPolicy',
-//        'App\User' => \App\Policies\UserPolicy::class,
-    ];
+    protected $policies = [];
 
     /**
      * Register any authentication / authorization services.
@@ -30,11 +24,23 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::resource('users', 'App\Policies\UserPolicy')->only(['update', 'delete']);
-        Gate::resource('transfers', 'App\Policies\TransferPolicy')->except(['restore', 'forceDelete']);
-        Gate::resource('requests', 'App\Policies\RequestPolicy')->except(['restore', 'forceDelete']);
+        Gate::define('users.update', 'App\Policies\UserPolicy@update');
+        Gate::define('users.delete', 'App\Policies\UserPolicy@delete');
+
+        Gate::define('transfers.view', 'App\Policies\TransferPolicy@view');
+        Gate::define('transfers.create', 'App\Policies\TransferPolicy@create');
+        Gate::define('transfers.update', 'App\Policies\TransferPolicy@update');
+        Gate::define('transfers.delete', 'App\Policies\TransferPolicy@delete');
+
+        Gate::define('requests.view', 'App\Policies\RequestPolicy@view');
+        Gate::define('requests.update', 'App\Policies\RequestPolicy@update');
+        Gate::define('requests.delete', 'App\Policies\RequestPolicy@delete');
+
         Gate::define('money', 'App\Policies\MoneyPolicy');
-        Gate::resource('favorites', 'App\Policies\FavoritePolicy')->except(['update', 'restore', 'forceDelete']);
+
+        Gate::define('favorite.view', 'App\Policies\FavoritePolicy');
+        Gate::define('favorite.create', 'App\Policies\FavoritePolicy');
+        Gate::define('favorite.delete', 'App\Policies\FavoritePolicy');
 
         Passport::routes();
     }

@@ -58,27 +58,4 @@ class TransferPolicy
         return $user->id == $transfer->user_id;
     }
 
-//    /**
-//     * Determine whether the user can restore the transfer.
-//     *
-//     * @param  \App\User $user
-//     * @param  \App\Transfer $transfer
-//     * @return mixed
-//     */
-//    public function restore(User $user, Transfer $transfer)
-//    {
-//        //
-//    }
-//
-//    /**
-//     * Determine whether the user can permanently delete the transfer.
-//     *
-//     * @param  \App\User $user
-//     * @param  \App\Transfer $transfer
-//     * @return mixed
-//     */
-//    public function forceDelete(User $user, Transfer $transfer)
-//    {
-//        //
-//    }
 }
