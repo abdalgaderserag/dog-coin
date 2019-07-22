@@ -36,11 +36,11 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('requests.update', 'App\Policies\RequestPolicy@update');
         Gate::define('requests.delete', 'App\Policies\RequestPolicy@delete');
 
-        Gate::define('money', 'App\Policies\MoneyPolicy');
+        Gate::define('money', 'App\Policies\MoneyPolicy@money');
 
-        Gate::define('favorite.view', 'App\Policies\FavoritePolicy');
-        Gate::define('favorite.create', 'App\Policies\FavoritePolicy');
-        Gate::define('favorite.delete', 'App\Policies\FavoritePolicy');
+        Gate::define('favorite.view', 'App\Policies\FavoritePolicy@view');
+        Gate::define('favorite.create', 'App\Policies\FavoritePolicy@create');
+        Gate::define('favorite.delete', 'App\Policies\FavoritePolicy@delete');
 
         Passport::routes();
     }

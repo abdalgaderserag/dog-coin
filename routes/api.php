@@ -24,9 +24,6 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/user/{cardID}', 'UserController@show');
 
     Route::apiResource('favorite', 'Api\FavoriteController')->only(['index', 'store', 'destroy']);
+//    Route::get('favorite/{id}', 'Api\FavoriteController@show');
 
-});
-
-Route::get('ttt',function(){
-    return 1;
 });

@@ -18,7 +18,7 @@ class MoneyPolicy
      * @param  \App\Money $money
      * @return mixed
      */
-    public function view(User $user, Money $money)
+    public function money(User $user, Money $money)
     {
         return Auth::id() == $user->id && $user->id == $money->user_id;
     }

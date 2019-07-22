@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 @empty
-                    <div style="padding: 5%">
+                    <div id="fav-empty" style="padding: 5%">
                         <span style="font-size: 4vh">You currently don't added any person add some by searching int the input in the left.</span>
                         <br>
                         <span>the added users can be easly find when send recipient money.</span>
@@ -58,9 +58,10 @@
             axios.delete('/api/favorite/' + id)
                 .then((response) => {
                     let items = document.getElementsByClassName('favorite');
-                    items[index].style.display = 'none';
+                    items[index].innerHTML = '';
+                    items[index].outerHTML = '';
                     deleteInArray(user_id);
-                    if (index + 1 == items.length) {
+                    if (0 == items.length) {
                         let div = document.getElementById('fav-list');
                         div.innerHTML = '<div style="padding: 5%">' +
                             '<span style="font-size: 4vh">You currently don\'t added any person add some by searching int the input in the left.</span>' +
@@ -74,9 +75,7 @@
         function deleteInArray(id) {
             index = 0;
             for (let i = 0; i < app.$children[index].favorite.length; i++) {
-                console.log(app.$children[index].favorite[i].listed_id + '\n' + id);
                 if (app.$children[index].favorite[i].listed_id == id) {
-                    console.log(app.$children[index]);
                     app.$children[index].favorite.splice(i, 1);
                 }
             }

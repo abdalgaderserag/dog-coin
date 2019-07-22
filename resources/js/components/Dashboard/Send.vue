@@ -125,13 +125,9 @@
                         'amount': this.money,
                     })
                         .then((response) => {
-                            // this.show = false;
-                            // this.user = {};
                             this.message = '';
                             this.money = null;
                             this.moneyMessage = "";
-
-                            // this.$refs.search.value = "";
                         })
                         .catch((error) => {
                             this.moneyMessage = "some thing went wrong try refresh the page :(";
@@ -144,12 +140,38 @@
             addList: function () {
                 axios.post('/api/favorite', {
                     listed_id: this.user.id,
-                }).then(() => {
+                }).then((response) => {
                     this.list = false;
                     this.favorite[this.favorite.length] = {listed_id: this.user.id};
+                    if (window.location.pathname == '/favorite') {
+                        this.displayView(response.data);
+                    }
                 }).catch((error) => {
                     this.message = error.errors.listed_id[0];
                 });
+            },
+            displayView: function (id) {
+                let cont = document.getElementById('fav-list');
+                let head = '<div style="margin-top: 32px" class="header">Requests:</div>';
+                let body = '<div class="flex-box favorite"' +
+                    ' style="padding-bottom: 10px;border-bottom: 1px solid gray;margin-top: 10px">' +
+                    '<div style="margin-right: 2%">' +
+                    '<a href="/profile' + this.user.slug + '">' +
+                    '<img src="' + this.user.avatar + '" style="width: 80px;border-radius: 50%;" alt="">' +
+                    '</a></div>' +
+                    '<div class="flex-box" style="width: 80%;flex-direction: column">' +
+                    '<div>' + this.user.name + '</div>' +
+                    '<div style="height: 34px;margin-top: 6px">' +
+                    '<button onclick="deleteUser(' + id + ',' + (this.favorite.length - 1) + ', ' + this.user.id + ')"' +
+                    'style="border: 1px solid #e3e7f1;padding: 4px 4%;background-color: #0067ff;color: white;">' +
+                    'Delete</button></div></div></div>';
+
+                if (cont.childElementCount == 1) {
+                    body = head + body;
+                    cont.innerHTML = '';
+                }
+
+                cont.innerHTML = cont.innerHTML + body;
             }
         }
     }
