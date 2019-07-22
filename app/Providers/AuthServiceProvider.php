@@ -14,7 +14,11 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-         'App\Model' => 'App\Policies\ModelPolicy',
+//        'App\Favorite' => 'App\Policies\FavoritePolicy',
+//        'App\Money' => 'App\Policies\MoneyPolicy',
+//        'App\RequestMoney' => 'App\Policies\RequestPolicy',
+//        'App\Transfer' => 'App\Policies\TransferPolicy',
+//        'App\User' => \App\Policies\UserPolicy::class,
     ];
 
     /**
@@ -25,7 +29,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
+        Gate::resource('users', 'App\Policies\UserPolicy')->only(['update', 'delete']);
+        Gate::resource('transfers', 'App\Policies\TransferPolicy')->except(['restore', 'forceDelete']);
+        Gate::resource('requests', 'App\Policies\RequestPolicy')->except(['restore', 'forceDelete']);
+        Gate::resource('money', 'App\Policies\MoneyPolicy')->only('view');
+        Gate::resource('favorites', 'App\Policies\FavoritePolicy')->except(['update', 'restore', 'forceDelete']);
         Passport::routes();
     }
 }

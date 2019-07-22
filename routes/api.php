@@ -26,3 +26,7 @@ Route::middleware('auth:api')->group(function () {
     Route::apiResource('favorite', 'Api\FavoriteController')->only(['index', 'store', 'destroy']);
 
 });
+
+Route::get('ttt',function(){
+    return 1;
+});

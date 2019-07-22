@@ -26,10 +26,10 @@ $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
 
             {{--START :: Profile card start--}}
 
-            <div class="header">{{ $user->name }}</div>
+            <div class="header" style="margin-left: 15%;width: 70%;">{{ $user->name }}</div>
 
 
-            <div class="flex-box card profile-card">
+            <div class="flex-box card profile-card" style="width: 80%;margin-left: 10%;">
 
                 <div class="profile-avatar">
                     <img style="height: 80px;width: 80px;border-radius: 50%;"
@@ -56,7 +56,7 @@ $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
                     </div>
                 </div>
 
-                <img style="margin-left: 2.3%;" src="/images/menu.png" class="menu" alt="">
+                <img style="margin-left: -1.1%;" src="/images/menu.png" class="menu" alt="">
 
                 @include('profile.parts.bio')
             </div>
@@ -68,6 +68,10 @@ $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
                     <input type="number" class="donate-input">
                     <br>
                     <input type="submit" class="donate-bottom" value="Send">
+                </div>
+            @else
+                <div class="flex-box" style="justify-content: center;margin-top: 6%;">
+                    <span style="font-size: 3vh;">{{ '$' . $user->money->money }}</span>
                 </div>
             @endunless
 
