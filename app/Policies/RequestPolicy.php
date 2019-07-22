@@ -18,9 +18,9 @@ class RequestPolicy
      * @param  \App\RequestMoney $requestMoney
      * @return mixed
      */
-    public function view(User $user, RequestMoney $requestMoney)
+    public function view(User $user)
     {
-        return $user->id == $requestMoney->user_id || $user->id == $requestMoney->recipient_id;
+        return $user->id == Auth::id();
     }
 
     /**

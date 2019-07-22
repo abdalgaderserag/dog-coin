@@ -18,9 +18,9 @@ class FavoritePolicy
      * @param  \App\Favorite $favorite
      * @return mixed
      */
-    public function view(User $user, Favorite $favorite)
+    public function view(User $user)
     {
-        return Auth::id() == $user->id && $user->id == $favorite->user_id;
+        return Auth::id() == $user->id;
     }
 
     /**
@@ -43,7 +43,7 @@ class FavoritePolicy
      */
 //    public function update(User $user, Favorite $favorite)
 //    {
-        //
+    //
 //    }
 
     /**
@@ -67,7 +67,7 @@ class FavoritePolicy
      */
 //    public function restore(User $user, Favorite $favorite)
 //    {
-        //
+    //
 //    }
 
     /**
@@ -79,6 +79,6 @@ class FavoritePolicy
      */
 //    public function forceDelete(User $user, Favorite $favorite)
 //    {
-        //
+    //
 //    }
 }

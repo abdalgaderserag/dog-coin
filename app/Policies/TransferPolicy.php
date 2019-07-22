@@ -18,9 +18,9 @@ class TransferPolicy
      * @param  \App\Transfer $transfer
      * @return mixed
      */
-    public function view(User $user, Transfer $transfer)
+    public function view(User $user)
     {
-        return $user->id == $transfer->user_id || $user->id == $transfer->recipient_id;
+        return $user->id == Auth::id();
     }
 
     /**
@@ -43,7 +43,7 @@ class TransferPolicy
      */
     public function update(User $user, Transfer $transfer)
     {
-        return $user->id == $transfer->user_id;
+        return $user->id == $transfer->user_id || $user->id == $transfer->recipient_id;
     }
 
     /**

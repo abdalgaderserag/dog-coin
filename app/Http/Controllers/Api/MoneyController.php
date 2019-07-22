@@ -15,6 +15,7 @@ class MoneyController extends Controller
     public function __invoke()
     {
         $data = Auth::user()->money;
-        return response()->json($data,200);
+        $this->authorize('money', $data);
+        return response()->json($data, 200);
     }
 }

@@ -74,6 +74,7 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
+        $this->authorize('users.update', Auth::user());
         Auth::user()->name = $request->name;
         Auth::user()->email = $request->email;
         Auth::user()->save();
@@ -95,6 +96,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $this->authorize('users.delete', $user);
+        $user->delete();
+        return $user;
     }
 }

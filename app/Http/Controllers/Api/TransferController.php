@@ -14,12 +14,13 @@ class TransferController extends Controller
      * Display a listing of the resource.
      *
      *
+     * @throws 403
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $user = User::find(1);
-//        TODO : remove the user and add Auth user.
+        $this->authorize('transfers.view');
+        $user = Auth::user();
         $page = 1;
         $last = false;
         if (!empty($_GET['page']))
@@ -35,11 +36,13 @@ class TransferController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     * @throws 403
      * @param  TransferRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(TransferRequest $request)
     {
+        $this->authorize('transfers.create');
         $transfer = new Transfer($request->all());
         $transfer->sender_id = Auth::id();
         $transfer->save();
@@ -49,12 +52,14 @@ class TransferController extends Controller
     /**
      * Display the specified resource.
      *
+     * @throws 403
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show(int $id)
     {
         $transfer = Transfer::with('sender', 'recipient')->find($id);
+        $this->authorize('transfers.update', $transfer);
         $data = $transfer;
         return response()->json($data, 200);
     }
@@ -62,12 +67,14 @@ class TransferController extends Controller
     /**
      * Update the specified resource in storage.
      *
+     * @throws 403
      * @param  TransferRequest $request
      * @param  Transfer $transfer
      * @return \Illuminate\Http\Response
      */
     public function update(TransferRequest $request, Transfer $transfer)
     {
+        $this->authorize('transfers.update', $transfer);
         $transfer->mount = $request->mount;
         $transfer->save();
         return response()->json($transfer, 200);
@@ -76,12 +83,13 @@ class TransferController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @throws
+     * @throws 403
      * @param  Transfer $transfer
      * @return \Illuminate\Http\Response
      */
     public function destroy(Transfer $transfer)
     {
+        $this->authorize('transfers.delete', $transfer);
         $transfer->delete();
         return response()->json($transfer, 200);
     }

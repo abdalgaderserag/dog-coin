@@ -29,11 +29,13 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+
         Gate::resource('users', 'App\Policies\UserPolicy')->only(['update', 'delete']);
         Gate::resource('transfers', 'App\Policies\TransferPolicy')->except(['restore', 'forceDelete']);
         Gate::resource('requests', 'App\Policies\RequestPolicy')->except(['restore', 'forceDelete']);
-        Gate::resource('money', 'App\Policies\MoneyPolicy')->only('view');
+        Gate::define('money', 'App\Policies\MoneyPolicy');
         Gate::resource('favorites', 'App\Policies\FavoritePolicy')->except(['update', 'restore', 'forceDelete']);
+
         Passport::routes();
     }
 }

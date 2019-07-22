@@ -48,7 +48,6 @@ class HomeController extends Controller
      */
     public function profile($slug = '')
     {
-        $this->authorize('users.view');
         if ($slug == '') {
             $user = Auth::user();
         } else {

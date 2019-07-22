@@ -12,10 +12,13 @@ class RequestController extends Controller
     /**
      * Display a listing of the resource.
      *
+     *
+     * @throws 403
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
+        $this->authorize('transfers.view');
         $reqs = RequestMoney::where('user_id', Auth::id())->with('recipient')->get();
         $page = 1;
         $last = false;
@@ -34,10 +37,13 @@ class RequestController extends Controller
     /**
      * Display a listing of the resource.
      *
+     *
+     * @throws 403
      * @return \Illuminate\Http\Response
      */
     public function recipient()
     {
+        $this->authorize('transfers.view');
         $reqs = RequestMoney::where('recipient_id', Auth::id())->with('user')->get();
         $page = 1;
         $last = false;
@@ -55,11 +61,14 @@ class RequestController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     *
+     * @throws 403
      * @param  MoneyRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(MoneyRequest $request)
     {
+        $this->authorize('transfers.view');
         $reqMoney = new RequestMoney($request->all());
         $reqMoney->user_id = Auth::id();
         $reqMoney->save();
@@ -71,6 +80,8 @@ class RequestController extends Controller
     /**
      * Update the specified resource in storage.
      *
+     *
+     * @throws 403
      * @param  MoneyRequest $request
      * @param  $id
      * @return \Illuminate\Http\Response
@@ -78,6 +89,7 @@ class RequestController extends Controller
     public function update(MoneyRequest $request, $id)
     {
         $requestMoney = RequestMoney::find($id);
+        $this->authorize('transfers.update', $requestMoney);
         $requestMoney->money = $request->money;
         $requestMoney->details = $request->details;
         $requestMoney->save();
@@ -87,13 +99,14 @@ class RequestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @throws
+     * @throws 403
      * @param  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $requestMoney = RequestMoney::find($id);
+        $this->authorize('transfers.delete', $requestMoney);
         $requestMoney->delete();
         return response()->json('Ok', 200);
     }

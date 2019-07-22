@@ -12,10 +12,13 @@ class FavoriteController extends Controller
     /**
      * Display a listing of the resource.
      *
+     *
+     * @throws 403
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
+        $this->authorize('favorite.view');
         if (!isset($_GET['id']))
             $data = Favorite::where('user_id', Auth::id())->get('listed_id');
         else
@@ -26,11 +29,14 @@ class FavoriteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
+     *
+     * @throws 403
      * @param  FavoriteRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(FavoriteRequest $request)
     {
+        $this->authorize('favorite.create');
         $request->validated();
         $fav = new Favorite($request->all());
         $fav->user_id = Auth::id();
@@ -42,12 +48,15 @@ class FavoriteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     *
+     * @throws 403
      * @param  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $favorite = Favorite::find($id);
+        $this->authorize('favorite.delete', $favorite);
         $favorite->delete();
         return response()->json('', 200);
     }
