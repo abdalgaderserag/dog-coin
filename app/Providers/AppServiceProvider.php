@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
     {
         schema::defaultStringLength(191);
         User::observe(UserObserver::class);
-        Transfer::observe(TransferObserver::class);
+//        Transfer::observe(TransferObserver::class);
         RequestMoney::observe(RequestMoneyObserver::class);
     }
 }
