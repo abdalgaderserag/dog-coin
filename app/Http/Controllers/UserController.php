@@ -68,9 +68,10 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
+     *
+     * @throws 403
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\User $user
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request)
     {
@@ -85,12 +86,14 @@ class UserController extends Controller
         $bio->work_address = $request->work_address;
         $bio->site = $request->site;
         $bio->save();
-        return Auth::user();
+        return redirect()->to('/profile');
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     *
+     * @throws 403
      * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
@@ -98,6 +101,6 @@ class UserController extends Controller
     {
         $this->authorize('users.delete', $user);
         $user->delete();
-        return $user;
+        return redirect()->away('https://baka-team.io');
     }
 }

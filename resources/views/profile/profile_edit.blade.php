@@ -64,35 +64,30 @@
                         <textarea placeholder="add some informations about you so others can find you."
                                   name="details"
                                   cols="30"
-                                  rows="10"></textarea>
+                                  rows="10">{{ $user->bio->details }}</textarea>
                     </div>
 
                 </div>
                 {{--END :: Profile card end--}}
                 <br>
 
-                {{--<div style="padding: 8px 2%;width: 98%">--}}
-                    {{--<div style="width: 70%;float: left;">Switch Account type require some fee !!</div>--}}
-                    {{--<button style="width: 13%">Work Account</button>--}}
-                    {{--<span style="margin-left: 3%">$500 fee</span>--}}
-                {{--</div>--}}
-
                 <br>
 
                 <div class="header">Fills</div>
                 <div class="info-input">
                     <div class="info-item-head">Job:</div>
-                    <input class="info-item-input" type="text" name="" id="">
+                    <input class="info-item-input" value="{{ $user->bio->work }}" type="text" name="work" id="">
                     <div class="info-item-head">work address:</div>
-                    <input class="info-item-input" type="text" name="" id="">
+                    <input class="info-item-input" type="text" name="work_address"
+                           value="{{ $user->bio->work_address }}" id="">
 
                 </div>
                 <div class="info-input">
                     <div class="info-item-head">Company:</div>
-                    <input class="info-item-input" type="text" name="" id="">
+                    <input class="info-item-input" type="text" name="company" value="{{ $user->bio->company }}" id="">
 
                     <div class="info-item-head">Work website:</div>
-                    <input class="info-item-input" type="text" name="" id="">
+                    <input class="info-item-input" type="text" name="site" value="{{ $user->bio->site }}" id="">
                 </div>
                 <button class="info-input-bottom">Save</button>
 
