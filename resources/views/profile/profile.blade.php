@@ -28,6 +28,12 @@ $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
 
             <div class="header" style="margin-left: 15%;width: 70%;">{{ $user->name }}</div>
 
+            <div class="card" id="report"
+                 style="padding: 2px 1% 6px 1%;width: max-content;position: absolute;display: none;">
+                <div onclick="addToList()" class="report-id" style="cursor: pointer;">add to list</div>
+                <hr class="line" style="margin: 7px 0 0 0;">
+                <div class="report-id" style="cursor: pointer;"><a href="/report" class="link-clear">report</a></div>
+            </div>
 
             <div class="flex-box card profile-card" style="width: 80%;margin-left: 10%;">
 
@@ -86,9 +92,6 @@ $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
 
                     <div class="card first-site" style="background: url('/images/ink.png') center center / cover;">
                     </div>
-                    {{--@if($profile)--}}
-                    {{--<span style="font-size: 11vh;margin-top: 10%;margin-left: 12%;">+</span>--}}
-                    {{--@endif--}}
                 </div>
             </div>
         </div>
@@ -96,4 +99,41 @@ $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
 
 
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        //Basic setup
+        document.getElementById('report').style.display = 'none';
+
+        //Elements
+        let menu = document.getElementsByClassName('menu')[0];
+
+
+        //Event Listener Section
+        document.addEventListener('click', function (e) {
+            if (e.target.className == 'menu')
+                return;
+
+            if (e.target.id != 'report' || e.target.className != 'report-id')
+                document.getElementById('report').style.display = 'none';
+        });
+
+        menu.addEventListener('click', function (e) {
+            let element = e.target;
+            let left = e.layerX - 4 * (element.offsetWidth + 2);
+            let top = e.layerY;
+            element = document.getElementById('report');
+            element.style.display = 'block';
+            element.style.left = left + 'px';
+            element.style.top = top + 'px';
+        });
+
+        //Functions
+        function addToList() {
+            axios.post('/api/favorite', {
+                listed_id: {!! $user->id !!},
+            })
+        }
+    </script>
 @endsection
