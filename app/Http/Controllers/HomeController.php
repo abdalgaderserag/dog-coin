@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
 //        $this->middleware('auth');
         Auth::logout();
-        Auth::loginUsingId(0+3);
+        Auth::loginUsingId(1+3);
 
 //        Auth::loginUsingId(random_int(1, 3));
     }

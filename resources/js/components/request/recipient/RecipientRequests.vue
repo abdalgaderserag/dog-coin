@@ -1,12 +1,12 @@
 <template>
     <div>
-        <div class="flex-box" style="padding-bottom: 10px;border-bottom: 1px solid gray;margin-top: 10px">
+        <div class="flex-box" style="padding-bottom: 10px;border-bottom: 1px solid gray;margin-top: 10px;justify-content: center;">
             <div style="margin-right: 2%">
                 <a :href="'/profile/' + request.user.slug">
                     <img :src="request.user.avatar" style="width: 80px;border-radius: 50%;" alt="">
                 </a>
             </div>
-            <div class="flex-box" style="width: 80%;flex-direction: column">
+            <div class="flex-box" style="width: 80%;flex-direction: column;text-align: center;">
                 <div>{{ request.user.name }}</div>
                 <div>${{ request.money }}</div>
                 <div style="width: 100%">{{ request.details }}</div>

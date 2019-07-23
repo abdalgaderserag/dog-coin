@@ -13,7 +13,7 @@
 
         <div class="main" >
 
-            <div class="card search-card">
+            <div class="card search-card" style="margin-left: 1%;">
                 <input type="search" name="user" placeholder="search for user" class="card-id">
             </div>
 

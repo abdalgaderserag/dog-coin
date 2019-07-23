@@ -16,13 +16,15 @@
             <br>
             <div class="header">News:</div>
             <div class="card flex-box" style="height: 240px">
-                <div style="padding: 2%;float:left;font-size: 3.8vh;height:inherit;width: 48%;overflow: hidden;">
-                    lorem sadaksd jlasjda sklj klasfjlk aj
+                <div style="float:left;font-size: 3.8vh;height:inherit;width: 48%;overflow: hidden;">
+                    <div style="padding: 2%;">
+                        lorem sadaksd jlasjda sklj klasfjlk aj
                     dhkdg fjkahfj hld kfhadlh jhadsjlkfhl dskh fjlkadshfl jkadshfj
                     hldsfh jadshfjkh alfhlkshdf ljkadshf kajfdlsdjf lahfsa;DJ K;
+                    </div>
                 </div>
                 <img src="/images/dashboard/ink-news.jpg"
-                     style="float: left;width: 48%;height: 240px;object-fit: cover;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"
+                     style="width: 52%;height: 240px;object-fit: cover;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"
                      alt="">
             </div>
             <br>
