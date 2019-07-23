@@ -23,11 +23,6 @@
 
 <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{--<link href="{{ asset('css/footer.css') }}" rel="stylesheet">--}}
-    {{--<link href="{{ asset('css/left.css') }}" rel="stylesheet">--}}
-    {{--<link href="{{ asset('css/request.css') }}" rel="stylesheet">--}}
-    {{--<link href="{{ asset('css/transfer.css') }}" rel="stylesheet">--}}
-    {{--<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">--}}
     @yield('styles')
 </head>
 <body>
@@ -42,7 +37,7 @@
                 <span>{{ __('dog.transfer') }} ⌵</span>
             </div>
             <div class="nav-bar-item">
-                <span style="visibility: hidden" ref="mon">$<span style="font-size: 2.1vh">@{{ money }}</span></span>
+                <span style="visibility: hidden" ref="mon">$@{{ money }}</span>
             </div>
         </div>
         <div class="nav-bar-group flex-box" style="padding: 4px 4px 2px 8px;">

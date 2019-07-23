@@ -2,6 +2,10 @@
 
 @section('title','Recipient Requests')
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/request.css') }}">
+@endsection
+
 @section('content')
     <div class="container flex-box">
 
@@ -15,9 +19,9 @@
             </div>
             <recipient-request></recipient-request>
 
-            </div>
-
         </div>
+
+    </div>
     </div>
 
 

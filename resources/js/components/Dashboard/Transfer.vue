@@ -28,7 +28,7 @@
                     </div>
                 </div>
             </div>
-            <hr class="line">
+            <hr class="line transfer-line">
         </div>
         <div v-if="displayMore" style="text-align: center;cursor: pointer;" @click="getTransfer">view more transfers
             ...

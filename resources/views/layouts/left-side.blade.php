@@ -1,4 +1,8 @@
 {{--Left section of the page--}}
+
+<link href="{{ asset('css/left.css') }}" rel="stylesheet">
+
+
 <div class="left-section">
     <br>
     <div class="quick-card">

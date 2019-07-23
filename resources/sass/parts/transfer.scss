@@ -1,5 +1,17 @@
 @import "../variables";
 
+@media only screen and (max-device-width: 480px) {
+  .transfer-line {
+    margin-top: 2px;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .transfer-line {
+    margin-top: 38px;
+  }
+}
+
 .transfer {
   //height: 80px;
 
@@ -16,7 +28,6 @@
       a:last-child img {
         margin-left: -10%;
       }
-
 
       a img {
         width: 72px;

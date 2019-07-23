@@ -1,0 +1,96 @@
+@import "../variables";
+
+@media only screen and (max-device-width: 480px) {
+  .main {
+    width: 98%;
+  }
+
+  .recipient-avatar {
+    border: 6px solid $white;
+  }
+
+  .transfer {
+    height: unset;
+
+    .transfer-item {
+      .transfer-text {
+        .flex-box {
+
+          input {
+            margin-top: 8px;
+          }
+
+          input:last-child {
+            //width: 50%;
+            background-color: $dogCoin;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media only screen and (min-width: 960px) {
+  .main {
+    width: 67%;
+  }
+
+  .transfer {
+    height: 80px;
+
+    .transfer-item {
+      .transfer-text {
+        .flex-box {
+          input:first-child {
+            width: max-content;
+          }
+
+          input:last-child {
+            //width: 50%;
+            width: max-content;
+            background-color: $dogCoin;
+            color: $white;
+            margin-left: 15%;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.main {
+  padding-top: 42px;
+}
+
+
+.select-input {
+  width: 64%;
+
+  option {
+    background-color: $white;
+    border: 1px solid $borderColor;
+  }
+}
+
+.transfer {
+  .transfer-item {
+    .transfer-text {
+      .flex-box {
+
+        input {
+          border: 1px solid #e3e7f1;
+          padding: 4px 4%;
+        }
+
+        input:last-child {
+          //width: 50%;
+          background-color: $dogCoin;
+          color: $white;
+        }
+      }
+    }
+  }
+}

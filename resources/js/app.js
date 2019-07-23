@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -9,6 +8,17 @@
 
 window.Vue = require('vue');
 
+
+// import Echo from 'laravel-echo';
+//
+// window.Pusher = require('pusher-js');
+//
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: process.env.MIX_PUSHER_APP_KEY,
+//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+//     encrypted: true
+// });
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -20,8 +30,6 @@ window.Vue = require('vue');
 
 // Vue.component('money-view', require("./components/Statical/StaticalView.vue").default);
 // Vue.component('transfer', require("./components/Dashboard/Transfer.vue").default);
-
-
 
 
 /**

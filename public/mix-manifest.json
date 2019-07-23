@@ -4,11 +4,11 @@
     "/css/profile.css": "/css/profile.css",
     "/css/edit-profile.css": "/css/edit-profile.css",
     "/css/request.css": "/css/request.css",
+    "/css/favorite.css": "/css/favorite.css",
     "/css/footer.css": "/css/footer.css",
     "/css/left.css": "/css/left.css",
     "/css/transfer.css": "/css/transfer.css",
     "/css/app.css": "/css/app.css",
     "/js/response.js": "/js/response.js",
-    "/js/vueComponent.js": "/js/vueComponent.js",
-    "/css/favorite.css": "/css/favorite.css"
+    "/js/vueComponent.js": "/js/vueComponent.js"
 }
