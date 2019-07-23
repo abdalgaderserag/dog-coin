@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return 'index';
+        return view('home')->with(['access' => Auth::user()->createToken('profile')->accessToken]);
     }
 
     /**

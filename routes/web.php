@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-//Auth::routes();
+Auth::routes();
 
 Route::get('/dashboard', 'HomeController@home')->name('dashboard');
 Route::get('/profile/{slug?}', 'HomeController@profile')->name('profile');
@@ -24,3 +24,7 @@ Route::get('/request/recipient', 'HomeController@recipientRequest')->name('reque
 Route::get('/statical', 'HomeController@statical')->name('statical');
 Route::get('/favorite', 'HomeController@favorite')->name('favorite');
 
+
+//Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
