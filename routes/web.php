@@ -13,7 +13,9 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Auth::routes();
+//Auth::routes();
+Route::get('/sign/in', 'Auth\LoginController@showLoginForm');
+
 
 Route::get('/dashboard', 'HomeController@home')->name('dashboard');
 Route::get('/profile/{slug?}', 'HomeController@profile')->name('profile');

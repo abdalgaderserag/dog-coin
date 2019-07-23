@@ -1,73 +1,71 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    <title>
+        @section('title')
+            Dog Coin
+        @show
+    </title>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    <!-- Scripts -->
+    <script src="{{ asset('stats/canvasjs.min.js') }}"></script>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('styles')
+</head>
+
+<body>
+<div id="app" style="background-color: #f4f5ff;height: -webkit-fill-available">
+    <div class="content" style="padding: 92px 0 0 0">
+        <div class="box-log flex-box" style="width: 60%">
+            <div style="width: 80%;margin-left: 20%;">
+                <div style="font-size: 3vh;margin: 0 0 8px 0">Login to Dog Coin</div>
+                <div class="card" style="width:90%;margin-top: 28px;">
+                    <div class="text-log" style="padding: 18px 2% 0 8%;width: 50%">
+                        <div style="padding: 6px 0">
+                            <input type="text" style="width: 100%;padding: 4px 1%;" placeholder="enter email">
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <div style="padding: 6px 0 12px 0">
+                            <input type="text" style="width: 100%;padding: 4px 1%;" placeholder="password">
                         </div>
+                        <input type="checkbox" name="check" id="check">
+                        <label for="check">Remember me.</label>
+                        <span style="color: #4992ff;font-weight: 400;">Forget Password ?</span>
+                    </div>
+                    <hr class="line" style="border-bottom-width: 4px;">
+                    <div style="padding: 6px 2% 10px 8%;font-size: 1.9vh;">
+                        <div>Don't get an card yet? <span style="color: #4992ff;text-decoration: underline;margin-bottom: 4px;">Sign up</span></div>
+                        <div>facing problems go to <span style="color: #4992ff;text-decoration: underline">support</span></div>
+                    </div>
+                    <div style="padding: 0 2% 10px 8%;">
+                        <button type="submit" style="width:14%;background-color: #0067ff;border: 1px solid gray;padding: 6px 3%;color: white;border-radius: 14px;">
+                            Login
+                        </button>
+                    </div>
+                </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                <div class="flex-box">
+                    <img width="80px" height="80px" src="/images/login/ink.png" alt="">
+                    <img width="80px" height="80px" src="/images/login/ink.png" alt="">
+                    <img width="80px" height="80px" src="/images/login/ink.png" alt="">
+                </div>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                <div style="padding: 10px 6%;">
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
+            {{--<img src="/images/login/desk-login.jpg" alt="">--}}
         </div>
     </div>
 </div>
-@endsection
+</body>
+
+</html>
