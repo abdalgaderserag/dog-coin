@@ -1,0 +1,150 @@
+@import "../variables";
+
+@media only screen and (max-device-width: 480px) {
+  .log-image {
+    display: none;
+  }
+  .content .box-log {
+    width: 100%;
+    .log-section {
+      width: 96%;
+      margin-left: 2%;
+    }
+  }
+
+  #app .content .box-log .log-section .log-card .card-footer button{
+    width: 20%;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .content .box-log {
+    width: 60%;
+    .log-section {
+      width: 80%;
+      margin-left: 20%;
+    }
+  }
+
+  #app .content .box-log .log-section .log-card .card-footer button{
+    width: 14%;
+  }
+}
+
+#app {
+  background-color: $pubGray;
+  //height: -webkit-fill-available;
+  .content {
+    padding: 136px 0 0 0;
+    .log-image {
+      width: 524px;
+      height: 524px;
+      margin-top: 4%;
+    }
+
+    .box-log {
+      .log-section {
+
+        .head {
+          font-size: 3vh;
+          margin: 0 0 8px 0;
+        }
+        .log-card {
+          width: 100%;
+          margin-top: 28px;
+          .text-log {
+            padding: 18px 2% 0 8%;
+            width: 50%;
+
+            div {
+              input {
+                width: 100%;
+                padding: 4px 1%;
+              }
+            }
+
+            div:first-child {
+              padding: 6px 0;
+            }
+
+            div:last-child {
+              padding: 6px 0 12px 0;
+            }
+            span:last-child {
+              color: #4992ff;
+              font-weight: 400;
+            }
+          }
+
+          .line {
+            border-bottom-width: 4px;
+          }
+
+          .log-footer {
+            padding: 6px 2% 10px 8%;
+            font-size: 1.9vh;
+            div {
+              .span-link {
+                color: #4992ff;
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .card-footer {
+            padding: 0 2% 10px 8%;
+            button {
+              background-color: $dogCoin;
+              border: 1px solid $gray;
+              padding: 6px 3%;
+              color: $white;
+              border-radius: 14px;
+            }
+          }
+        }
+
+        .login-using {
+          margin: 5% 0 0 15%;
+          width: 70%;
+          .flex-box {
+            justify-content: space-evenly;
+            img {
+              cursor: pointer;
+              width: 68px;
+              height: 68px;
+              border-radius: 50%;
+              padding: 30%;
+            }
+            a:first-child img {
+              padding: 10%;
+            }
+            a:last-child img {
+              padding: 20%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.card {
+  width: $full;
+  background-color: $white;
+  border-radius: 4px;
+  box-shadow: 0 1px 10px -5px $darkGray;
+}
+
+.flex-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.link-clear {
+  color: unset;
+  text-decoration: unset;
+}
+
+.line {
+  border-width: 0 0 2px 0;
+}

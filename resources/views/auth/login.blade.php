@@ -18,60 +18,88 @@
 
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/auth/login.css') }}" rel="stylesheet">
     @yield('styles')
 </head>
 
 <body>
-<div id="app" style="background-color: #f4f5ff;height: -webkit-fill-available">
-    <div class="content flex-box" style="padding: 92px 0 0 0">
-        <div class="box-log flex-box" style="width: 60%">
-            <div style="width: 80%;margin-left: 20%;">
-                <div style="font-size: 3vh;margin: 0 0 8px 0">Login to Dog Coin</div>
-                <div class="card" style="width:100%;margin-top: 28px;">
-                    <div class="text-log" style="padding: 18px 2% 0 8%;width: 50%">
-                        <div style="padding: 6px 0">
-                            <input type="text" style="width: 100%;padding: 4px 1%;" placeholder="Enter email">
+<div id="app">
+
+    <div class="nav-bar flex-box card" style="height: 52px;width:100%;background-color:white;position: fixed;">
+        <a class="link-clear" href="/" style="margin-left: 12%;padding: 14px 1% 0 1%">
+            <div>
+                Home
+            </div>
+        </a>
+    </div>
+
+    <div class="content flex-box">
+        <div class="box-log flex-box">
+            <div class="log-section">
+                <div class="head">Login to Dog Coin</div>
+
+
+                <div class="card log-card">
+                    <div class="text-log">
+                        <div>
+                            <input type="text" placeholder="Enter email">
                         </div>
-                        <div style="padding: 6px 0 12px 0">
-                            <input type="text" style="width: 100%;padding: 4px 1%;" placeholder="Password">
+                        {{--<br>--}}
+                        <div>
+                            <input type="text" placeholder="Password">
                         </div>
+                        <br>
                         <input type="checkbox" name="check" id="check">
                         <label for="check">Remember me.</label>
-                        <span style="color: #4992ff;font-weight: 400;">Forget Password ?</span>
+                        <span><a href="/forget" class="link-clear">Forget Password ?</a></span>
                     </div>
-                    <hr class="line" style="border-bottom-width: 4px;">
-                    <div style="padding: 6px 2% 10px 8%;font-size: 1.9vh;">
-                        <div>Don't get an card yet? <span
-                                    style="color: #4992ff;text-decoration: underline;margin-bottom: 4px;">Sign up</span>
+
+                    <hr class="line">
+
+                    <div class="log-footer">
+                        <div>Don't get an card yet?
+                            <span class="span-link">
+                                <a href="/register" class="link-clear">Sign up</a>
+                            </span>
                         </div>
-                        <div>facing problems go to <span
-                                    style="color: #4992ff;text-decoration: underline">support</span></div>
+                        <div>facing problems go to
+                            <span class="span-link">
+                                <a href="/support" class="link-clear">support</a>
+                            </span>
+                        </div>
                     </div>
-                    <div style="padding: 0 2% 10px 8%;">
-                        <button type="submit"
-                                style="width:14%;background-color: #0067ff;border: 1px solid gray;padding: 6px 3%;color: white;border-radius: 14px;">
+                    <div class="card-footer">
+                        <button type="submit">
                             Login
                         </button>
                     </div>
                 </div>
 
-                <div style="margin:5% 0 0 15%;width: 70%">
-                    <div class="flex-box" style="justify-content: space-evenly">
-                        <img class="card" style="width: 68px;height: 68px;border-radius: 50%;padding: 1%"
-                             src="/images/login/ink.png" alt="">
-                        <img class="card" style="width: 68px;height: 68px;border-radius: 50%;padding: 4%"
-                             src="/images/login/atom.png" alt="">
-                        <img class="card" style="width: 68px;height: 68px;border-radius: 50%;padding: 2%"
-                             src="/images/login/codeclimate.png" alt="">
+
+                <div class="login-using">
+                    <div class="flex-box">
+                        <a href="/ink">
+                            <img class="card" src="/images/login/ink.png" alt="">
+                        </a>
+                        <a href="/atom">
+                            <img class="card" src="/images/login/atom.png" alt="">
+                        </a>
+                        <a href="/code">
+                            <img class="card" src="/images/login/codeclimate.png" alt="">
+                        </a>
                     </div>
                 </div>
 
+
             </div>
         </div>
-        <img src="/images/login/site.png" style="width: 524px;height: 524px;margin-top: 4%;" alt="">
+        <img src="/images/login/site.png" class="log-image" alt="">
     </div>
 </div>
 </body>
+<script>
+    var he = window.innerHeight;
+    document.getElementById('app').style.minHeight = he + 'px';
+</script>
 
 </html>

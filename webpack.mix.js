@@ -20,6 +20,8 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/request.scss', 'public/css')
     .sass('resources/sass/favorite.scss', 'public/css')
 
+    .sass('resources/sass/auth/login.scss', 'public/css/auth')
+
     .sass('resources/sass/parts/footer.scss', 'public/css')
     .sass('resources/sass/parts/left.scss', 'public/css')
     .sass('resources/sass/parts/transfer.scss', 'public/css')

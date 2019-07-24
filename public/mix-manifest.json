@@ -5,6 +5,7 @@
     "/css/edit-profile.css": "/css/edit-profile.css",
     "/css/request.css": "/css/request.css",
     "/css/favorite.css": "/css/favorite.css",
+    "/css/auth/login.css": "/css/auth/login.css",
     "/css/footer.css": "/css/footer.css",
     "/css/left.css": "/css/left.css",
     "/css/transfer.css": "/css/transfer.css",
