@@ -8,13 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
-        @section('title')
-            Dog Coin
-        @show
+        Login
     </title>
 
     <!-- Scripts -->
-    <script src="{{ asset('stats/canvasjs.min.js') }}"></script>
 
 
     <!-- Styles -->
@@ -38,42 +35,44 @@
             <div class="log-section">
                 <div class="head">Login to Dog Coin</div>
 
-
-                <div class="card log-card">
-                    <div class="text-log">
-                        <div>
-                            <input type="text" placeholder="Enter email">
+                <form action="{{ route('login') }}" method="POST">
+                    @csrf
+                    @method('POST')
+                    <div class="card log-card">
+                        <div class="text-log">
+                            <div>
+                                <input type="text" name="email" placeholder="Enter email">
+                            </div>
+                            <div>
+                                <input type="password" name="password" placeholder="Password">
+                            </div>
+                            <br>
+                            <input type="checkbox" name="check" id="check">
+                            <label for="check">Remember me.</label>
+                            <span><a href="/forget" class="link-clear">Forget Password ?</a></span>
                         </div>
-                        {{--<br>--}}
-                        <div>
-                            <input type="text" placeholder="Password">
-                        </div>
-                        <br>
-                        <input type="checkbox" name="check" id="check">
-                        <label for="check">Remember me.</label>
-                        <span><a href="/forget" class="link-clear">Forget Password ?</a></span>
-                    </div>
 
-                    <hr class="line">
+                        <hr class="line">
 
-                    <div class="log-footer">
-                        <div>Don't get an card yet?
-                            <span class="span-link">
-                                <a href="/register" class="link-clear">Sign up</a>
+                        <div class="log-footer">
+                            <div>Don't get an card yet?
+                                <span class="span-link">
+                                <a href="{{ route('register') }}" class="link-clear">Sign up</a>
                             </span>
-                        </div>
-                        <div>facing problems go to
-                            <span class="span-link">
+                            </div>
+                            <div>facing problems go to
+                                <span class="span-link">
                                 <a href="/support" class="link-clear">support</a>
                             </span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" role="button">
+                                Login
+                            </button>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit">
-                            Login
-                        </button>
-                    </div>
-                </div>
+                </form>
 
 
                 <div class="login-using">

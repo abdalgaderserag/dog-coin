@@ -13,9 +13,13 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-//Auth::routes();
-Route::get('/login', 'Auth\LoginController@showLoginForm');
+Auth::routes();
 
+Route::namespace('Auth')->group(function () {
+    Route::get('/login', 'LoginController@showLoginForm')->name('login');
+    Route::post('/login', 'LoginController@login')->name('login');
+    Route::get('/register', 'RegisterController@showRegistrationForm')->name('register');
+});
 
 Route::get('/dashboard', 'HomeController@home')->name('dashboard');
 Route::get('/profile/{slug?}', 'HomeController@profile')->name('profile');

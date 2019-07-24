@@ -1,77 +1,86 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+    <title>
+        Register
+    </title>
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+    <!-- Scripts -->
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+    <!-- Styles -->
+    <link href="{{ asset('css/auth/register.css') }}" rel="stylesheet">
+    @yield('styles')
+</head>
+
+<body>
+<div id="app">
+
+    <div class="nav-bar flex-box card" style="height: 52px;width:100%;background-color:white;position: fixed;">
+        <a class="link-clear" href="/" style="margin-left: 12%;padding: 14px 1% 0 1%">
+            <div>
+                Home
+            </div>
+        </a>
+    </div>
+
+    <div class="content flex-box">
+        <div class="box-log flex-box">
+            <div class="log-section">
+                <div class="head">Register to Dog Coin</div>
+
+
+                <div class="card log-card">
+                    <div class="text-log">
+                        <div>
+                            <input type="text" placeholder="Name">
                         </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <div>
+                            <input type="text" placeholder="Enter email">
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <div>
+                            <input type="text" placeholder="Password">
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
+                        <div>
+                            <input type="text" placeholder="Re-enter Password">
                         </div>
+                    </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
+                    <hr class="line">
+
+                    <div class="log-footer">
+                        <div>Already have account ?
+                            <span class="span-link">
+                                <a href="{{ route('login') }}" class="link-clear">Sign in</a>
+                            </span>
                         </div>
-                    </form>
+                        <div>facing problems go to
+                            <span class="span-link">
+                                <a href="/support" class="link-clear">support</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit">
+                            Register
+                        </button>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
-@endsection
+</body>
+<script>
+    var he = window.innerHeight;
+    document.getElementById('app').style.minHeight = he + 'px';
+</script>
+
+</html>
