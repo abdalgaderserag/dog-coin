@@ -25,7 +25,7 @@
     <div class="nav-bar flex-box card" style="height: 52px;width:100%;background-color:white;position: fixed;">
         <a class="link-clear" href="/" style="margin-left: 12%;padding: 14px 1% 0 1%">
             <div>
-                Home
+                Go Home
             </div>
         </a>
     </div>
@@ -33,7 +33,7 @@
     <div class="content flex-box">
         <div class="box-log flex-box">
             <div class="log-section">
-                <div class="head">Login to Dog Coin</div>
+                <div class="head">Login to CPay</div>
 
                 <form action="{{ route('login') }}" method="POST">
                     @csrf

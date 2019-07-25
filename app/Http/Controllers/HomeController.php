@@ -14,11 +14,9 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware('auth');
+        $this->middleware('auth')->except('index');
+        $this->middleware('guest')->only('index');
         Auth::logout();
-        Auth::loginUsingId(1+3);
-
-//        Auth::loginUsingId(random_int(1, 3));
     }
 
     /**

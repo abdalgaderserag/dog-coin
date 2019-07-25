@@ -79,9 +79,11 @@
 
         {{--Start:: Login section--}}
         <div class="login">
+
+            {{----}}
             <div class="box-log">
                 <div class="log-section">
-                    <div class="head">Login to Dog Coin</div>
+                    <div class="head">Login to CPay</div>
 
                     <form action="{{ route('login') }}" method="POST">
                         @csrf
@@ -138,6 +140,8 @@
                     </div>
                 </div>
             </div>
+            {{----}}
+
         </div>
         {{--End:: Login section--}}
 
