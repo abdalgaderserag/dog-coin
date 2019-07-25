@@ -8,4 +8,9 @@ Vue.component('send-request', require("./components/request/Send/SendRequest.vue
 Vue.component('send-requests', require("./components/request/Send/SendRequests.vue").default);
 Vue.component('recipient-request', require("./components/request/recipient/RecipientRequest").default);
 Vue.component('recipient-requests', require("./components/request/recipient/RecipientRequests.vue").default);
+
+
+Vue.component('authorized-clients', require("./components/passport/AuthorizedClients.vue").default);
+Vue.component('clients', require("./components/passport/Clients.vue").default);
+Vue.component('personal-access-tokens', require("./components/passport/PersonalAccessTokens.vue").default);
 // static

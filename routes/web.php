@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home')->middleware('guest');
 
-Auth::routes();
+//Auth::routes();
 
-Route::namespace('Auth')->group(function () {
+Route::namespace('Auth')->middleware('guest')->group(function () {
     Route::get('/login', 'LoginController@showLoginForm')->name('login');
     Route::post('/login', 'LoginController@login')->name('login');
     Route::get('/register', 'RegisterController@showRegistrationForm')->name('register');
@@ -31,6 +31,4 @@ Route::get('/statical', 'HomeController@statical')->name('statical');
 Route::get('/favorite', 'HomeController@favorite')->name('favorite');
 
 
-//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

@@ -16,7 +16,6 @@ class HomeController extends Controller
     {
         $this->middleware('auth')->except('index');
         $this->middleware('guest')->only('index');
-        Auth::logout();
     }
 
     /**
@@ -26,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->with(['access' => Auth::user()->createToken('profile')->accessToken]);
+        return view('home');
     }
 
     /**

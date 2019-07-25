@@ -37,7 +37,6 @@
 
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
-                    @method('POST')
                     <div class="card log-card">
                         <div class="text-log">
                             <div>
