@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\MoneyRequest;
 use App\RequestMoney;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class RequestController extends Controller
@@ -18,7 +19,7 @@ class RequestController extends Controller
      */
     public function index()
     {
-        $this->authorize('transfers.view');
+        $this->authorize('requests.view');
         $reqs = RequestMoney::where('user_id', Auth::id())->with('recipient')->get();
         $page = 1;
         $last = false;
@@ -70,7 +71,7 @@ class RequestController extends Controller
     {
         if (Auth::id() == $request->recipient_id)
             return response("You can't add your self!", 405);
-        $this->authorize('transfers.view');
+        $this->authorize('requests.view');
         $reqMoney = new RequestMoney($request->all());
         $reqMoney->user_id = Auth::id();
         $reqMoney->save();
@@ -88,12 +89,12 @@ class RequestController extends Controller
      * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(MoneyRequest $request, $id)
+    public function update(Request $request, $id)
     {
         if (Auth::id() == $request->recipient_id)
             return response("You can't add your self!", 405);
         $requestMoney = RequestMoney::find($id);
-        $this->authorize('transfers.update', $requestMoney);
+        $this->authorize('requests.update', $requestMoney);
         $requestMoney->money = $request->money;
         $requestMoney->details = $request->details;
         $requestMoney->save();
@@ -110,7 +111,7 @@ class RequestController extends Controller
     public function destroy($id)
     {
         $requestMoney = RequestMoney::find($id);
-        $this->authorize('transfers.delete', $requestMoney);
+        $this->authorize('requests.delete', $requestMoney);
         $requestMoney->delete();
         return response()->json('Ok', 200);
     }

@@ -7,6 +7,7 @@ use App\Transfer;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 
 class TransferController extends Controller
 {
@@ -74,7 +75,7 @@ class TransferController extends Controller
      * @param  Transfer $transfer
      * @return \Illuminate\Http\Response
      */
-    public function update(TransferRequest $request, Transfer $transfer)
+    public function update(Request $request, Transfer $transfer)
     {
         if (Auth::id() == $request->recipient_id)
             return response("You can't add your self!", 405);

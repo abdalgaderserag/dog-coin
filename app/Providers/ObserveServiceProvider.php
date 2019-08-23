@@ -30,7 +30,7 @@ class ObserveServiceProvider extends ServiceProvider
     public function boot()
     {
         User::observe(UserObserver::class);
-        Transfer::observe(TransferObserver::class);
+//        Transfer::observe(TransferObserver::class);
         RequestMoney::observe(RequestMoneyObserver::class);
     }
 }
