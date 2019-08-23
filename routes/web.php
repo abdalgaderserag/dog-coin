@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('home')->middleware('guest');
 
-//Auth::routes();
+Auth::routes();
 
 Route::namespace('Auth')->middleware('guest')->group(function () {
     Route::get('/login', 'LoginController@showLoginForm')->name('login');
@@ -21,14 +21,15 @@ Route::namespace('Auth')->middleware('guest')->group(function () {
     Route::get('/register', 'RegisterController@showRegistrationForm')->name('register');
 });
 
-Route::get('/dashboard', 'HomeController@home')->name('dashboard');
-Route::get('/profile/{slug?}', 'HomeController@profile')->name('profile');
-Route::get('/edit/profile', 'HomeController@authProfile')->name('profile');
-Route::put('/profile/edit', 'UserController@update')->name('user.update');
-Route::get('/request/send', 'HomeController@sendRequest')->name('request.send');
-Route::get('/request/recipient', 'HomeController@recipientRequest')->name('request.recipient');
-Route::get('/statical', 'HomeController@statical')->name('statical');
-Route::get('/favorite', 'HomeController@favorite')->name('favorite');
+Route::middleware('auth')->group(function () {
 
+    Route::get('/dashboard', 'HomeController@home')->name('dashboard');
+    Route::get('/profile/{slug?}', 'HomeController@profile')->name('profile');
+    Route::get('/edit/profile', 'HomeController@authProfile')->name('profile');
+    Route::put('/profile/edit', 'UserController@update')->name('user.update');
+    Route::get('/request/send', 'HomeController@sendRequest')->name('request.send');
+    Route::get('/request/recipient', 'HomeController@recipientRequest')->name('request.recipient');
+    Route::get('/statical', 'HomeController@statical')->name('statical');
+    Route::get('/favorite', 'HomeController@favorite')->name('favorite');
 
-
+});

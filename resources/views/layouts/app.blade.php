@@ -64,6 +64,11 @@
         <div style="padding: 4px 10%;font-size: 2.7vh;">
             <a href="/favorite" class="link-clear">Favorite</a>
         </div>
+        <div style="padding: 4px 10%;font-size: 2.7vh;">
+            <span onclick="event.preventDefault();document.getElementById('logout').submit();" style="cursor: pointer;">
+                        Log-Out
+                    </span>
+        </div>
     </div>
     @yield('content')
     @include('layouts.footer')

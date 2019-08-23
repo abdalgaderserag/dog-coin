@@ -50,6 +50,12 @@
                     </span>
                 </a>
             </div>
+            <form action="{{ route('logout') }}" method="post" id="logout">@csrf</form>
+            <div>
+                    <span onclick="event.preventDefault();document.getElementById('logout').submit();" style="cursor: pointer;">
+                        Log-Out
+                    </span>
+            </div>
         </div>
     </div>
 </div>
