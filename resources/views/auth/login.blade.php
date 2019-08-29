@@ -35,15 +35,18 @@
             <div class="log-section">
                 <div class="head">Login to CPay</div>
 
-                <form action="{{ route('login') }}" method="POST">
+                <form action="{{ route('login') }}" id="login-form" method="POST">
                     @csrf
                     <div class="card log-card">
                         <div class="text-log">
                             <div>
-                                <input type="text" name="email" placeholder="Enter email">
+                                <input type="email" id="email" name="email" placeholder="Enter email">
                             </div>
                             <div>
-                                <input type="password" name="password" placeholder="Password">
+                                <input type="password" id="password" name="password" placeholder="Password">
+                            </div>
+                            <div id="error">
+
                             </div>
                             <br>
                             <input type="checkbox" name="check" id="check">
@@ -66,7 +69,7 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" role="button">
+                            <button id="login-submit" type="submit" role="button">
                                 Login
                             </button>
                         </div>
@@ -95,9 +98,37 @@
     </div>
 </div>
 </body>
+<script src="/js/io.js"></script>
 <script>
+
+    localStorage.clear();
     var he = window.innerHeight;
     document.getElementById('app').style.minHeight = he + 'px';
+    document.getElementById('login-form').onsubmit = function (e) {
+
+        let data = {
+            client_id: 2,
+            client_secret: '{{ \Illuminate\Support\Facades\DB::table('oauth_clients')->find(2)->secret }}',
+            grant_type: 'password',
+            username: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+        };
+        document.getElementById('error').innerText = '';
+        document.getElementById('login-submit').style.backgroundColor = '#e0e0e0';
+        axios.post('/oauth/token', data)
+            .then(response => {
+                localStorage.setItem('access_token', response.data.access_token);
+                localStorage.setItem('expires_in', response.data.expires_in);
+                localStorage.setItem('refresh_token', response.data.refresh_token);
+                localStorage.setItem('token_type', response.data.token_type);
+                document.getElementById('login-form').submit();
+            })
+            .catch(error => {
+                document.getElementById('login-submit').style.backgroundColor = '#0067ff';
+                document.getElementById('error').innerText = 'the email or password didn\'t match any of our records check it again !'
+            });
+        e.preventDefault();
+    }
 </script>
 
 </html>
