@@ -28,7 +28,6 @@
                      alt="">
             </div>
             <br>
-            {{--<statical-view :data="{{ \App\Transfer::all() }}" :max="1800"></statical-view>--}}
             <div class="header">{{ __('dog.creditCard') }} :</div>
             <div class="credit-card-info">
                 <span class="info-item-head">{{ __('dog.cardId') }} :</span>
@@ -42,8 +41,6 @@
                 <br>
                 <span class="info-item-head">{{ __('dog.subType') }} :</span>
                 <span>Personal</span>
-                {{--<span>Business</span>--}}
-                {{--<button class="input-button" style="float: right;">{{ __('dog.editCard') }}</button>--}}
             </div>
             <br>
             <div class="header">{{ __('dog.transfers')  }} :</div>

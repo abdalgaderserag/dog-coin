@@ -31,14 +31,21 @@ class Money extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function getMoneyAttribute($key)
+    public function getMoneyAttribute()
     {
-        return (double) $key;
+        $cents = $this->attributes['cents'];
+        if ($cents == 0)
+            $cents = '00';
+        elseif ($cents % 10 == 0)
+            $cents = $cents . '0';
+        return $this->attributes['money'] . '.' . $cents;
     }
 
-    public function setMoneyAttribute(float $value)
+    /*public function setMoneyAttribute($value)
     {
-        $this->attributes['money'] = $value;
-    }
+        $money = explode('.', $value, 1);
+        $this->attributes['money'] = $this->attributes['money'] - (int)$money[0];
+        $this->attributes['cents'] = $this->attributes['cents'] - (int)$money[1];
+    }*/
 
 }

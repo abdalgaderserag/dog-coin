@@ -14,7 +14,7 @@ $factory->define(App\Money::class, function (Faker $faker) {
         '681123859357',
     ];
     return [
-        'money' => '' . $faker->numberBetween(1, 1000) * 1000,
-//        'creditCardNumber' => $numbers [random_int(0, 7)] . random_int(1111, 9999),
+        'money' => $faker->numberBetween(1, 1000) * 1000,
+        'cents' => $faker->numberBetween(0, 1) ? $faker->numberBetween(1, 99) : 0,
     ];
 });

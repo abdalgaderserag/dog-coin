@@ -15,11 +15,13 @@ class TransferObserver
      */
     public function created(Transfer $transfer)
     {
-        $money = $transfer->amount;
+        $money = explode('.', $transfer->amount, 1);
         $sender = User::find($transfer->sender_id)->money;
         $recipient = User::find($transfer->recipient_id)->money;
-        $sender->money -= $money;
-        $recipient->money += $money;
+        $sender->money -= $money[0];
+        $sender->cents -= $money[1];
+        $recipient->money += $money[0];
+        $recipient->cents += $money[1];
         $recipient->save();
         $sender->save();
     }

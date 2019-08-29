@@ -1,0 +1,17 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/dashboard.css": "/css/dashboard.css",
+    "/css/profile.css": "/css/profile.css",
+    "/css/edit-profile.css": "/css/edit-profile.css",
+    "/css/request.css": "/css/request.css",
+    "/css/favorite.css": "/css/favorite.css",
+    "/css/auth/login.css": "/css/auth/login.css",
+    "/css/auth/register.css": "/css/auth/register.css",
+    "/css/home.css": "/css/home.css",
+    "/css/footer.css": "/css/footer.css",
+    "/css/left.css": "/css/left.css",
+    "/css/transfer.css": "/css/transfer.css",
+    "/css/app.css": "/css/app.css",
+    "/js/response.js": "/js/response.js",
+    "/js/vueComponent.js": "/js/vueComponent.js"
+}

@@ -150,6 +150,7 @@
 </div>
 </body>
 <script>
+    localStorage.clear();
     document.getElementsByClassName('space')[0].style.height = window.innerHeight + 'px';
     let head = document.getElementsByClassName('header-text')[0];
     let text = document.getElementsByClassName('big-text')[0];
