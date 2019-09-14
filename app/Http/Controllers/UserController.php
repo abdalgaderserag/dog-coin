@@ -48,6 +48,8 @@ class UserController extends Controller
      */
     public function show($cardID)
     {
+        if (Auth::user()->money->creditCardNumber == $cardID)
+            return response("you are searching for your self!", 405);
         $user = Money::where('creditCardNumber', $cardID)->first();
         $user = $user->user;
         $user->money;

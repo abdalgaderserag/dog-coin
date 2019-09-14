@@ -18,7 +18,7 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        $this->authorize('favorite.view');
+//        $this->authorize('favorite.view');
         if (!isset($_GET['id']))
             $data = Favorite::where('user_id', Auth::id())->get('listed_id');
         else
@@ -38,7 +38,7 @@ class FavoriteController extends Controller
     {
         if (Auth::id() == $request->listed_id)
             return response("You can't add your self!", 405);
-        $this->authorize('favorite.create');
+//        $this->authorize('favorite.create');
         $fav = new Favorite($request->all());
         $fav->user_id = Auth::id();
         $fav->save();
@@ -57,7 +57,7 @@ class FavoriteController extends Controller
     public function destroy($id)
     {
         $favorite = Favorite::find($id);
-        $this->authorize('favorite.delete', $favorite);
+//        $this->authorize('favorite.delete', $favorite);
         $favorite->delete();
         return response()->json('', 200);
     }

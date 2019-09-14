@@ -24,9 +24,7 @@
 
     <div class="nav-bar flex-box card" style="height: 52px;width:100%;background-color:white;position: fixed;">
         <a class="link-clear" href="/" style="margin-left: 12%;padding: 14px 1% 0 1%">
-            <div>
-                Go Home
-            </div>
+            <div style="width: max-content">Go Home</div>
         </a>
     </div>
 

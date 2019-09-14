@@ -19,7 +19,7 @@ class RequestController extends Controller
      */
     public function index()
     {
-        $this->authorize('requests.view');
+//        $this->authorize('requests.view');
         $reqs = RequestMoney::where('user_id', Auth::id())->with('recipient')->get();
         $page = 1;
         $last = false;
@@ -44,7 +44,7 @@ class RequestController extends Controller
      */
     public function recipient()
     {
-        $this->authorize('transfers.view');
+//        $this->authorize('transfers.view');
         $reqs = RequestMoney::where('recipient_id', Auth::id())->with('user')->get();
         $page = 1;
         $last = false;
@@ -71,7 +71,7 @@ class RequestController extends Controller
     {
         if (Auth::id() == $request->recipient_id)
             return response("You can't add your self!", 405);
-        $this->authorize('requests.view');
+//        $this->authorize('requests.view');
         $reqMoney = new RequestMoney($request->all());
         $reqMoney->user_id = Auth::id();
         $reqMoney->save();
@@ -94,7 +94,7 @@ class RequestController extends Controller
         if (Auth::id() == $request->recipient_id)
             return response("You can't add your self!", 405);
         $requestMoney = RequestMoney::find($id);
-        $this->authorize('requests.update', $requestMoney);
+//        $this->authorize('requests.update', $requestMoney);
         $requestMoney->money = $request->money;
         $requestMoney->details = $request->details;
         $requestMoney->save();
@@ -111,7 +111,7 @@ class RequestController extends Controller
     public function destroy($id)
     {
         $requestMoney = RequestMoney::find($id);
-        $this->authorize('requests.delete', $requestMoney);
+//        $this->authorize('requests.delete', $requestMoney);
         $requestMoney->delete();
         return response()->json('Ok', 200);
     }

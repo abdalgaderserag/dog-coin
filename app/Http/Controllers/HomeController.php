@@ -35,7 +35,7 @@ class HomeController extends Controller
      */
     public function home()
     {
-        return view('dashboard')->with('access', Auth::user()->createToken('dashboard')->accessToken);
+        return view('dashboard');
     }
 
     /**
@@ -51,7 +51,7 @@ class HomeController extends Controller
         } else {
             $user = User::where('slug', $slug)->first();
         }
-        return view('profile.profile')->with(['access' => Auth::user()->createToken('profile')->accessToken, 'user' => $user]);
+        return view('profile.profile')->with(['user' => $user]);
     }
 
 
@@ -62,7 +62,7 @@ class HomeController extends Controller
      */
     public function authProfile()
     {
-        return view('profile.profile_edit')->with(['access' => Auth::user()->createToken('profile')->accessToken]);
+        return view('profile.profile_edit');
     }
 
 
@@ -73,7 +73,7 @@ class HomeController extends Controller
      */
     public function sendRequest()
     {
-        return view('send_request')->with(['access' => Auth::user()->createToken('request')->accessToken]);
+        return view('send_request');
     }
 
 
@@ -84,7 +84,7 @@ class HomeController extends Controller
      */
     public function recipientRequest()
     {
-        return view('recipient_request')->with(['access' => Auth::user()->createToken('request')->accessToken]);
+        return view('recipient_request');
     }
 
 
@@ -95,7 +95,7 @@ class HomeController extends Controller
      */
     public function statical()
     {
-        return view('statical')->with(['access' => Auth::user()->createToken('statical')->accessToken]);
+        return view('statical');
     }
 
 

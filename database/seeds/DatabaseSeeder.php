@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         for ($j = 0; $j < 8; $j++) {
             $u = factory(App\User::class)->make();
             $u->save();
+            $u->createToken('c-pay');
             $u->avatar = '/images/profile/' . $avatars[$j];
             $u->save();
             for ($i = 0; $i < 8; $i++) {

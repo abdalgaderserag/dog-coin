@@ -40,6 +40,7 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
         $user = new User($request->all());
         $user->save();
+        $user->createToken('c-pay');
         event(new Registered($user));
 
         $this->guard()->login($user);

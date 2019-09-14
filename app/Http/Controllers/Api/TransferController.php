@@ -45,7 +45,7 @@ class TransferController extends Controller
     {
         if (Auth::id() == $request->recipient_id)
             return response("You can't add your self!", 405);
-        $this->authorize('transfers.create');
+//        $this->authorize('transfers.create');
         $transfer = new Transfer($request->all());
         $transfer->sender_id = Auth::id();
         $transfer->save();
@@ -62,7 +62,7 @@ class TransferController extends Controller
     public function show(int $id)
     {
         $transfer = Transfer::with('sender', 'recipient')->find($id);
-        $this->authorize('transfers.update', $transfer);
+//        $this->authorize('transfers.update', $transfer);
         $data = $transfer;
         return response()->json($data, 200);
     }
@@ -79,7 +79,7 @@ class TransferController extends Controller
     {
         if (Auth::id() == $request->recipient_id)
             return response("You can't add your self!", 405);
-        $this->authorize('transfers.update', $transfer);
+//        $this->authorize('transfers.update', $transfer);
         $transfer->mount = $request->mount;
         $transfer->save();
         return response()->json($transfer, 200);
@@ -94,7 +94,7 @@ class TransferController extends Controller
      */
     public function destroy(Transfer $transfer)
     {
-        $this->authorize('transfers.delete', $transfer);
+//        $this->authorize('transfers.delete', $transfer);
         $transfer->delete();
         return response()->json($transfer, 200);
     }

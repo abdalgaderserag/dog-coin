@@ -54,11 +54,10 @@ class Build extends Command
         } else {
 //        Run if the command run cleared.
 
-            $this->call('migrate:refresh', [
-                '--seed' => true,
-            ]);
+            $this->call('migrate:reset');
+            $this->call('migrate');
             $this->call('passport:install');
-
+            $this->call('db:seed');
         }
     }
 }
