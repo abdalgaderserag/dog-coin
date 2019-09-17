@@ -24,4 +24,13 @@ Route::middleware('auth:api')->group(function () {
 
     Route::apiResource('favorite', 'Api\FavoriteController')->only(['index', 'store', 'destroy']);
 
+    Route::post('/send', function (\Illuminate\Http\Request $request) {
+        if (\Illuminate\Support\Facades\Auth::id() == $request->recipient_id)
+            return response("You can't send to yourself!", 405);
+        $transfer = new \App\Transfer($request->all());
+        $transfer->sender_id = \Illuminate\Support\Facades\Auth::id();
+        $transfer->save();
+        return response()->json($transfer, 200);
+    });
+
 });
