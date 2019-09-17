@@ -106,6 +106,6 @@ class HomeController extends Controller
      */
     public function favorite()
     {
-        return view('favorite')->with(['access' => Auth::user()->createToken('favorite')->accessToken]);
+        return view('favorite');
     }
 }

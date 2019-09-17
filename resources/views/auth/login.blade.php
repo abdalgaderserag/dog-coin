@@ -102,7 +102,7 @@
     localStorage.clear();
     var he = window.innerHeight;
     document.getElementById('app').style.minHeight = he + 'px';
-    document.getElementById('login-form').onsubmit = function (e) {
+    /*document.getElementById('login-form').onsubmit = function (e) {
 
         let data = {
             client_id: 2,
@@ -126,7 +126,7 @@
                 document.getElementById('error').innerText = 'the email or password didn\'t match any of our records check it again !'
             });
         e.preventDefault();
-    }
+    }*/
 </script>
 
 </html>

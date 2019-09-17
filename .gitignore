@@ -1,5 +1,4 @@
 /node_modules
-/public/hot
 /public/css/*
 /public/js/*
 /public/storage
@@ -13,10 +12,3 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-/conf
-/contrib
-/docs
-/html
-/logs
-/temp
-nginx.exe

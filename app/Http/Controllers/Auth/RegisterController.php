@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -40,10 +41,12 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
         $user = new User($request->all());
         $user->save();
-        $user->createToken('c-pay');
+//        $token = $user->createToken('c-pay')->accessToken;
         event(new Registered($user));
 
         $this->guard()->login($user);
+
+//        Session::put('user_token', $token);
 
         return $this->registered($request, $user)
             ?: redirect($this->redirectPath());

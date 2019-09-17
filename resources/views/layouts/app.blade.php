@@ -79,7 +79,8 @@
 
 <script src="{{ asset('js/app.js') }}"></script>
 <script>
-    window.axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.access_token}`;
+    // window.axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.access_token}`;
+    window.axios.defaults.headers.common["Authorization"] = "Bearer ";
 </script>
 <script src="{{ asset('js/vueComponent.js') }}"></script>
 <script>
