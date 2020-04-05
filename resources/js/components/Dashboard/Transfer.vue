@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="(transfer,index) in transfers">
+        <div v-if="transfers.length != 0" v-for="(transfer,index) in transfers">
             <div class="transfer">
                 <div class="transfer-item">
                     <div v-if="index === 0" class="transfer-image">
@@ -29,6 +29,9 @@
                 </div>
             </div>
             <hr class="line transfer-line">
+        </div>
+        <div>
+            sadly there nno transfers for now.
         </div>
         <div v-if="displayMore" style="text-align: center;cursor: pointer;" @click="getTransfer">view more transfers
             ...

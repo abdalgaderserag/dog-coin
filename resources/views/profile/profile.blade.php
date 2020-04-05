@@ -45,19 +45,19 @@ $profile = \Illuminate\Support\Facades\Auth::id() == $user->id;
 
                 <div class="text-card">
                     <div class="profile-text">
-                        <span class="info-item-head">Name: </span>
-                        {{ $user->name }}
+                        {{--<span class="info-item-head">Name: </span>--}}
+                        <span class="info-item-head">{{ $user->name }}</span>
                     </div>
                     <div class="profile-text">
-                        <span class="info-item-head">Email: </span>
+                        {{--<span class="info-item-head">Email: </span>--}}
                         {{ $user->email }}
                     </div>
                     <div class="profile-text">
-                        <span class="info-item-head">Card ID: </span>
+                        <span class="info-item-head">ID: </span>
                         {{ $user->money->creditCardNumber }}
                     </div>
                     <div class="profile-text">
-                        <span class="info-item-head">Join at: </span>
+                        {{--<span class="info-item-head">Join at: </span>--}}
                         {{ $user->created_at }}
                     </div>
                 </div>

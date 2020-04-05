@@ -27,7 +27,7 @@ class CreateMoneyTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id', false, true);
             $table->bigInteger('money', false, true)->default(0);
-            $table->bigInteger('cents', false, true)->default(0);
+//            $table->bigInteger('cents', false, true)->default(0);
             $table->string('creditCardNumber', 16)
                 ->default('' . $numbers [random_int(0, 7)] . random_int(1111, 9999))
                 ->unique();

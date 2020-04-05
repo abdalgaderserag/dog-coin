@@ -33,12 +33,13 @@ class Money extends Model
 
     public function getMoneyAttribute()
     {
-        $cents = $this->attributes['cents'];
-        if ($cents == 0)
-            $cents = '00';
-        elseif ($cents % 10 == 0)
-            $cents = $cents . '0';
-        return $this->attributes['money'] . '.' . $cents;
+//        $cents = $this->attributes['cents'];
+//        if ($cents == 0)
+//            $cents = '00';
+//        elseif ($cents % 10 == 0)
+//            $cents = $cents . '0';
+//        return $this->attributes['money'] . '.' . $cents;
+        return floatval($this->attributes['money'])/100;
     }
 
     /*public function setMoneyAttribute($value)
